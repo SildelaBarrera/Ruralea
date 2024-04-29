@@ -1,0 +1,16 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
+
+*{ 
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root{
+    --navbarColor: black;
+    --mostaza:  #FFDB7D;
+    --blanco: #FFF6EE;
+    --links: "ABeeZee", sans-serif;
+}

@@ -1,0 +1,21 @@
+.header{
+    height: 10vh;
+    width: 100vw;
+    background-color: var(--navbarColor); 
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    border: none;
+
+}
+a{
+    text-decoration: none;
+    color: var(--mostaza);
+    font-family: var(--links);
+    cursor: pointer;
+}
+a:focus{
+    color:var(--blanco);
+    text-decoration: underline;
+}

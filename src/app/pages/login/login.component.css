@@ -4,9 +4,7 @@
     display: flex;
     flex-direction: row;
 }
-
 .photo{
-    
     height: 86vh;
     width: 262px;
     background-image: url(../../../assets/photoLogin.jpeg);
@@ -22,6 +20,7 @@ h2{
     color:var(--marronOscuro);
     margin-top:10px;
     font-family: var(--JejuHallasan);
+    margin-top: 20px;
 }
 
 .formulario{    

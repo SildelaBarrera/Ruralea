@@ -8,7 +8,7 @@ import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/fo
 })
 export class RegistroComponent {
 
-  public registerForm: FormGroup
+  public myForm: FormGroup
 
     constructor(private formBuilder: FormBuilder){  
 
@@ -18,17 +18,17 @@ export class RegistroComponent {
   
 
   public register(){
-    const user = this.registerForm.value;
+    const user = this.myForm.value;
     console.log(user);
     
   }
 
   private buildForm(){
     const minPassLength = 8;
-    this.registerForm = this.formBuilder.group({
+    this.myForm = this.formBuilder.group({
     userType: [, Validators.required],
     name: [, Validators.required],
-    last_name: [, Validators.required],
+    lastName: [, Validators.required],
     email: [, [Validators.required, Validators.email]],
     password:[,[Validators.required, Validators.minLength(minPassLength)]],
     password2:[,[Validators.required, this.checkPasswords]]

@@ -1,1 +1,58 @@
-<p>registro works!</p>
+<div class="general">
+    <div class="photo">
+        <div class="img"></div>
+    </div>
+    <div class="formulario">
+        <div><h2>REGÍSTRATE Y ÚNETE A LA COMUNIDAD</h2></div>  
+        <div class="inputs">
+            <form [formGroup]="registerForm">   
+                
+                <div class="inputsHijo">    
+                <label for="">¿Eres productor o consumidor?</label> 
+                <select id="tapa" name="tapa" class="form-control" formControlName="userType">
+                    <option value="" disabled selected>Elige una opcion</option>
+                    <option value="Productor">Productor</option>
+                    <option value="Consumidor">Consumidor</option>            
+                </select>  
+                
+                <label for="">Introduce nombre</label>      
+                <input type="text" placeholder="Name" class="form-control" formControlName="name" 
+                [ngClass]="{'is-invalid':(registerForm.get('name').dirty || registerForm.get('name').touched) && !registerForm.get('name').valid}">
+                <div *ngIf="!registerForm.get('name').valid" class="invalid-feedback">
+                    <p>El nombre es obligatorio</p>
+                </div>
+                <label for="">Introduce apellidos</label>
+                <input type="text" placeholder="Surname" class="form-control" formControlName="last_name"
+                [ngClass]="{'is-invalid':(registerForm.get('last_name').dirty || registerForm.get('last_name').touched) && !registerForm.get('last_name').valid}">
+                <div *ngIf="!registerForm.get('last_name').valid" class="invalid-feedback">
+                    <p>El apellido es obligatorio</p>
+                </div>
+                <label for="">Introduce e-mailIntroduce apellidos</label>
+                <input type="text" placeholder="Email" class="form-control" formControlName="email" 
+                [ngClass]="{'is-invalid':(registerForm.get('email').dirty || registerForm.get('email').touched) && !registerForm.get('email').valid}">
+                <div *ngIf="!registerForm.get('email').valid" class="invalid-feedback">
+                    <p *ngIf="registerForm.get('email').errors.required">El email es obligatorio</p>
+                    <p *ngIf="registerForm.get('email').errors.email">Direccion de mail es incorrecta</p>
+                </div>
+                <label for="">Introduce contraseña</label>
+                <input type="password" placeholder="Password" class="form-control" formControlName="password"
+                [ngClass]="{'is-invalid':(registerForm.get('password').dirty || registerForm.get('password').touched) && !registerForm.get('password').valid}">
+                <div *ngIf="!registerForm.get('password').valid" class="invalid-feedback">
+                    <p *ngIf="registerForm.get('password').errors.required">La password es obligatoria</p>
+                    <p *ngIf="registerForm.get('password').errors.minlength">Debe tener al menos 8 caracteres</p>
+                </div>
+                <label for="">Repite la contraseña</label>
+                <input type="password" placeholder="Repeat Password"  class="form-control" formControlName="password2">
+                <div *ngIf="!registerForm.get('password2').valid" class="invalid-feedback">
+                    <p *ngIf="registerForm.get('password2').errors.required">La password es obligatoria</p>
+                    <p *ngIf="!registerForm.get('password2').errors.required &&
+                    registerForm.get('password2').errors.matchPassword">Las claves no coinciden</p>
+                </div>
+                
+                <button class="btn btn-primary" (click)="register()" [disabled]="registerForm.invalid">REGÍSTRATE</button>
+                <p>Si ya estás registrado accede a través del <a href="/login">login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

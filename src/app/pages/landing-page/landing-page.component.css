@@ -1,11 +1,6 @@
-*{ 
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    border: 0;
-}
+
 .contenedor{
-    height: 80hv;  
+    height: fit-content;  
     width: 100%;
 }
 .cont1{
@@ -17,12 +12,12 @@
     background-color: var(--beige);    
 }
 #titulo{
-    font-family: var(--titulos);
+    font-family: var(--JejuHallasan);
     color: var(--negroGrisaceo);
     font-size: 30pt;
 }
 #subtitulo{
-    font-family: var(--titulos);
+    font-family: var(--JejuHallasan);
     font-size: 20pt;
     color: var(--marronOscuro);
     margin-top: 30px;
@@ -93,7 +88,7 @@
 .lema{
     font-size: x-large;
     font-weight: bold;
-    font-family: var(--titulos);
+    font-family: var(--JejuHallasan);
 }
 #imagen{
     object-fit: cover;
@@ -165,7 +160,7 @@ button{
     border-radius: 15px 45px 15px 45px;
     background-color: var(--marronOscuro);
     color: var(--mostaza);
-    font-family: var(--botones);
+    font-family: var(--letraBoton);
     font-size: 15pt;
     margin-top: 10%;
 }
@@ -177,7 +172,7 @@ button{
     justify-content: space-evenly;
     align-items: center;
     color: var(--mostaza);
-    font-family: var(--botones);
+    font-family: var(--letraBoton);
     font-size: 25pt;
     text-align: center;
     line-height: 1;
@@ -185,7 +180,7 @@ button{
 .contacto{
     width: 35%;
     color: var(--blanco);
-    font-family: var(--botones);
+    font-family: var(--letraBoton);
     font-size: 20pt;
     text-align: center;
     line-height: 2;

@@ -10,20 +10,20 @@
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
         <label for="">Introduce e-mail</label>
         <div class="inputsHijo">
-        <input type="text" placeholder="Email" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuario.email" 
+        <input type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuario.email" 
         [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
             <div *ngIf="(email.dirty || email.touched) && email.invalid" class="invalid-feedback">
                 <p *ngIf="email.errors.required">El email es obligatorio</p>
                 <p *ngIf="email.errors.email">Direccion de mail es incorrecta</p>
             </div>
         
-        <label for="">Introduce password</label>
+        <label for="">Introduce contraseña</label>
         <div>
-            <input type="password" placeholder="Password" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuario.password" 
+            <input type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuario.password" 
             [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
             <a class="texto" href="">He olvidado la contraseña</a>
                 <div *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">
-                    <p *ngIf="password.errors.required">La password es obligatoria</p>
+                    <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
                     <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
                 </div>
         </div>  

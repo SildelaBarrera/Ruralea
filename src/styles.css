@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee:ital@0;1&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://db.onlinewebfonts.com/c/2da952d097bffd198ec0f0aa3fdd6804?family=JejuHallasan');
 *{ 
     box-sizing: border-box;
     padding: 0;
@@ -10,7 +11,12 @@
 
 :root{
     --navbarColor: black;
+    --negroGrisaceo: #2E2E2E;
     --mostaza:  #FFDB7D;
     --blanco: #FFF6EE;
+    --beige: #FFEFDD;
+    --marronOscuro: #89603B;
     --links: "ABeeZee", sans-serif;
+    --botones: "Acme", sans-serif;
+    --titulos: "JejuHallasan";
 }

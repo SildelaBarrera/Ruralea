@@ -1,1 +1,16 @@
-<p>mis-eventos works!</p>
+<div class="contenedor">
+    
+    <div class="cards">
+        <div *ngIf = "this.evento; else Actividades">
+            <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+
+        </div> 
+        <ng-template #Actividades>
+        
+            <div class="card1" *ngFor = "let evento of eventoService.getAll()">  
+                <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+            </div>
+        </ng-template>
+
+    </div> 
+</div>  

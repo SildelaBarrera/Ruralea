@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Evento} from 'src/app/models/evento';
 
 @Component({
   selector: 'app-card',
@@ -7,4 +8,19 @@ import { Component } from '@angular/core';
 })
 export class CardComponent {
 
+  @Input() eventoPadre: Evento;
+  
+  @Output() remove = new EventEmitter<Evento>();
+  
+  constructor(){}
+  
+  ngOnInit(): void{
+  }
+  
+ public removeCard(){
+   
+    this.remove.emit(this.eventoPadre);  
+
 }
+}
+

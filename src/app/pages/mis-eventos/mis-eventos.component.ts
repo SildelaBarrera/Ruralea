@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Evento} from 'src/app/models/evento';
+import { EventoServiceService } from 'src/app/shared/evento-service.service';
 
 @Component({
   selector: 'app-mis-eventos',
@@ -7,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class MisEventosComponent {
 
+
+  public evento: Evento;
+  constructor(public eventoService: EventoServiceService) {
+
+  }
+
+ 
 }

@@ -3,6 +3,16 @@
     width: 100vw;
     display: flex;
     flex-direction: row;
+    position: relative;
+}
+.logo{
+    position: absolute;
+    height: 80px;
+}
+.logo img{
+    height: 100px;
+    margin-top:80px;
+    margin-left: 750px;
 }
 .photo{
     height: 86vh;
@@ -32,7 +42,7 @@ h2{
     align-items: center;
 }
 .inputs{
-    
+    padding-top: 45px;
     border-radius: 15px;
     height: 350px;
     width: 600px;

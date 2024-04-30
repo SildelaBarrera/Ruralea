@@ -58,7 +58,7 @@
                 </div>
                 <label for="">repite la password</label>   
                 <div class="form-group">
-                    <input class="form-group" type="text" formControlName="password2" #input6
+                    <input class="form-group" type="password" formControlName="password2" #input6
                     placeholder="Repite la Password"
                     [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched)
                     && !myForm.get('password2').valid}">

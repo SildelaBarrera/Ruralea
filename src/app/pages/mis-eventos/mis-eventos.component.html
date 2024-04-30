@@ -1,5 +1,5 @@
 <div class="contenedor">
-    
+    <h1>MIS EVENTOS</h1>
     <div class="cards">
         <div *ngIf = "this.evento; else Actividades">
             <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>

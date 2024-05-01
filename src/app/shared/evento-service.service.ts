@@ -24,4 +24,13 @@ export class EventoServiceService {
   getAll(): Evento[] {
     return (this.eventos)
   }
+  add(titulo:string, categoria:string, fecha:string, localizacion: string,
+    aforo:number, precio:number, descripcion:string, foto: string): void {
+
+    let nuevoEvento = new Evento(titulo, categoria, fecha, localizacion,
+      aforo, precio, descripcion, foto);
+    this.eventos.push(nuevoEvento);
+    console.log(nuevoEvento)
+    console.log(this.eventos)
+  }
 }

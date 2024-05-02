@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {Evento} from 'src/app/models/evento';
+import { EventoServiceService } from 'src/app/shared/evento-service.service';
 
 @Component({
   selector: 'app-card',
@@ -12,7 +13,7 @@ export class CardComponent {
   
   @Output() remove = new EventEmitter<Evento>();
   
-  constructor(){}
+  constructor(public eventoServicio: EventoServiceService){}
   
   ngOnInit(): void{
   }
@@ -22,5 +23,13 @@ export class CardComponent {
     this.remove.emit(this.eventoPadre);  
 
 }
+public enviar(titulo:string, categoria:string, fecha:string, localizacion: string,
+  aforo:number, precio:number, descripcion: string, foto: string){
+    this.eventoServicio.edit(this.eventoPadre.id, titulo, categoria, fecha, localizacion,
+      aforo, precio, descripcion, foto)
+ }
+ public eliminar(){
+  this.eventoServicio.delete(this.eventoPadre.id)
+ }
 }
 

@@ -13,10 +13,10 @@ export class NuevoEventoComponent {
 
       }
   
-  public enviar(titulo:string, categoria:string, fecha:string, localizacion: string,
+  public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string){
 
-      this.eventoServicio.add(titulo, categoria, fecha, localizacion,
+      this.eventoServicio.add(titulo, categoria, fecha, municipio, provincia,
         aforo, precio, descripcion, foto)
   }
 

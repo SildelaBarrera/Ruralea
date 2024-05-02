@@ -1,12 +1,12 @@
 
 
-<div class="card">    
+<div *ngIf="path === 'misEventos'" class="card" >    
         <div class="texto">
         <h3>{{eventoPadre.titulo}}</h3> 
         <img id="img" src="{{eventoPadre.foto}}" alt="">
         <div class="enunciado"> 
             <p class="loc"><strong>Localización: </strong></p>
-            <p>{{eventoPadre.localizacion}}</p>
+            <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
         </div>
         <div class="enunciado">
             <p class="loc"><strong>Fecha:</strong></p>
@@ -28,4 +28,32 @@
         <button class="modificar">MODIFICAR</button> 
         <button class="eliminar">ELIMINAR</button> 
     </div>    
+</div>
+<div *ngIf="path === 'actividades'" class="card" >    
+    <div class="texto">
+    <h3>{{eventoPadre.titulo}}</h3> 
+    <img id="img" src="{{eventoPadre.foto}}" alt="">
+    <div class="enunciado"> 
+        <p class="loc"><strong>Localización: </strong></p>
+        <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Fecha:</strong></p>
+        <p>{{eventoPadre.fecha}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Aforo:</strong></p>
+        <p>{{eventoPadre.aforo}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Precio:</strong></p>
+        <p>{{eventoPadre.precio}} €</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Descripción:</strong></p>
+        <p id="descripcion">{{eventoPadre.descripcion}}</p>
+    </div>
+    
+    <button class="reservar">RESERVAR</button>     
+</div>    
 </div>

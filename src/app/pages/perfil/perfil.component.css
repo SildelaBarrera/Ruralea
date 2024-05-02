@@ -1,0 +1,98 @@
+.contenedor{
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../assets/img/perfilConsumidor.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.contenedor2{
+    
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: auto;
+}
+.perfil{
+    width: 50%;
+    height: 86vh;
+    
+}
+.sombra{
+    width: 50%;
+    height: 86vh;
+    
+    background-color: rgb(6,6, 6,0.33);
+}
+.datos{
+    height: 84vh;
+    width: 300;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.datos2{
+    
+    height: 380px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* .titulos{
+    border: solid blue 2px;
+} */
+p{
+    color: var(--blanco);
+    font-family: var(--links);
+    font-size: 30px;
+}
+h3{
+    font-family: var(--JejuHallasan);
+    color: var(--blanco);
+}
+img{
+    height: 250px;
+    border-radius: 50%;
+    border:solid 3px var(--blanco)
+}
+label{
+       
+    font-size: 12px;
+    color:var(--blanco);
+    font-family: var(--links);
+    width: 280px;     
+    text-align: left;
+}
+
+input{
+    font-family: var(--links);
+    font-size: 12px;
+    border: solid var(--mostaza) 2px;
+    background-color: var(--inputColor);
+    padding: 15px;
+    border-radius: 10px;
+    height: 35px;
+    width: 280px;
+}
+button{
+    border: solid var(--mostaza) 2px;
+    height: 35px;
+    width: 280px;
+    border-radius: 15px 45px 15px 45px;
+    background-color: var(--mostaza);
+    color:var(--marronOscuro);
+    font-family: var(--letraBoton);
+    cursor:pointer;
+}

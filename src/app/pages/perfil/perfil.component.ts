@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 
 @Component({
   selector: 'app-perfil',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent {
+
+  public usuario: Usuario
+  constructor(public user: UsuarioServiceService){
+    this.usuario = new Usuario("Consumidor", "Andres", "Redondo", "dharianfenix@gmail.com", "../../../assets/img/fotoPerfil.png", "12345678")
+  }
 
 }

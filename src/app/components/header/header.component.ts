@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 
 @Component({
   selector: 'app-header',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  constructor(public usuarioService: UsuarioServiceService){}
 
 }

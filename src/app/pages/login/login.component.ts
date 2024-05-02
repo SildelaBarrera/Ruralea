@@ -13,7 +13,7 @@ export class LoginComponent {
   
 
   constructor(){
-    this.usuario = new Usuario()
+    this.usuario = new Usuario(null, null, null, "", null, "",)
   }
 
   onSubmit(form:NgForm){
@@ -21,7 +21,4 @@ export class LoginComponent {
     console.log(form.value);
     
   }
-
-  
-
 }

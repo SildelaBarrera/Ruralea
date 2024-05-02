@@ -1,1 +1,22 @@
-<p>mis-reservas works!</p>
+<div class="contenedor">
+    <h1>MIS RESERVAS</h1>
+    <div class="botones">
+        <button>PROXIMOS EVENTOS</button>
+        <button>EVENTOS PASADOS</button>
+    </div>
+    <div class="contenedor">
+        
+        <div class="cards">
+            <div *ngIf = "this.reservas; else Actividades">
+                <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+    
+            </div> 
+            <ng-template #Actividades>            
+                <div class="card1" *ngFor = "let reserva of reservaService.obtenerReservas()">  
+                    <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+                </div>
+            </ng-template>
+    
+        </div> 
+    </div>  
+

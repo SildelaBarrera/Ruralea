@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Evento} from 'src/app/models/evento';
 import { ReservasService } from 'src/app/shared/reservas.service';
 
+import { EventoServiceService } from 'src/app/shared/evento-service.service';
 
 @Component({
   selector: 'app-card',
@@ -17,7 +18,7 @@ export class CardComponent {
   
   path: string;
 
-  constructor(private route: ActivatedRoute, public reservas: ReservasService, private router: Router) { }
+  constructor(public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservas: ReservasService, private router: Router) { }
 
   ngOnInit(): void {
     this.path = this.route.snapshot.routeConfig.path;
@@ -36,5 +37,13 @@ public reservarActividad(evento: Evento): void {
   
   
 }
+public enviar(titulo:string, categoria:string, fecha:string, localizacion: string,
+  aforo:number, precio:number, descripcion: string, foto: string){
+    this.eventoServicio.edit(this.eventoPadre.id, titulo, categoria, fecha, localizacion,
+      aforo, precio, descripcion, foto)
+ }
+ public eliminar(){
+  this.eventoServicio.delete(this.eventoPadre.id)
+ }
 }
 

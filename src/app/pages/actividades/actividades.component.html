@@ -1,1 +1,29 @@
-<p>actividades works!</p>
+<div class="contenedor">
+    <h1>BUSCA TU EXPERIENCIA</h1>
+    <div class="buscador">
+        <select name="" id="categoria" #categoria>
+            <option value="" disabled selected>Elige una opcion</option>
+            <option value="Ver todas las actividades">Ver todas las actividades</option>
+            <option value="Artesanía">Artesanía</option>
+            <option value="Ganadería">Ganadería</option>
+            <option value="Culinario">Culinario</option>
+            <option value="Agrícola">Agrícola</option>
+        </select>
+        <input type="text" placeholder="Inserta una provincia" #provincia>
+        <button (click)="find(categoria.value, provincia.value)">BUSCAR</button>
+        
+    </div>
+    <div class="cards">
+        <div *ngIf = "this.evento; else Actividades">
+            <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+
+        </div> 
+        <ng-template #Actividades>
+        
+            <div class="card1" *ngFor = "let evento of eventoService.getAll()">  
+                <app-card [eventoPadre] = "evento" (remove) = "removeBook($event)"></app-card>
+            </div>
+        </ng-template>
+
+    </div> 
+</div>  

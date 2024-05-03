@@ -1,1 +1,37 @@
-<p>perfil-productor works!</p>
+<div class="contenedor">
+    <div class="contenedor2">
+    <div class="perfil">    
+    <div class="datos">
+        <div class="titulos">
+            <h3>MI PERFIL</h3>
+        </div>
+        <div class="datos2">
+            <div><img src="{{this.usuario.photo}}" alt=""></div>
+            <div calss="datos3"><p>{{this.usuario.name}} {{this.usuario.lastName}}</p></div>
+            <div calss="datos3"><p>{{this.usuario.email}}</p></div>
+        </div>
+        </div>
+    </div>
+    <div class="sombra">
+        <div class="datos">
+        <div class="titulos">
+            <h3>MODIFICA TUS DATOS</h3>
+        </div>
+        
+            <div class="datos2">
+                <label for="">Introduce nombre</label>
+                <input type="text" placeholder="Nombre">
+                <label for="">Introduce apellidos</label>
+                <input type="text" placeholder="Apellidos">
+                <label for="">Introduce e-mail</label>
+                <input type="text"placeholder="E-mail">
+                <label for="">Introduce la contraseña actual</label>
+                <input type="text" placeholder="Contraseña actual">
+                <label for="">Introduce la nueva contraseña </label>
+                <input type="text" placeholder="Nueva contraseña">
+                <button>GUARDAR</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>

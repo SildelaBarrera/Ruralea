@@ -24,11 +24,11 @@ export class CardComponent {
     this.path = this.route.snapshot.routeConfig.path;
   }
   
- public removeCard(){
+//  public removeCard(){
    
-    this.remove.emit(this.eventoPadre);  
+//     this.remove.emit(this.eventoPadre);  
 
-}
+// }
 
 public reservarActividad(evento: Evento): void {
   // Agregar la actividad a la lista de reservas
@@ -37,9 +37,10 @@ public reservarActividad(evento: Evento): void {
   
   
 }
-public enviar(titulo:string, categoria:string, fecha:string, localizacion: string,
+public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
   aforo:number, precio:number, descripcion: string, foto: string){
-    this.eventoServicio.edit(this.eventoPadre.id, titulo, categoria, fecha, localizacion,
+    
+    this.eventoServicio.edit(this.eventoPadre.id, titulo, categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto)
  }
  public eliminar(){

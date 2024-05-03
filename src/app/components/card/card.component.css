@@ -127,6 +127,7 @@ h3{
     cursor: pointer;
     background-color: var(--marronOscuro);
     color: var(--mostaza);
+}
 .modal-content{
     background-color: var(--marronMedio);
     display: flex;

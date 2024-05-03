@@ -49,8 +49,9 @@ export class EventoServiceService {
 
   public add(titulo:string, categoria:string, fecha:string, municipio: string, provincia: string,
     aforo:number, precio:number, descripcion:string, foto: string): void {
-
-    let nuevoEvento = new Evento(titulo, categoria, fecha, municipio, provincia,
+    
+    let indice = this.eventos.length
+    let nuevoEvento = new Evento(indice, titulo, categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto);
     this.eventos.push(nuevoEvento);
     console.log(nuevoEvento)
@@ -79,14 +80,9 @@ export class EventoServiceService {
   // //this. eventos = eventosEncontrados  
   // return result;  
   // }
-      let indice = this.eventos.length
-      let nuevoEvento = new Evento(indice, titulo, categoria, fecha, localizacion,
-      aforo, precio, descripcion, foto);
-      this.eventos.push(nuevoEvento);
-      console.log(nuevoEvento)
-      console.log(this.eventos)
-  }
-  edit(id:number, titulo:string, categoria:string, fecha:string, localizacion: string,
+    
+  
+  edit(id:number, titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string){
 
       if (titulo != ""){
@@ -98,8 +94,11 @@ export class EventoServiceService {
       if (fecha != ""){
         this.eventos[id].fecha = fecha
       }
-      if (localizacion != ""){
-        this.eventos[id].localizacion = localizacion
+      if (municipio != ""){
+        this.eventos[id].municipio = municipio
+      }
+      if (provincia != ""){
+        this.eventos[id].provincia = provincia
       }
       if (aforo.toString() != ""){
         this.eventos[id].aforo = aforo

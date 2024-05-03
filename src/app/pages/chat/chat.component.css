@@ -1,0 +1,94 @@
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 86vh;
+    background-color: #B78740;
+}
+
+.usuarios{
+    height: 75vh;
+    width: 25%;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    margin-top: 35px;
+}
+h3{
+    font-family: var(--JejuHallasan);
+    color: var(--marronMedio);
+    margin-top:30px;
+}
+.buscar{
+    height: 40px;
+    width:200px ;
+    border-radius: 10px;
+    padding-left: 5px;
+}
+.users{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    
+}
+p{
+    height: 40px;
+    width:200px ;
+    border: solid 2px var(--marronMedio);
+    border-radius: 5px;
+    background-color: var(--grisFondo);
+    padding: 4px;
+}
+.contenedor2{
+    height: 75vh;
+    width: 65%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;   
+    align-items: center;    
+    margin-top: 35px;
+}
+
+.mensajes p {
+    margin: 5px 0; /* Margen superior e inferior de 5px */
+    padding: 10px; /* Relleno de 10px */
+    background-color: red; /* Color de fondo gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+
+.comunicacion{
+    height: 420px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: var(--blanco);
+}
+.enviar{
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;   
+    align-items: center;    
+    height: 35px;
+    width: 100%;
+}
+.texto{
+    height: 35px;
+    width: 91%;
+    border-radius: 10px;  
+    border: solid 2px var(--blanco);  
+    padding-left: 5px;
+}
+
+button{
+    height: 35px;
+    width: 8%;
+    border-radius: 10px; 
+    background-color: var(--marronMedio);
+    font-family: var(--links);
+    border:solid 2px var(--mostaza);
+    color:var(--blanco);
+    margin-right: -px;
+}

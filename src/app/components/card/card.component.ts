@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {Evento} from 'src/app/models/evento';
 import { ReservasService } from 'src/app/shared/reservas.service';
-
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
 
 @Component({

@@ -9,6 +9,8 @@ import { NuevoEventoComponent } from './pages/nuevo-evento/nuevo-evento.componen
 import { MisReservasComponent } from './pages/mis-reservas/mis-reservas.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PerfilProductorComponent } from './pages/perfil-productor/perfil-productor.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { ChatComponent } from './pages/chat/chat.component';
 
 
 const routes: Routes = [
@@ -21,7 +23,8 @@ const routes: Routes = [
   {path:"nuevoEvento", component: NuevoEventoComponent},
   {path:"misReservas", component: MisReservasComponent},
   {path:"perfilUsuario", component: PerfilComponent},
-  {path:"perfilProductor", component: PerfilProductorComponent}
+  {path:"perfilProductor", component: PerfilProductorComponent},
+  {path:"chat", component:ChatComponent}
 
 
 ];

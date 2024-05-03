@@ -1,1 +1,22 @@
-<p>chat works!</p>
+<div class="contenedor">
+    <div class="usuarios">
+        <h3>CHAT</h3>
+        <input class="buscar" type="text" placeholder="Busca un chat">
+        <div class="users">
+            <p>{{usuarioServicio.usuario.name}}</p>
+            <p>{{usuarioServicio.usuario2.name}}</p>
+        </div>
+    </div>
+    <div class="contenedor2">
+        <div class="comunicacion">
+            <div class="mensajes" #mensajes>
+                
+            </div>
+        </div>
+        <div class="enviar">
+            <input class="texto" type="text" placeholder="Escribe aqui tu mensaje" #input1>
+            <button (click)="enviar(input1.value)">ENVIAR</button>
+        </div>
+    </div>
+
+</div>

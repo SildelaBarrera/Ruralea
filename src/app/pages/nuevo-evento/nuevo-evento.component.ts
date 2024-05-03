@@ -18,6 +18,9 @@ export class NuevoEventoComponent {
 
       this.eventoServicio.add(titulo, categoria, fecha, municipio, provincia,
         aforo, precio, descripcion, foto)
+
+        console.log(this.eventoServicio);
+        
   }
 
 }

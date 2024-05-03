@@ -10,8 +10,13 @@ import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 export class PerfilComponent {
 
   public usuario: Usuario
-  constructor(public user: UsuarioServiceService){
-    this.usuario = new Usuario("Consumidor", "Andres", "Redondo", "dharianfenix@gmail.com", "../../../assets/img/fotoPerfil.png", "12345678")
+  constructor(public usuarioServicio: UsuarioServiceService){
+    this.usuario = this.usuarioServicio.usuario
   }
 
+  public enviar(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
+    this.usuarioServicio.editar(nuevoNombre, nuevoApellido, nuevoEmail, nuevaFoto, nuevaContraseña)
+  }
 }
+
+

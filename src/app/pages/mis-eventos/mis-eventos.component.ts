@@ -14,6 +14,5 @@ export class MisEventosComponent {
   constructor(public eventoService: EventoServiceService) {
 
   }
-
  
 }

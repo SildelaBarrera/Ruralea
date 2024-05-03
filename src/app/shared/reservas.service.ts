@@ -9,23 +9,11 @@ import { EventoServiceService } from './evento-service.service';
 
   export class ReservasService {
     public reservas: Evento[] = [];
+    public evento: Evento;
   
-    constructor(public eventos:EventoServiceService) {
+    constructor(public eventoService:EventoServiceService) {
       
-    }
-  
-    public agregarReserva(evento: Evento): void {
-      this.reservas.push(evento);
-      console.log('pasa servicio 1');
-      console.log(this.reservas);
-      
-    }
-  
-    public obtenerReservas(): Evento[] {
-      console.log('pasa servicio 2');
-      console.log(this.reservas);
-      
-      return this.reservas;
-    }
+    } 
+    
   }
 

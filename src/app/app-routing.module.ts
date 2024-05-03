@@ -8,6 +8,7 @@ import { MisEventosComponent } from './pages/mis-eventos/mis-eventos.component';
 import { NuevoEventoComponent } from './pages/nuevo-evento/nuevo-evento.component';
 import { MisReservasComponent } from './pages/mis-reservas/mis-reservas.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
+import { PerfilProductorComponent } from './pages/perfil-productor/perfil-productor.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path:"misEventos", component: MisEventosComponent},
   {path:"nuevoEvento", component: NuevoEventoComponent},
   {path:"misReservas", component: MisReservasComponent},
-  {path:"perfilUsuario", component: PerfilComponent}
+  {path:"perfilUsuario", component: PerfilComponent},
+  {path:"perfilProductor", component: PerfilProductorComponent}
+
 
 ];
 

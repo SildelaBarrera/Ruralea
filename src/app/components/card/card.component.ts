@@ -23,24 +23,16 @@ export class CardComponent {
   ngOnInit(): void {
     this.path = this.route.snapshot.routeConfig.path;
   }
-  
- public removeCard(){
-   
-    this.remove.emit(this.eventoPadre);  
-
-}
 
 public reservarActividad(evento: Evento): void {
   // Agregar la actividad a la lista de reservas
-  this.reservas.agregarReserva(evento);
-  console.log('pasa card component');
-  
-  
+  this.eventoServicio.agregarReserva(evento);
+  console.log('pasa card component', evento);  
 }
-public enviar(titulo:string, categoria:string, fecha:string, localizacion: string,
+public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
   aforo:number, precio:number, descripcion: string, foto: string){
-    this.eventoServicio.edit(this.eventoPadre.id, titulo, categoria, fecha, localizacion,
-      aforo, precio, descripcion, foto)
+    this.eventoServicio.edit(titulo, categoria, fecha, municipio, provincia,
+      aforo, precio, descripcion, foto, this.eventoPadre.id)
  }
  public eliminar(){
   this.eventoServicio.delete(this.eventoPadre.id)

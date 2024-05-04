@@ -1,0 +1,152 @@
+.contenedor{
+    height: 86vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;    
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grisClaro);
+}
+.imagen{
+    height: 86vh;
+    width: 18%;
+    background-image: linear-gradient(rgba(32, 32, 32, 0.6), rgba(63, 62, 62, 0.3)),url("https://images.pexels.com/photos/712876/pexels-photo-712876.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;  
+}
+.quienes{ 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.titulo{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1{
+    height: 15%;
+    width: 100%;
+    color:var(--marronMedio);
+    font-family: var(--JejuHallasan);
+    font-size: xx-large;
+    text-align: center;
+    color: var(--marronOscuro); 
+}
+.perfiles{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.perfil{
+    width: 100%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    background-color: var(--grisOscuro);
+}
+.foto1{
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    border: solid white 2px;
+    background-image: url(src\assets\img\Silvia.jpg);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:10px;
+}
+.foto2{
+    border-radius: 100%;
+    height: 150px;
+    width: 150px;
+    border: solid white 2px;
+    background-image: url(src\assets\img\Silvia.jpg);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin:10px;
+}
+h2{
+    color: var(--blanco);
+    font-family: var(--letraBoton);
+    text-align: center;
+    font-size: 20pt;
+}
+h3{
+    color: var(--blanco);
+    font-family: var(--links);
+    text-align: center;
+    font-size: 12pt;
+}
+.contacto{
+    color: var(--blanco);
+    font-family: var(--links);
+    text-align: center;
+    font-size: 11pt;
+    height: 60%;
+    width: 60%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-left: 95px;
+    flex-wrap: wrap; 
+}
+.correo{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:center;
+    height: 50%;
+}
+#contacto2{
+    margin-left: 98px;
+}
+.linkedin{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: 50%;
+    text-align: start;
+}
+.icono{
+    position:absolute;
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+    margin-left: -50px;
+    margin-bottom: 12px;  
+}
+#correoIcono{
+    background-image: url(src\assets\img\correo.jpg);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+}
+#linkedinIcono{
+    background-image: url(src\assets\img\linkedin.jpg);
+    object-fit: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 100%;
+}

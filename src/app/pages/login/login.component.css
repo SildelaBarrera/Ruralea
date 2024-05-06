@@ -85,6 +85,14 @@ input{
     height: 35px;
     width: 386px;
 }
+
+#aviso{
+    font-size: 14px;
+    color:var(--blanco);
+    font-family: var(--links);
+    width: 386px;     
+    text-align: left;
+}
 .boton{
     display: flex;
     flex-direction: column;
@@ -94,6 +102,7 @@ input{
     
 }
 button{
+    margin-top: 8px;
     border: solid var(--mostaza) 2px;
     height: 35px;
     width: 386px;
@@ -110,11 +119,12 @@ button:disabled {
   }
   
 .texto{
-    font-size: 12px;
+    font-size: 14px;
     color:var(--blanco);
     font-family: var(--links);
     width: 386px;     
     text-align: center;
+    margin-top: 5px;
 }
 a{
     color: #37B7FF;

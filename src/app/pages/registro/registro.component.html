@@ -9,14 +9,12 @@
             <form [formGroup]="myForm">   
                 
                 <div class="inputsHijo">    
-                <label for="">¿Eres productor o consumidor?</label> 
                 <select id="tapa" name="tapa" class="form-group" formControlName="userType">
-                    <option value="" disabled selected>Elige una opcion</option>
+                    <option value="Elige una opcion" disabled selected>Elige una opcion</option>
                     <option value="Productor">Productor</option>
                     <option value="Consumidor">Consumidor</option>            
                 </select>  
-                
-                <label for="">Introduce nombre</label>      
+                      
                 <div class="form-group">
                     <input class="form-group" type="text" formControlName="name" #input1
                     placeholder="Nombre"
@@ -24,7 +22,7 @@
                     && !myForm.get('name').valid}">
                     <div id="aviso" *ngIf="!myForm.get('name').valid" class="invalid-feedback">Name is required</div>
                 </div>
-                <label for="">Introduce apellidos</label>   
+                   
                 <div class="form-group">
                     <input class="form-group" type="text" formControlName="lastName" #input2
                     placeholder="Apellidos"
@@ -32,7 +30,7 @@
                     && !myForm.get('lastName').valid}">
                     <div id="aviso" *ngIf="!myForm.get('lastName').valid" class="invalid-feedback">Last name is required</div>
                 </div>
-                <label for="">Introduce e-mail</label>   
+                  
                 <div class="form-group">
                     <input class="form-group" type="email" formControlName="email" #input3
                     placeholder="e-mail"
@@ -44,7 +42,7 @@
                 
                     </div>
                 </div>
-                <label for="">Introduce contraseña</label>   
+                  
                 <div class="form-group">
                     <input class="form-group" type="password" formControlName="password" #input5
                     placeholder="Password"
@@ -56,7 +54,7 @@
                 
                     </div>
                 </div>
-                <label for="">Repite la contraseña</label>   
+                  
                 <div class="form-group">
                     <input class="form-group" type="password" formControlName="password2" #input6
                     placeholder="Repite la Password"

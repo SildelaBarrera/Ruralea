@@ -29,6 +29,7 @@
     align-items: center;
 }
 .inputs{
+    padding-top: 15px;
     
     border-radius: 15px;
     height:470px;
@@ -41,10 +42,10 @@
     
 }
 .inputsHijo{
-    margin-top: 5px;
+    
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     height: 469px;
@@ -61,14 +62,8 @@ select{
     border-radius: 10px;
     height: 35px;
     width: 386px;
-}
-label{
-       
     font-size: 12px;
-    color:var(--blanco);
-    font-family: var(--links);
-    width: 386px;     
-    text-align: left;
+    margin-top: 5px;
 }
 
 input{
@@ -97,15 +92,16 @@ button:disabled {
   }
 
 .texto{
-    font-size: 12px;
+    font-size: 14px;
     color:var(--blanco);
     font-family: var(--links);
     width: 386px;     
     text-align: center;
+    margin-top: 3px;
 }
 #aviso{
-    font-size: 12px;
-    color:rgb(77, 0, 0);
+    font-size: 14px;
+    color:var(--blanco);
     font-family: var(--links);
     width: 386px;     
     text-align: left;

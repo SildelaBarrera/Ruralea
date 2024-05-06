@@ -16,7 +16,7 @@ export class NuevoEventoComponent {
   public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string){
 
-      this.eventoServicio.add(titulo, categoria, fecha, municipio, provincia,
+      this.eventoServicio.crear(titulo, categoria, fecha, municipio, provincia,
         aforo, precio, descripcion, foto)
 
         console.log(this.eventoServicio);

@@ -11,46 +11,45 @@ export class UsuarioServiceService {
   public usuario2: Usuario
   constructor() {
     this.usuario = new Usuario("Consumidor", "Andres", "Redondo", "dharianfenix@gmail.com", "../../../assets/img/fotoPerfil.png", "12345678")
-    this.usuario2 = new Usuario("Productor", "Pedro", "Martinez", "dharianfenix@gmail.com", "../../../assets/img/fotoPerfil.png", "12345678")
-
+    this.usuario2 = new Usuario("Productor", "Ismael", "Lozano Vega", "ismaellozano89@gmail.com", "https://images.pexels.com/photos/4918155/pexels-photo-4918155.jpeg", "12345678")
    }
 
    public editar(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
-    console.log(this.usuario.name);
+    console.log(this.usuario.nombre);
     
     if (nuevoNombre != ""){
-      this.usuario.name = nuevoNombre
+      this.usuario.nombre = nuevoNombre
     }
     if (nuevoApellido != ""){
-      this.usuario.lastName = nuevoApellido
+      this.usuario.apellidos = nuevoApellido
     }
     if (nuevoEmail != ""){
       this.usuario.email = nuevoEmail
     }
     if (nuevaFoto != ""){
-      this.usuario.photo = nuevaFoto
+      this.usuario.foto = nuevaFoto
     }
     if(nuevaContraseña != ""){
       this.usuario.password = nuevaContraseña    
     }
   }
   public editarProductor(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
-    console.log(this.usuario.name);
+    console.log(this.usuario.nombre);
     
     if (nuevoNombre != ""){
-      this.usuario2.name = nuevoNombre
+      this.usuario2.nombre = nuevoNombre
     }
     if (nuevoApellido != ""){
-      this.usuario2.lastName = nuevoApellido
+      this.usuario2.apellidos = nuevoApellido
     }
     if (nuevoEmail != ""){
       this.usuario2.email = nuevoEmail
     }
     if (nuevaFoto != ""){
-      this.usuario2.photo = nuevaFoto
+      this.usuario2.foto = nuevaFoto
     }
     if(nuevaContraseña != ""){
-      this.usuario2.password = nuevaContraseña    
+      this.usuario2.password= nuevaContraseña    
     }
   }
 }

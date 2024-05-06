@@ -11,6 +11,7 @@ import { PerfilComponent } from './pages/perfil/perfil.component';
 import { PerfilProductorComponent } from './pages/perfil-productor/perfil-productor.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ChatComponent } from './pages/chat/chat.component';
+import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.component';
 
 
 const routes: Routes = [
@@ -24,7 +25,8 @@ const routes: Routes = [
   {path:"misReservas", component: MisReservasComponent},
   {path:"perfilUsuario", component: PerfilComponent},
   {path:"perfilProductor", component: PerfilProductorComponent},
-  {path:"chat", component:ChatComponent}
+  {path:"chat", component:ChatComponent},
+  {path:"quienesSomos", component: QuienesSomosComponent}
 
 
 ];

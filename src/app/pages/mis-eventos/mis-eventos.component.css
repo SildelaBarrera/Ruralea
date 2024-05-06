@@ -6,7 +6,7 @@
 }
 h1{
     height: 100px;
-    color:var(--marronMedio);
+    color:var(--beige);
     font-family: var(--JejuHallasan);
     background-color:rgba(255, 198, 145, 0.33);
     text-align: center;

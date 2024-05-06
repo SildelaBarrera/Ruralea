@@ -79,7 +79,7 @@ export class EventoServiceService {
   // //this. eventos = eventosEncontrados  
   // return result;  
   // }
-  public add(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  public crear(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion:string, foto: string): void {
       let indice = this.eventos.length
       let nuevoEvento = new Evento(titulo, categoria, fecha, municipio, provincia,
@@ -88,7 +88,7 @@ export class EventoServiceService {
       console.log(nuevoEvento)
       console.log(this.eventos)
   }
-  public edit(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string, id:number){
 
       if (titulo != ""){

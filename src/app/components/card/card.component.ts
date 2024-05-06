@@ -31,7 +31,7 @@ public reservarActividad(evento: Evento): void {
 }
 public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
   aforo:number, precio:number, descripcion: string, foto: string){
-    this.eventoServicio.edit(titulo, categoria, fecha, municipio, provincia,
+    this.eventoServicio.editar(titulo, categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id)
  }
  public eliminar(){

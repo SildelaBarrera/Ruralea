@@ -89,6 +89,7 @@ button{
     background-color: var(--marronMedio);
     font-family: var(--links);
     border:solid 2px var(--mostaza);
-    color:var(--blanco);
-    margin-right: -px;
+    color:var(--marronOscuro);
+    font-weight: bold;
+    
 }

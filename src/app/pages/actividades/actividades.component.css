@@ -17,14 +17,18 @@
     margin-left: 140px;
     margin-top: -40px;
 }
-select{
-    font-family: var(--links);
-    font-size: 16px;
+select{   
+    font-size: 12px;
     border: solid var(--mostaza) 2px;
     background-color: var(--inputColor);
     border-radius: 10px;
     height: 35px;
-    width: 280px;
+    width: 280px;    
+}
+
+.option{
+    font-family: var(--links);
+    font-size: 12px;    
 }
 input{
     font-family: var(--links);
@@ -46,6 +50,7 @@ button{
     color:var(--marronOscuro);
     font-family: var(--letraBoton);
     cursor:pointer;
+    margin-top: 400px;
 }
 h1{
     height: 100px;

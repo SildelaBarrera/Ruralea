@@ -41,7 +41,7 @@ input{
     height: 35px;
     width: 280px;
 }
-button{
+.buscar{
     border: solid var(--mostaza) 2px;
     height: 35px;
     width: 280px;
@@ -49,8 +49,7 @@ button{
     background-color: var(--mostaza);
     color:var(--marronOscuro);
     font-family: var(--letraBoton);
-    cursor:pointer;
-    margin-top: 400px;
+    cursor:pointer;    
 }
 h1{
     height: 100px;

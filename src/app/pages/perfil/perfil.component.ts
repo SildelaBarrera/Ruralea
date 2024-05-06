@@ -28,7 +28,7 @@ export class PerfilComponent {
   }
   
   public enviar(nuevoNombre, nuevoApellido, nuevoEmail, nuevaFoto, nuevaContraseña){
-    this.usuarioServicio.editarProductor(nuevoNombre.value, nuevoApellido.value, nuevoEmail.value, nuevaFoto.value, nuevaContraseña.value)
+    this.usuarioServicio.editar(nuevoNombre.value, nuevoApellido.value, nuevoEmail.value, nuevaFoto.value, nuevaContraseña.value)
     this.editar = true;
     this.guardar = false;
     nuevoNombre.disabled = true;

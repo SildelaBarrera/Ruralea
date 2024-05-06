@@ -1,6 +1,6 @@
 .contenedor{
     background-color: var(--fondoUsuario);
-    height: fit-content;
+    min-height: 86vh;
     width: 100%;    
     padding-top: 30px;
 }

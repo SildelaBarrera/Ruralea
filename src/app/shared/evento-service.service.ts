@@ -34,14 +34,13 @@ export class EventoServiceService {
     for (let i = 0; i < this.eventos.length; i++) {
       if (categoria == this.eventos[i].categoria && provincia == this.eventos[i].provincia.toLowerCase()) {
         eventosEncontrados.push(this.eventos[i]);
-        console.log(eventosEncontrados, 'servico');           
+        console.log(eventosEncontrados, 'if servico');           
         
       } else if (categoria == 'Ver todas las actividades' && provincia == "") {
         // Si se cumplen las condiciones, devolvemos todos los eventos
         eventosEncontrados = this.eventos.slice(); // Copiar todos los eventos
-      console.log(eventosEncontrados, 'servicio');
-      }
-      
+      console.log(eventosEncontrados, 'else if servicio');
+      }       
     }   
     return eventosEncontrados.length > 0 ? eventosEncontrados : this.eventos;
   }

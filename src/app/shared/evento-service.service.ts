@@ -46,39 +46,7 @@ export class EventoServiceService {
     }   
     return eventosEncontrados.length > 0 ? eventosEncontrados : this.eventos;
   }
-
-  // public add(titulo:string, categoria:string, fecha:string, municipio: string, provincia: string,
-  //   aforo:number, precio:number, descripcion:string, foto: string): void {
-
-  //   let nuevoEvento = new Evento(titulo, categoria, fecha, municipio, provincia,
-  //     aforo, precio, descripcion, foto);
-  //   this.eventos.push(nuevoEvento);
-  //   console.log(nuevoEvento)
-  //   console.log(this.eventos)
-  //   }
-
- 
-
-  // public find(categoria: string, localizacion: string): Evento []{
-  //   let eventosEncontrados: Evento[] = [];
-  //   let result
-       
-  //   for (let i = 0; i < this.eventos.length; i++) {
-  //       if (categoria == this.eventos[i].categoria && localizacion == this.eventos[i].localizacion) {
-  //           eventosEncontrados.push(this.eventos[i]);
-  //           console.log(localizacion, categoria, 'servicio', this.eventos[i]); 
-  //           eventosEncontrados = [this.eventos[i]] 
-  //           result = [this.eventos[i]]    
-  //           console.log(result, 'servicio');
-                                                 
-  //       } else if(categoria == 'Ver todas las actividades' && localizacion == ''){
-  //         result = this.eventos
-  //         console.log(result, 'servicio');          
-  //       }               
-  //   }  
-  // //this. eventos = eventosEncontrados  
-  // return result;  
-  // }
+  
   public add(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion:string, foto: string): void {
       let indice = this.eventos.length
@@ -120,7 +88,7 @@ export class EventoServiceService {
       }
     }
 
-  delete(id:number){
+  public delete(id:number){
     let aux:Evento[];
     aux = [];
 
@@ -131,14 +99,7 @@ export class EventoServiceService {
         }
       }
     this.eventos = aux;
-  }
-  public agregarReserva(evento: Evento): void {
-    this.reservas = []
-    this.reservas.push(evento);
-    console.log('pasa evento servicio');
-    console.log(this.reservas);
-        
-  }
+  }  
 
 //   public obtenerReservas(): Evento[] {
 //     console.log('pasa servicio 2');

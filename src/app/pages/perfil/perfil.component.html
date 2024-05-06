@@ -18,19 +18,19 @@
             <h3>MODIFICA TUS DATOS</h3>
         </div>
         
-            <div class="datos2">
-                <label for="" >Introduce nombre</label>
-                <input type="text" placeholder="Nombre" #input1>
-                <label for="">Introduce apellidos</label>
-                <input type="text" placeholder="Apellidos" #input2>
-                <label for="">Introduce e-mail</label>
-                <input type="text"placeholder="E-mail" #input3>
-                <label for="">Introduce la url de tu foto</label>
-                <input type="text" placeholder="Foto" #input4>
-                <label for="">Introduce la nueva contraseña </label>
-                <input type="text" placeholder="Nueva contraseña" #input5>
-                <button (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value)">GUARDAR</button>
-            </div>
+        <div class="datos2">
+            <label for="">Introduce nombre</label>
+            <input type="text" value="{{this.usuario.name}}" #input1>
+            <label for="">Introduce apellidos</label>
+            <input type="text" value="{{this.usuario.lastName}}" #input2>
+            <label for="">Introduce e-mail</label>
+            <input type="text"value="{{this.usuario.email}}" #input3>
+            <label for="">Introduce la url de tu foto</label>
+            <input type="text" value="{{this.usuario.photo}}" #input4>
+            <label for="">Introduce la nueva contraseña </label>
+            <input type="password" value="{{this.usuario.password}}" #input5>
+            <button (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value)">GUARDAR</button>
+        </div>
         </div>
     </div>
     </div>

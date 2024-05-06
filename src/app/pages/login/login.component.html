@@ -21,14 +21,14 @@
         <div>
             <input type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuario.password" 
             [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
-            <a class="texto" href="">He olvidado la contraseña</a>
+            
                 <div *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">
                     <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
                     <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
                 </div>
         </div>  
         <div class="boton">  
-        <button class="btn btn-primary" [disabled]="userForm.invalid">Login</button>
+        <button  [disabled]="userForm.invalid">Login</button>
         <p class="texto">¿Aún no tienes una cuenta?  <a href="/registro">Regístrate</a></p>
         </div>
         </div>

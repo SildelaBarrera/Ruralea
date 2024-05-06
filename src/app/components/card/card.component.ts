@@ -17,7 +17,7 @@ export class CardComponent {
   
   path: string;
 
-  constructor(public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservas: ReservasService, private router: Router) { }
+  constructor(public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservasServicio: ReservasService, private router: Router) { }
 
   ngOnInit(): void {
     this.path = this.route.snapshot.routeConfig.path;
@@ -25,7 +25,7 @@ export class CardComponent {
 
 public reservarActividad(evento: Evento): void {
   // Agregar la actividad a la lista de reservas
-  this.eventoServicio.agregarReserva(evento);
+  this.reservasServicio.agregarReserva(evento);
   console.log('pasa card component', evento);  
 }
 public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
@@ -35,6 +35,10 @@ public enviar(titulo:string, categoria:string, fecha:string, municipio: string, 
  }
  public eliminar(){
   this.eventoServicio.delete(this.eventoPadre.id)
+ }
+
+ public eliminarReserva(){
+  this.reservasServicio.delete(this.eventoPadre.id)
  }
 }
 

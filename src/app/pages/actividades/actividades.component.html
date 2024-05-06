@@ -2,12 +2,12 @@
     <h1>BUSCA TU EXPERIENCIA</h1>
     <div class="buscador">
         <select name="" id="categoria" #categoria>
-            <option value="" disabled selected>Elige una opcion</option>
-            <option value="Ver todas las actividades">Ver todas las actividades</option>
-            <option value="Artesanía">Artesanía</option>
-            <option value="Ganadería">Ganadería</option>
-            <option value="Culinario">Culinario</option>
-            <option value="Agrícola">Agrícola</option>
+            <option class="option" value="Elige una categoría" disabled selected>Elige una categoría</option>
+            <option class="option" value="Ver todas las actividades">Ver todas las actividades</option>
+            <option class="option" value="Artesanía">Artesanía</option>
+            <option class="option" value="Ganadería">Ganadería</option>
+            <option class="option" value="Culinario">Culinario</option>
+            <option class="option" value="Agrícola">Agrícola</option>
         </select>
         <input type="text" placeholder="Inserta una provincia" #provincia>
         <button (click)="find(categoria.value, provincia.value)">BUSCAR</button>

@@ -61,8 +61,9 @@
                     [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched)
                     && !myForm.get('password2').valid}">
                     <div id="aviso" *ngIf="!myForm.get('password2').valid" class="invalid-feedback">
+                        <div *ngIf="myForm.get('password2').errors.required">La password es obligatoria</div>
                         <div *ngIf="!myForm.get('password2').errors.required &&
-                        myForm.get('password2').errors.matchPasswords">Las contraseñas no coinciden</div>                
+                                myForm.get('password2').errors.matchPassword">Las claves no coinciden</div>
                     </div>
                 </div>
                 <div>

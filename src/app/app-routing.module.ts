@@ -15,6 +15,7 @@ import { QuienesSomosComponent } from './pages/quienes-somos/quienes-somos.compo
 
 
 const routes: Routes = [
+  { path: "", redirectTo: "/landing", pathMatch: 'full' },
   {path:"landing", component: LandingPageComponent},
   {path:"registro", component:RegistroComponent},
   {path:"login", component: LoginComponent},

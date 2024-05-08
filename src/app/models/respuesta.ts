@@ -3,5 +3,5 @@ import { Evento } from "./evento";
 
 export class Respuesta {
 
-    constructor(public error: boolean, public codigo: number, public mensaje: string, public dato: Usuario){}
+    constructor(public error: boolean, public codigo: number, public mensaje: string, public datoUsuario: Usuario){}
 }

@@ -36,7 +36,11 @@ export class LoginComponent {
           alert(resp.mensaje);
           this.usuarioServicio.logueado = true;
           
+<<<<<<< HEAD
           this.usuarioServicio.usuarioLogueado = resp.dataUsuario
+=======
+          this.usuarioServicio.usuarioLogueado = resp.datoUsuario
+>>>>>>> landingFuncionalidad
           console.log (this.usuarioServicio.usuarioLogueado)
           console.log("Log in " + this.usuarioServicio.logueado)
           

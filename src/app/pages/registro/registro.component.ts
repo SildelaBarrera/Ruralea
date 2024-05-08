@@ -37,7 +37,7 @@ export class RegistroComponent {
   private buildForm(){
     const minPassLength = 8;
     this.myForm = this.formBuilder.group({
-    tipoUSuario: [, Validators.required],
+    tipoUsuario: [, Validators.required],
     name: [, Validators.required],
     lastName: [, Validators.required],
     email: [, [Validators.required, Validators.email]],

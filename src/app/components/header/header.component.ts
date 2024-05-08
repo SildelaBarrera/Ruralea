@@ -8,6 +8,10 @@ import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 })
 export class HeaderComponent {
 
-  constructor(public usuarioService: UsuarioServiceService){}
+  constructor(public usuarioServicio: UsuarioServiceService){}
+
+  public logOut(){
+    this.usuarioServicio.logOut()
+  }
 
 }

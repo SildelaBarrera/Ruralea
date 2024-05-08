@@ -1,20 +1,20 @@
 <div class="header">
-    <!-- <ng-container *ngIf="usuarioService.logueado == false; else UserLinks" > -->
+    <!-- <ng-container #LinksInicio> -->
     <a routerLink= "/landing">INICIO</a>
     <a routerLink= "/registro">REGISTRO</a>
     <a routerLink= "/login">LOGIN</a>
-    <!-- </ng-container> -->
-    <!-- <ng-template #UserLinks> -->
+    <!-- </ng-container>  -->
+    <!-- <ng-template  *ngIf="usuarioService.logueado == true && usuarioLogueado.userType == 'Consumidor'; else LinksInicio">  -->
     <a routerLink= "/actividades">ACTIVIDADES</a>
     <a routerLink= "/misReservas">MIS RESERVAS</a>
     <a routerLink= "/perfilUsuario">MI PERFIL</a>
     <a routerLink= "/login">LOGOUT</a>    
     <!-- </ng-template> -->
-    <!-- <ng-template #User2Links>     -->
+    <!-- <ng-template *ngIf="usuarioService.logueado == true && usuarioLogueado.userType == 'Productor'; else LinksInicio">     -->
     <a routerLink= "/misEventos">MIS EVENTOS</a>
     <a routerLink= "/nuevoEvento">NUEVO EVENTO</a>
     <a routerLink= "/perfilProductor">MI PERFIL</a>
-    <!-- <a routerLink= "/login">DESCONECTAR</a> -->
+    <a routerLink= "/login">LOGOUT</a>
     <!-- </ng-template>   -->
 
 </div>

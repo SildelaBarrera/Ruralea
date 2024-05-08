@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
+import { Respuesta } from 'src/app/models/respuesta';
+
 
 @Component({
   selector: 'app-login',
@@ -12,7 +15,9 @@ export class LoginComponent {
   public usuario: Usuario;
   
 
-  constructor(){
+  constructor(
+    public usuarioServicio: UsuarioServiceService
+  ){
     this.usuario = new Usuario(null, null, null, "", null, "",)
   }
 
@@ -20,5 +25,23 @@ export class LoginComponent {
     console.log(this.usuario);
     console.log(form.value);
     
+  }
+
+  login(email:string,contraseña:string){
+    this.usuarioServicio.login(email, contraseña).subscribe((resp: Respuesta) => {
+      if(resp.error){
+          alert(resp.mensaje);
+          this.usuarioServicio.logueado = false;
+      }
+      else {
+          alert(resp.mensaje);
+          this.usuarioServicio.logueado = true;
+          
+          this.usuarioServicio.usuarioLogueado = resp.dato
+          console.log (this.usuarioServicio.usuarioLogueado)
+          
+          return this.usuarioServicio.usuarioLogueado
+      }
+    })
   }
 }

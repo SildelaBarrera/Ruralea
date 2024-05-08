@@ -10,7 +10,7 @@
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
         
         <div class="inputsHijo">
-        <input #input1 type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuario.email" 
+        <input #input1 type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioLogueado.email" 
         [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
             <div id="aviso" *ngIf="(email.dirty || email.touched) && email.invalid" class="invalid-feedback">
                 <p *ngIf="email.errors.required">El email es obligatorio</p>
@@ -19,7 +19,7 @@
         
         
         <div>
-            <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuario.password" 
+            <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuarioLogueado.password" 
             [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
             
                 <div id="aviso" *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">

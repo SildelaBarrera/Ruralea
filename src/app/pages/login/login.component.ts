@@ -12,13 +12,13 @@ import { Respuesta } from 'src/app/models/respuesta';
 })
 export class LoginComponent {
 
-  public usuario: Usuario;
+  public usuarioLogueado: Usuario;
   
 
   constructor(
     public usuarioServicio: UsuarioServiceService
   ){
-    this.usuario = new Usuario(null, null, null, "", null, "",)
+    this.usuarioLogueado = new Usuario(null, null, null, "", null, "",)
   }
 
   onSubmit(form:NgForm){

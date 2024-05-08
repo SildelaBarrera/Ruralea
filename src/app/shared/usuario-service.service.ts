@@ -73,4 +73,11 @@ export class UsuarioServiceService {
     
     return this.http.post(urlRegister, newUser)
     }
+  
+  public logOut(){
+    this.usuarioLogueado = null
+    this.logueado = false
+    console.log('servicio');
+    
+  }
 }

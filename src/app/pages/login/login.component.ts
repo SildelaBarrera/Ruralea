@@ -22,7 +22,6 @@ export class LoginComponent {
   }
 
   onSubmit(form:NgForm){
-    console.log(this.usuario);
     console.log(form.value);
     
   }
@@ -39,6 +38,7 @@ export class LoginComponent {
           
           this.usuarioServicio.usuarioLogueado = resp.dato
           console.log (this.usuarioServicio.usuarioLogueado)
+          console.log("Log in " + this.usuarioServicio.logueado)
           
           return this.usuarioServicio.usuarioLogueado
       }

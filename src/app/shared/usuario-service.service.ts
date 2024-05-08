@@ -17,10 +17,10 @@ export class UsuarioServiceService {
   constructor(private http:HttpClient) {
    }
 
-   public login(email:string, contraseña:string){
+   public login(email:string, password:string){
 
     let urlLogin = this.url + "login";
-    let loginDatos = {email, contraseña};
+    let loginDatos = {email, password};
     return this.http.post(urlLogin, loginDatos)
 
    }

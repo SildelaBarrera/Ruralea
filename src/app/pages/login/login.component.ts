@@ -26,22 +26,17 @@ export class LoginComponent {
     
   }
 
-  login(email:string,contraseña:string){
-    this.usuarioServicio.login(email, contraseña).subscribe((resp: Respuesta) => {
+  login(email:string,password:string){
+    this.usuarioServicio.login(email, password).subscribe((resp: Respuesta) => {
       if(resp.error){
           alert(resp.mensaje);
           this.usuarioServicio.logueado = false;
       }
       else {
           alert(resp.mensaje);
-          this.usuarioServicio.logueado = true;
           
-
-          this.usuarioServicio.usuarioLogueado = resp.datoUsuario
-
-
-          this.usuarioServicio.usuarioLogueado = resp.datoUsuario
-
+          this.usuarioServicio.logueado = true;
+        
           this.usuarioServicio.usuarioLogueado = resp.datoUsuario
 
           console.log (this.usuarioServicio.usuarioLogueado)

@@ -36,7 +36,7 @@ export class LoginComponent {
           alert(resp.mensaje);
           this.usuarioServicio.logueado = true;
           
-          this.usuarioServicio.usuarioLogueado = resp.dato
+          this.usuarioServicio.usuarioLogueado = resp.dataUsuario
           console.log (this.usuarioServicio.usuarioLogueado)
           console.log("Log in " + this.usuarioServicio.logueado)
           

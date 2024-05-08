@@ -1,5 +1,8 @@
+import { literalMap } from '@angular/compiler';
 import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Respuesta } from 'src/app/models/respuesta';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 
 @Component({
   selector: 'app-registro',
@@ -10,23 +13,31 @@ export class RegistroComponent {
 
   public myForm: FormGroup
 
-    constructor(private formBuilder: FormBuilder){  
+    constructor(private formBuilder: FormBuilder, 
+                public usuarioServicio: UsuarioServiceService){  
 
       this.buildForm();
 
   } 
-  
 
-  public register(){
-    const user = this.myForm.value;
+  public register(tipoUsuario:string, nombre: string, apellidos: string,  email: string, contraseña:string,  contraseña2:string){
+    let user = this.myForm.value;
     console.log(user);
-    
+    this.usuarioServicio.register(tipoUsuario, nombre, apellidos, email, contraseña,
+      contraseña2).subscribe((resp: Respuesta) => {
+        if(resp.error){
+          alert('El usuario ya existe');
+        }
+        else alert('Usuario registrado correctamente')   
+        resp.dataUsuario       
+      })
+     
   }
-
+  
   private buildForm(){
     const minPassLength = 8;
     this.myForm = this.formBuilder.group({
-    userType: [, Validators.required],
+    tipoUSuario: [, Validators.required],
     name: [, Validators.required],
     lastName: [, Validators.required],
     email: [, [Validators.required, Validators.email]],
@@ -43,7 +54,7 @@ export class RegistroComponent {
       resultado= null;
 
     return resultado;
-  }
+  } 
 
 }
 

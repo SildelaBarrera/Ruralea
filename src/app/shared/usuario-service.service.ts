@@ -62,4 +62,15 @@ export class UsuarioServiceService {
       this.usuario2.password= nuevaContraseña    
     }
   }
+
+  public register(tipoUsuario: string, nombre: string, apellidos: string, email: string, contraseña:string, contraseña2:string){
+    let urlRegister = this.url + "registro"
+    console.log(urlRegister)
+    console.log('pasa por servicio');
+    
+    let newUser = new Usuario(tipoUsuario, nombre, apellidos, email, "" ,contraseña,)
+    console.log(newUser, 'servicio');
+    
+    return this.http.post(urlRegister, newUser)
+    }
 }

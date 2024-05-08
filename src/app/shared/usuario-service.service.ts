@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../models/usuario';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuarioServiceService {
+
   public logueado:boolean = false;
-  public userLogueado : Usuario;
+  public usuarioLogueado : Usuario;
   public usuario: Usuario;
-  public usuario2: Usuario
-  constructor() {
-    this.usuario = new Usuario("Consumidor", "Andres", "Redondo", "dharianfenix@gmail.com", "../../../assets/img/fotoPerfil.png", "12345678")
-    this.usuario2 = new Usuario("Productor", "Ismael", "Lozano Vega", "ismaellozano89@gmail.com", "https://images.pexels.com/photos/4918155/pexels-photo-4918155.jpeg", "12345678")
+  public usuario2: Usuario;
+  public url: string = "http://localhost:3000/"
+
+  constructor(private http:HttpClient) {
    }
 
+   public login(email:string, contraseña:string){
+
+    let urlLogin = this.url + "login";
+    let loginDatos = {email, contraseña};
+    return this.http.post(urlLogin, loginDatos)
+
+   }
    public editar(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
     console.log(this.usuario.nombre);
     

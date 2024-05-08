@@ -29,7 +29,7 @@ export class RegistroComponent {
           alert('El usuario ya existe');
         }
         else alert('Usuario registrado correctamente')   
-        resp.dataUsuario       
+        resp.datoUsuario       
       })
      
   }

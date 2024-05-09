@@ -7,7 +7,7 @@
         </div> 
         <ng-template #Actividades>
         
-            <div class="card1" *ngFor = "let evento of eventoService.getAll()">  
+            <div class="card1" *ngFor = "let evento of misEventos">  
                 <app-card [eventoPadre] = "evento"></app-card>
             </div>
         </ng-template>

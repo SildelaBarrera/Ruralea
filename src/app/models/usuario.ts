@@ -6,7 +6,7 @@ export class Usuario {
         public email:string,
         public foto:string,
         public password:string,
-        public usuario_id:number = 0){
+        public id_usuario:number = 0){
 
     }     
 }

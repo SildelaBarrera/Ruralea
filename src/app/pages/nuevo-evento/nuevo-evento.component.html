@@ -6,38 +6,88 @@
         <h2>CREA TU EVENTO</h2>
         <div class="textos">
             <div class="text1">
-                <form class="inputs" action="" >
-                    <input type="text" #input1
-                    placeholder="Introduce el título">
-                        <select #input2 name="Elige la categoría">
+                <form [formGroup] = "myForm" class="form1">
+
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="titulo" #input1
+                        placeholder="Introduce el título"
+                        [ngClass]="{'is-invalid': (myForm.get('titulo').dirty || myForm.get('titulo').touched)
+                        && !myForm.get('titulo').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('titulo').valid" class="invalid-feedback">El título es necesario.</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <select class="form-group"  formControlName="categoria" name="Elige la categoría" #input2
+                        [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
+                        && !myForm.get('descripcion').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La fecha es obligatoria.</div>
                             <option value="Elige la categoría" disabled selected>Elige la categoría</option>
                             <option value="Artesania">Artesanía</option>
                             <option value="Ganaderia">Ganadería</option>
                             <option value="Culinario">Culinario</option>
                             <option value="Agricola">Agrícola</option>
-                        </select> 
-                    <input type="text" #input3
-                    placeholder="Indica la fecha">
-                    <input class="descripcion" type="text" #input8
-                    placeholder="Describe tu evento">
+                            
+                        </select>
+                    </div>
+                   
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="fecha" #input3
+                        placeholder="Introduce la fecha"
+                        [ngClass]="{'is-invalid': (myForm.get('fecha').dirty || myForm.get('fecha').touched)
+                        && !myForm.get('fecha').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La fecha es obligatoria.</div>
+                    </div>   
+                    
+                    <div class="form-group" >
+                        <input class="form-group" class="descripcion" type="text" formControlName="descripcion" #input8
+                        placeholder="Añade una descripción."
+                        [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
+                        && !myForm.get('descripcion').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('descripcion').valid" class="invalid-feedback">La descripción es obligatoria.</div>
+                    </div>
                 </form> 
             </div>
             <div class="text2">
-                <form class="inputs" action="" >
-                    <input type="text" #input4
-                    placeholder="Especifíca el municipio">  
-                    <input type="text" #input5
-                    placeholder="Especifíca la provincia">
-                    <input type="text" #input6
-                    placeholder="Indica el aforo máximo">    
-                    <input type="text" #input7
-                    placeholder="Introduce el precio por persona">  
-                    <input type="text" #input9
-                    placeholder="Inserta la url de tu imagen"> 
+                <form [formGroup] = "myForm" class="form2">
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="municipio" #input4
+                        placeholder="Especifíca el municipio"
+                        [ngClass]="{'is-invalid': (myForm.get('municipio').dirty || myForm.get('municipio').touched)
+                        && !myForm.get('municipio').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('municipio').valid" class="invalid-feedback">El municipio es obligatorio.</div>
+                    </div> 
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="localidad" #input5
+                        placeholder="Especifíca la localidad"
+                        [ngClass]="{'is-invalid': (myForm.get('localidad').dirty || myForm.get('localidad').touched)
+                        && !myForm.get('localidad').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('localidad').valid" class="invalid-feedback">La localidad es obligatoria.</div>
+                    </div>      
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="aforo" #input6
+                        placeholder="Indica el aforo máximo"
+                        [ngClass]="{'is-invalid': (myForm.get('aforo').dirty || myForm.get('aforo').touched)
+                        && !myForm.get('aforo').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('aforo').valid" class="invalid-feedback">El aforo es obligatorio.</div>
+                    </div>  
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="precio" #input7
+                        placeholder="Indica el precio por persona"
+                        [ngClass]="{'is-invalid': (myForm.get('precio').dirty || myForm.get('precio').touched)
+                        && !myForm.get('precio').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('precio').valid" class="invalid-feedback">El precio es obligatorio.</div>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-group" type="text" formControlName="imagen" #input9
+                        placeholder="Inserta la url de la imagen"
+                        [ngClass]="{'is-invalid': (myForm.get('imagen').dirty || myForm.get('imagen').touched)
+                        && !myForm.get('imagen').valid}">
+                        <div id="aviso" *ngIf="!myForm.get('imagen').valid" class="invalid-feedback">La imagen es obligatoria.</div>
+                    </div> 
                                 
-                    <div class="boton" type="button" (click)="enviar(input1.value, 
+                    <button class="boton"(click)="enviar(input1.value, 
                     input2.value, input3.value, input4.value, 
-                    input5.value, input6.value, input7.value, input8.value, input9.value)">GUARDAR</div>
+                    input5.value, input6.value, input7.value, input8.value, input9.value)" [disabled]="myForm.invalid">GUARDAR</button>
                 </form>  
              </div>
         </div>

@@ -14,17 +14,17 @@ export class ActividadesComponent {
     
   }  
 
-  public find(categoria: string, localizacion: string){
+  // public find(categoria: string, localizacion: string){
     
-    if (categoria == 'Ver todas las actividades' && localizacion == "") {
-      this.eventosEncontrados = this.eventoService.getAll();
-      console.log(this.eventosEncontrados, ' componente if', categoria);      
-    } else{
-      this.eventosEncontrados = this.eventoService.find(categoria, localizacion.toLowerCase());
-      console.log(categoria, localizacion, 'else componente');     
-    }
+  //   if (categoria == 'Ver todas las actividades' && localizacion == "") {
+  //     this.eventosEncontrados = this.eventoService.getAll();
+  //     console.log(this.eventosEncontrados, ' componente if', categoria);      
+  //   } else{
+  //     this.eventosEncontrados = this.eventoService.find(categoria, localizacion.toLowerCase());
+  //     console.log(categoria, localizacion, 'else componente');     
+  //   }
     
-    //return this.eventosEncontrados;
-  }
+  //   //return this.eventosEncontrados;
+  // }
 }
 

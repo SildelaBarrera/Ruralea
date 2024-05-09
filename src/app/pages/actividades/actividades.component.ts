@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Evento } from 'src/app/models/evento';
+import { Respuesta } from 'src/app/models/respuesta';
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
 
 @Component({
@@ -9,22 +10,27 @@ import { EventoServiceService } from 'src/app/shared/evento-service.service';
 })
 export class ActividadesComponent {
   public evento: Evento;
-  public eventosEncontrados: Evento[]
+  public eventos: Evento[]
+  public categoria: string = "Ver todas las actividades";
+  public provincia: string;
   constructor(public eventoService: EventoServiceService) {
-    
-  }  
+        
+  }   
 
-  public find(categoria: string, localizacion: string){
-    
-    if (categoria == 'Ver todas las actividades' && localizacion == "") {
-      this.eventosEncontrados = this.eventoService.getAll();
-      console.log(this.eventosEncontrados, ' componente if', categoria);      
-    } else{
-      this.eventosEncontrados = this.eventoService.find(categoria, localizacion.toLowerCase());
-      console.log(categoria, localizacion, 'else componente');     
-    }
-    
-    //return this.eventosEncontrados;
+  ngOnInit(){
+     "Ver todas las actividades"
+    this.eventoService.getAllActividades(this.categoria, this.provincia).subscribe((resp: Respuesta) =>{
+      this.eventos = resp.datoEventos
+      console.log(this.categoria, 'componente');      
+    })
+  }
+
+  public find(categoria: string, provincia: string){
+    this.eventoService.find(categoria, provincia.toLowerCase()).subscribe((resp:Respuesta) => {
+      this.eventos = resp.datoEventos;
+      console.log(this.eventos);  
+    })
   }
 }
+
 

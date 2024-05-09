@@ -1,7 +1,7 @@
 .contenedor{
     background-color: var(--fondoUsuario);
     width: 100%;
-    height: fit-content;
+    min-height: 86vh;
     padding-top: 30px;
 }
 .buscador{

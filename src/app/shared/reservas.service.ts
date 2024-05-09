@@ -21,9 +21,7 @@ import { EventoServiceService } from './evento-service.service';
               
     } 
     public getAll(): Evento[] {
-      console.log(this.reservas);
-      
-       
+      console.log(this.reservas);      
       return this.reservas    
     }
 

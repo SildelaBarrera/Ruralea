@@ -47,7 +47,7 @@ export class EventoServiceService {
       aforo, precio, descripcion, foto, id_usuario);
       console.log(id_usuario)
       console.log(nuevoEvento)
-      let urlNueva = this.url+"/nuevoEvento"
+      let urlNueva = this.url+"nuevoEvento"
       return this.http.post(urlNueva, nuevoEvento)
   }
  

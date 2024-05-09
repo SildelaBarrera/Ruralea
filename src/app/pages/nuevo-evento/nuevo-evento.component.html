@@ -32,7 +32,7 @@
                    
                     <div class="form-group">
                         <input class="form-group" type="text" formControlName="fecha" #input3
-                        placeholder="Introduce la fecha"
+                        placeholder="Introduce la fecha aaaa-mm-dd"
                         [ngClass]="{'is-invalid': (myForm.get('fecha').dirty || myForm.get('fecha').touched)
                         && !myForm.get('fecha').valid}">
                         <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La fecha es obligatoria.</div>

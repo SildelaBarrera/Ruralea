@@ -13,15 +13,15 @@ export class ActividadesComponent {
   public eventos: Evento[]
   public categoria: string = "Ver todas las actividades";
   public provincia: string;
-  constructor(public eventoService: EventoServiceService) {
-        
+  constructor(public eventoService: EventoServiceService) {       
   }   
-
-  ngOnInit(){
+ 
+  ngOnInit(): void {
      "Ver todas las actividades"
-    this.eventoService.getAllActividades(this.categoria, this.provincia).subscribe((resp: Respuesta) =>{
+      this.eventoService.getAllActividades(this.categoria, this.provincia).subscribe((resp: Respuesta) =>{
       this.eventos = resp.datoEventos
       console.log(this.categoria, 'componente');      
+      return this.eventos
     })
   }
 

@@ -1,7 +1,7 @@
 .contenedor{
     background-color: var(--marronOscuro);
     width: 100%;
-    height: fit-content;
+    min-height: 86vh;
     padding-top: 80px;
 }
 h1{

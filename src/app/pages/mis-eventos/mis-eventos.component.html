@@ -1,11 +1,11 @@
 <div class="contenedor">
     <h1>MIS EVENTOS</h1>
     <div class="cards">
-        <div *ngIf = "this.evento; else Actividades">
+        <div *ngIf = "this.evento; else Eventos">
             <app-card [eventoPadre] = "evento"></app-card>
 
         </div> 
-        <ng-template #Actividades>
+        <ng-template #Eventos>
         
             <div class="card1" *ngFor = "let evento of misEventos">  
                 <app-card [eventoPadre] = "evento"></app-card>

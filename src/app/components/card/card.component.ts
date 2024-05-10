@@ -23,6 +23,7 @@ export class CardComponent {
   public path: string;
   public eventos: Evento [];
   public usuario : Usuario
+  public evento: Evento;
 
   
   constructor(public eventoServicio: EventoServiceService, 
@@ -61,13 +62,20 @@ export class CardComponent {
   })
  }  
 
+ public borrarEvento(id_evento:number){
+  this.eventoServicio.borrarEvento(this.usuario.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+  this.eventos = resp.datoEventos
+  })
+ }
   public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
                 aforo:number, precio:number, descripcion: string, foto: string){
     
     let nuevoTitulo: string = titulo.toUpperCase()
     this.eventoServicio.editar(nuevoTitulo, categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
-        
+      
+        this.evento = resp.datoEvento;
+        console.log (this.evento)
         if(resp.error){
           alert(resp.mensaje)
         }
@@ -75,10 +83,6 @@ export class CardComponent {
           alert(resp.mensaje); 
         }
       })
-  }
-
-  public eliminar(){
-    this.eventoServicio.delete(this.eventoPadre.id_evento)
   }
 
 }

@@ -25,7 +25,7 @@
             <p id="descripcion">{{eventoPadre.descripcion}}</p>
         </div>
         
-        <button type="button" class="eliminar" data-bs-toggle="modal" [attr.data-bs-target]="'#ElminarModal'+eventoPadre.id_evento">
+        <button type="button" class="eliminar" data-bs-toggle="modal" [attr.data-bs-target]="'#EliminarModal'+eventoPadre.id_evento">
             ELIMINAR
         </button>
         <!-- Button trigger modal -->
@@ -83,7 +83,7 @@
       
     
     <!-- Eliminar Modal -->
-    <div class="modal fade" id="ElminarModal{{eventoPadre.id}}" tabindex="-1" aria-labelledby="EliminarModalLabel" aria-hidden="true">
+    <div class="modal fade" id="EliminarModal{{eventoPadre.id_evento}}" tabindex="-1" aria-labelledby="EliminarModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modalHeader2">
@@ -92,7 +92,7 @@
             <div class="modal-body2">    
                 <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
                 <form class="inputsEliminar" action="" > 
-                    <button class="boton" type="button" (click)="eliminar()" data-bs-dismiss="modal">Si</button>
+                    <button class="boton" type="button" (click)="borrarEvento(eventoPadre.id_evento)" data-bs-dismiss="modal">Si</button>
                     <button class="boton" type="button" data-bs-dismiss="modal">No</button>            
                 </form>  
             </div>

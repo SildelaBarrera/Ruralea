@@ -5,6 +5,9 @@ import { ReservasService } from 'src/app/shared/reservas.service';
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
 import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { Usuario } from 'src/app/models/usuario';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-card',
@@ -19,11 +22,21 @@ export class CardComponent {
   
   public path: string;
   public eventos: Evento [];
+  public usuario : Usuario
 
-  constructor(public usuarioServicio: UsuarioServiceService, public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservasServicio: ReservasService, private router: Router) { }
+  
+  constructor(public eventoServicio: EventoServiceService, 
+    public usuarioServicio: UsuarioServiceService,
+    private route: ActivatedRoute, 
+    public reservasServicio: ReservasService, 
+    private router: Router) { 
+
+      this.usuario = this.usuarioServicio.usuarioLogueado
+      
+    }
 
   ngOnInit(): void {
-    this.path = this.route.snapshot.routeConfig.path;
+    this.path = this.route.snapshot.routeConfig.path;  
   }
 
   public reservarActividad(id_evento: number){
@@ -38,14 +51,6 @@ export class CardComponent {
     });
 }
 
-public enviar(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
-  aforo:number, precio:number, descripcion: string, foto: string){
-    this.eventoServicio.editar(titulo, categoria, fecha, municipio, provincia,
-      aforo, precio, descripcion, foto, this.eventoPadre.id)
- }
- public eliminar(){
-  this.eventoServicio.delete(this.eventoPadre.id)
- }
 
  public borrarReserva(id_evento:number){
   
@@ -54,7 +59,27 @@ public enviar(titulo:string, categoria:string, fecha:Date, municipio: string, pr
     this.eventos = resp.datoEventos
 
   })
- }
+ }  
+
+  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+                aforo:number, precio:number, descripcion: string, foto: string){
+    
+    let nuevoTitulo: string = titulo.toUpperCase()
+    this.eventoServicio.editar(nuevoTitulo, categoria, fecha, municipio, provincia,
+      aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
+        
+        if(resp.error){
+          alert(resp.mensaje)
+        }
+        else{
+          alert(resp.mensaje); 
+        }
+      })
+  }
+
+  public eliminar(){
+    this.eventoServicio.delete(this.eventoPadre.id_evento)
+  }
 
 }
 

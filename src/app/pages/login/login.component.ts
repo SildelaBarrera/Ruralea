@@ -3,6 +3,7 @@ import { NgForm } from '@angular/forms';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 import { Respuesta } from 'src/app/models/respuesta';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class LoginComponent {
   
 
   constructor(
-    public usuarioServicio: UsuarioServiceService
+    public usuarioServicio: UsuarioServiceService,
+    private router: Router
   ){
     this.usuarioLogueado = new Usuario(null, null, null, "", null, "",)
   }
@@ -33,17 +35,35 @@ export class LoginComponent {
           this.usuarioServicio.logueado = false;
       }
       else {
-          alert(resp.mensaje);
+        alert(resp.mensaje);
           
-          this.usuarioServicio.logueado = true;
+        this.usuarioServicio.logueado = true;
         
-          this.usuarioServicio.usuarioLogueado = resp.datoUsuario
+        this.usuarioServicio.usuarioLogueado = resp.datoUsuario
 
-          console.log (this.usuarioServicio.usuarioLogueado)
-          console.log("Log in " + this.usuarioServicio.logueado)
+        console.log (this.usuarioServicio.usuarioLogueado)
+        console.log("Log in " + this.usuarioServicio.logueado)
+        console.log(this.usuarioServicio.usuarioLogueado.tipoUsuario)
           
+        if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor"){
+          this.router.navigate(['/', 'misEventos'])
+            .then(nav => {
+              console.log(nav); 
+            }, err => {
+              console.log(err);
+            });
+          }
+        else{
+          this.router.navigate(['/', 'misReservas'])
+          .then(nav => {
+            console.log(nav); 
+          }, err => {
+            console.log(err);
+          });
+        }
           return this.usuarioServicio.usuarioLogueado
       }
+
     })
   }
 }

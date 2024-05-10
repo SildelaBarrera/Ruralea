@@ -31,13 +31,13 @@ import { EventoServiceService } from './evento-service.service';
       console.log(this.reservas);
           
     }
-    public delete(id:number){
+    public delete(id_evento:number){
       let aux:Evento[];
       aux = [];
   
       let i:number;
         for (i=0; i< this.reservas.length; i++){
-          if (id != this.reservas[i].id){
+          if (id_evento != this.reservas[i].id_evento){
             aux.push(this.reservas[i])
           }
         }

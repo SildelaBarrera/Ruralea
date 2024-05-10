@@ -3,6 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Evento} from 'src/app/models/evento';
 import { ReservasService } from 'src/app/shared/reservas.service';
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
+import { Respuesta } from 'src/app/models/respuesta';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
+import { Usuario } from 'src/app/models/usuario';
+import { FormGroup, FormBuilder, Validators} from '@angular/forms'
+
 
 @Component({
   selector: 'app-card',
@@ -17,28 +22,50 @@ export class CardComponent {
   
   path: string;
 
-  constructor(public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservasServicio: ReservasService, private router: Router) { }
+  private usuario: Usuario;
+
+  constructor(public eventoServicio: EventoServiceService, 
+    public usuarioServicio: UsuarioServiceService,
+    private route: ActivatedRoute, 
+    public reservasServicio: ReservasService, 
+    private router: Router) { 
+
+      this.usuario = this.usuarioServicio.usuarioLogueado
+      
+    }
 
   ngOnInit(): void {
-    this.path = this.route.snapshot.routeConfig.path;
+    this.path = this.route.snapshot.routeConfig.path;  
   }
 
-public reservarActividad(evento: Evento): void {
-  // Agregar la actividad a la lista de reservas
-  this.reservasServicio.agregarReserva(evento);
-  console.log('pasa card component', evento);  
-}
-public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
-  aforo:number, precio:number, descripcion: string, foto: string){
-    this.eventoServicio.editar(titulo, categoria, fecha, municipio, provincia,
-      aforo, precio, descripcion, foto, this.eventoPadre.id)
- }
- public eliminar(){
-  this.eventoServicio.delete(this.eventoPadre.id)
- }
+  public reservarActividad(evento: Evento): void {
+    // Agregar la actividad a la lista de reservas
+    this.reservasServicio.agregarReserva(evento);
+    console.log('pasa card component', evento);  
+  }
 
- public eliminarReserva(){
-  this.reservasServicio.delete(this.eventoPadre.id)
- }
+  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+                aforo:number, precio:number, descripcion: string, foto: string){
+    
+    let nuevoTitulo: string = titulo.toUpperCase()
+    this.eventoServicio.editar(nuevoTitulo, categoria, fecha, municipio, provincia,
+      aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
+        
+        if(resp.error){
+          alert(resp.mensaje)
+        }
+        else{
+          alert(resp.mensaje); 
+        }
+      })
+  }
+
+  public eliminar(){
+    this.eventoServicio.delete(this.eventoPadre.id_evento)
+  }
+
+  public eliminarReserva(){
+    this.reservasServicio.delete(this.eventoPadre.id_evento)
+  }
 }
 

@@ -25,9 +25,7 @@ export class EventoServiceService {
     console.log(categoria, 'servicio');
     return this.http.get(urlNueva)
   }
-
-    
-   
+ 
   public getAll(id_usuario: number):Observable<Object> {
     console.log(id_usuario) 
     let urlNueva = this.url+"misEventos?id_usuario="+ id_usuario;
@@ -47,40 +45,19 @@ export class EventoServiceService {
       aforo, precio, descripcion, foto, id_usuario);
       console.log(id_usuario)
       console.log(nuevoEvento)
-      let urlNueva = this.url+"/nuevoEvento"
+      let urlNueva = this.url+"nuevoEvento"
       return this.http.post(urlNueva, nuevoEvento)
   }
  
   public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
-    aforo:number, precio:number, descripcion: string, foto: string, id:number){
+    aforo:number, precio:number, descripcion: string, foto: string, id_evento:number, id_usuario: number){
 
-      if (titulo != ""){
-        this.eventos[id].titulo = titulo
-      }
-      if (categoria != ""){
-        this.eventos[id].categoria = categoria
-      }
-      if (fecha != ""){
-        this.eventos[id].fecha = fecha
-      }
-      if (municipio != ""){
-        this.eventos[id].municipio = municipio
-      }
-      if(provincia != ""){
-        this.eventos[id].provincia = provincia
-      }
-      if (aforo.toString() != ""){
-        this.eventos[id].aforo = aforo
-      }
-      if (precio.toString() != ""){
-        this.eventos[id].precio = precio
-      }
-      if (descripcion != ""){
-        this.eventos[id].descripcion = descripcion
-      }
-      if (foto != ""){
-        this.eventos[id].foto = foto
-      }
+      let eventoModificado = {titulo, categoria, fecha, municipio, provincia, aforo, precio,
+        descripcion, foto, id_evento, id_usuario}
+      
+      let urlNueva = this.url+"modificarEvento"
+      console.log(eventoModificado)
+      return this.http.put(urlNueva, eventoModificado)
     }
 
   public delete(id:number){
@@ -89,7 +66,7 @@ export class EventoServiceService {
 
     let i:number;
       for (i=0; i< this.eventos.length; i++){
-        if (id != this.eventos[i].id){
+        if (id != this.eventos[i].id_evento){
           aux.push(this.eventos[i])
         }
       }

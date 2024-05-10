@@ -41,6 +41,7 @@ h3{
 }
 #descripcion{
     width: 280px;
+    height: 100px;
 }
 .modificar{
     position: absolute;

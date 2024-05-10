@@ -25,7 +25,7 @@ export class NuevoEventoComponent {
         this.buildForm();
       }
   
-  public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  public enviar(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string){
 
       let nuevoTitulo: string = titulo.toUpperCase()

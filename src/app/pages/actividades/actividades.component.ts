@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { Evento } from 'src/app/models/evento';
 import { Respuesta } from 'src/app/models/respuesta';
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
+import { ReservasService } from 'src/app/shared/reservas.service';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 
 @Component({
   selector: 'app-actividades',
@@ -13,15 +15,15 @@ export class ActividadesComponent {
   public eventos: Evento[]
   public categoria: string = "Ver todas las actividades";
   public provincia: string;
-  constructor(public eventoService: EventoServiceService) {       
+  constructor(public eventoService: EventoServiceService, public usuarioServicio: UsuarioServiceService, public reservaService: ReservasService) {       
   }   
  
   ngOnInit(): void {
-     "Ver todas las actividades"
-      this.eventoService.getAllActividades(this.categoria, this.provincia).subscribe((resp: Respuesta) =>{
-      this.eventos = resp.datoEventos
-      console.log(this.categoria, 'componente');      
-      return this.eventos
+           
+    this.eventoService.getAllActividades(this.categoria).subscribe((resp: Respuesta) =>{
+    this.eventos = resp.datoEventos
+    console.log(this.eventos);      
+    console.log(this.categoria, 'componente');         
     })
   }
 
@@ -31,6 +33,7 @@ export class ActividadesComponent {
       console.log(this.eventos);  
     })
   }
+  
 }
 
 

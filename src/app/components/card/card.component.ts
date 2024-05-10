@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import {Evento} from 'src/app/models/evento';
 import { ReservasService } from 'src/app/shared/reservas.service';
 import { EventoServiceService } from 'src/app/shared/evento-service.service';
+import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
+import { Respuesta } from 'src/app/models/respuesta';
 
 @Component({
   selector: 'app-card',
@@ -15,20 +17,28 @@ export class CardComponent {
   
   @Output() remove = new EventEmitter<Evento>();
   
-  path: string;
+  public path: string;
+  public eventos: Evento [];
 
-  constructor(public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservasServicio: ReservasService, private router: Router) { }
+  constructor(public usuarioServicio: UsuarioServiceService, public eventoServicio: EventoServiceService, private route: ActivatedRoute, public reservasServicio: ReservasService, private router: Router) { }
 
   ngOnInit(): void {
     this.path = this.route.snapshot.routeConfig.path;
   }
 
-public reservarActividad(evento: Evento): void {
-  // Agregar la actividad a la lista de reservas
-  this.reservasServicio.agregarReserva(evento);
-  console.log('pasa card component', evento);  
+  public reservarActividad(id_evento: number){
+    let userId = this.usuarioServicio.usuarioLogueado.id_usuario;
+    
+    console.log(userId);
+    console.log(id_evento);
+      
+    this.reservasServicio.agregarReserva(userId, id_evento).subscribe((resp: Respuesta) =>{
+    this.eventos = resp.datoEventos;
+    
+    });
 }
-public enviar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+
+public enviar(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
   aforo:number, precio:number, descripcion: string, foto: string){
     this.eventoServicio.editar(titulo, categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id)
@@ -37,8 +47,14 @@ public enviar(titulo:string, categoria:string, fecha:string, municipio: string, 
   this.eventoServicio.delete(this.eventoPadre.id)
  }
 
- public eliminarReserva(){
-  this.reservasServicio.delete(this.eventoPadre.id)
+ public borrarReserva(id_evento:number){
+  
+  console.log(id_evento, 'componente');  
+  this.reservasServicio.borrarReserva(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+    this.eventos = resp.datoEventos
+
+  })
  }
+
 }
 

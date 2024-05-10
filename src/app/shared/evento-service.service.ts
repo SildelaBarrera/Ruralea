@@ -10,7 +10,7 @@ import { Usuario } from '../models/usuario';
   providedIn: 'root'
 })
 export class EventoServiceService {
-
+  public evento: Evento;
   public eventos:Evento[];
   public eventosEncontrados: Evento [];
   public reservas: Evento[];
@@ -20,14 +20,13 @@ export class EventoServiceService {
     
   }
 
-  public getAllActividades(categoria:string, provincia:string){
-    let urlNueva = this.url+"actividades?categoria="+categoria+"&provincia="+provincia;
-    console.log(categoria, 'servicio');
+  public getAllActividades(categoria: string){
+    let urlNueva = this.url+"actividades?categoria="+categoria+"&provincia="
+    console.log( 'servicio');
     return this.http.get(urlNueva)
   }
 
-    
-   
+       
   public getAll(id_usuario: number):Observable<Object> {
     console.log(id_usuario) 
     let urlNueva = this.url+"misEventos?id_usuario="+ id_usuario;
@@ -40,7 +39,7 @@ export class EventoServiceService {
     return this.http.get(urlNueva)
   }
 
-  public crear(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  public crear(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion:string, foto: string, id_usuario:number): Observable<Object> {
   
       let nuevoEvento = new Evento(titulo, categoria, fecha, municipio, provincia,
@@ -51,7 +50,7 @@ export class EventoServiceService {
       return this.http.post(urlNueva, nuevoEvento)
   }
  
-  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  public editar(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string, id:number){
 
       if (titulo != ""){
@@ -60,7 +59,7 @@ export class EventoServiceService {
       if (categoria != ""){
         this.eventos[id].categoria = categoria
       }
-      if (fecha != ""){
+      if (fecha != new Date()){
         this.eventos[id].fecha = fecha
       }
       if (municipio != ""){

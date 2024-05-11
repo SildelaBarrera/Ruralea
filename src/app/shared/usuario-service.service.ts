@@ -11,7 +11,6 @@ export class UsuarioServiceService {
   public logueado:boolean = false;
   public usuarioLogueado : Usuario;
   public usuario: Usuario;
-  public usuario2: Usuario;
   public url: string = "http://localhost:3000/"
 
   constructor(private http:HttpClient) {
@@ -43,24 +42,15 @@ export class UsuarioServiceService {
       this.usuario.password = nuevaContraseña    
     }
   }
-  public editarProductor(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
-    console.log(this.usuario.nombre);
+
+  public editarProductor(nombre:string, apellidos:string, email:string, foto:string, password:string, id_usuario:number){
+    console.log(nombre);
+    console.log(id_usuario)
     
-    if (nuevoNombre != ""){
-      this.usuario2.nombre = nuevoNombre
-    }
-    if (nuevoApellido != ""){
-      this.usuario2.apellidos = nuevoApellido
-    }
-    if (nuevoEmail != ""){
-      this.usuario2.email = nuevoEmail
-    }
-    if (nuevaFoto != ""){
-      this.usuario2.foto = nuevaFoto
-    }
-    if(nuevaContraseña != ""){
-      this.usuario2.password= nuevaContraseña    
-    }
+    let urlNueva = this.url + "perfil";
+    let perfilEditado = {nombre, apellidos, email, foto, password, id_usuario}
+    console.log(perfilEditado)
+    return this.http.put(urlNueva, perfilEditado)
   }
 
   public register(tipoUsuario: string, nombre: string, apellidos: string, email: string, contraseña:string, contraseña2:string){

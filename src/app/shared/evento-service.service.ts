@@ -55,22 +55,18 @@ export class EventoServiceService {
       let eventoModificado = {titulo, categoria, fecha, municipio, provincia, aforo, precio,
         descripcion, foto, id_evento, id_usuario}
       
-      let urlNueva = this.url+"modificarEvento"
-      console.log(eventoModificado)
+      let urlNueva = this.url+"misEventos"
+      console.log("pasa por el servicio" , eventoModificado)
       return this.http.put(urlNueva, eventoModificado)
     }
 
-  public delete(id:number){
-    let aux:Evento[];
-    aux = [];
-
-    let i:number;
-      for (i=0; i< this.eventos.length; i++){
-        if (id != this.eventos[i].id_evento){
-          aux.push(this.eventos[i])
-        }
-      }
-    this.eventos = aux;
+  public borrarEvento(id_usuario:number, id_evento: number){
+    
+    let urlNueva = this.url + "misEventos?id_usuario=" + id_usuario + "&id_evento=" + id_evento;
+      console.log(id_usuario, id_evento);
+      console.log(urlNueva)
+      return this.http.delete(urlNueva)  
+    
   }  
 
 }

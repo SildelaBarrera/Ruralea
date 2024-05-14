@@ -37,6 +37,7 @@ import { RouterModule } from '@angular/router';
     CardComponent,
     HeaderComponent,
     FooterComponent
+ 
   ],
   imports: [
     BrowserModule,

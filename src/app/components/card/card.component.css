@@ -39,10 +39,18 @@ h3{
     display:flex;
     flex-direction: row;
 }
+
 #descripcion{
+    
     width: 280px;
     height: 100px;
-}
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-wrap:wrap;
+    text-align: inherit;
+} 
+
 .modificar{
     position: absolute;
     margin-left: 450px;
@@ -50,6 +58,7 @@ h3{
     width: 150px;
     height: 35px;
     border-radius: 10px;
+    border: 2px solid var(--mostaza);
     font-family: var(--letraBoton);
     cursor: pointer;
     background-color: var(--marronOscuro);
@@ -218,6 +227,16 @@ input{
     width: 200px;
     padding: 5px;
 }
+select{
+    font-family: var(--links);
+    font-size: 12px;
+    border: solid var(--mostaza) 2px;
+    background-color: var(--inputColor);
+    border-radius: 10px;
+    height: 35px;
+    width: 200px;
+    color: gray;
+}
 .modal-body2{
     height: 75%;
     width: 100%;
@@ -248,6 +267,7 @@ input{
     border-radius: 10px;
     height: 100px;
     width: 200px; 
+    padding: 6px;
 }
 form{
     height: 100%;
@@ -257,16 +277,7 @@ form{
     justify-content: space-between;
     align-items: center;
 }
-select{
-    font-family: var(--links);
-    font-size: 12px;
-    border: solid var(--mostaza) 2px;
-    background-color: var(--inputColor);
-    border-radius: 10px;
-    height: 35px;
-    width: 200px;
-    color: gray;
-}
+
 .boton{
     border: solid var(--mostaza) 2px;
     height: 35px;

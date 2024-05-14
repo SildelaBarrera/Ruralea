@@ -24,3 +24,17 @@ h1{
     padding:15px;
     
 }
+.aviso{
+    height: 100px;
+    width: 350px;
+    border-radius: 10px;
+    background-color: var(--marronMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    font-size: medium;
+    color:var(--marronOscuro);
+    font-family: var(--inputs);
+}

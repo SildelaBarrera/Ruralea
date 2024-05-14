@@ -101,6 +101,7 @@ input{
     border-radius: 10px;
     height: 100%;
     width: 100%;
+    border: red solid 2px;
 }
 .descripcion{
     font-family: var(--links);
@@ -113,6 +114,7 @@ input{
     width: 280px; 
 }
 select{
+    border: 10px green solid;
     font-family: var(--links);
     font-size: 12px;
     border: solid var(--mostaza) 2px;
@@ -143,6 +145,32 @@ button:disabled {
     color:var(--blanco);
     font-family: var(--links);
     width: 386px;     
+}
+.modalHeader{
+    width: 350px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding-top: 20px;
+    padding-right: 10px;
+    
+}
+.modal-content{
+    height: 100px;
+    width: 350px;
+    background-color: var(--marronMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    font-size: medium;
+}
+.btn-close{
+    justify-content: end;
+    height: 20px;
+    width: 20px;
+    border-radius: 10%;
 }
 @media all and (max-width: 1300px){
 

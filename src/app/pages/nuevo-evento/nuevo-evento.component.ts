@@ -12,18 +12,21 @@ import { ActivatedRoute, Router } from '@angular/router';
   selector: 'app-nuevo-evento',
   templateUrl: './nuevo-evento.component.html',
   styleUrls: ['./nuevo-evento.component.css']
+ 
 })
 export class NuevoEventoComponent {
 
   public myForm: FormGroup;
   public usuario: Usuario;
-  public eventos: Evento []
+  public eventos: Evento [];
+  // public eventoCreado: Boolean;
+
   constructor(
     private formBuilder: FormBuilder,
     public eventoServicio: EventoServiceService,
     public usuarioServicio: UsuarioServiceService,
     private router: Router){
-
+        this.usuarioServicio.logueado;
         this.usuario = this.usuarioServicio.usuarioLogueado
         this.buildForm();
       }
@@ -47,12 +50,14 @@ export class NuevoEventoComponent {
       console.log(this.usuario.id_usuario)      
       this.eventoServicio.crear(nuevoTitulo, categoria, fecha, municipio, provincia,
         aforo, precio, descripcion, foto, this.usuario.id_usuario).subscribe((resp: Respuesta) => {
+      
+          // if (resp.error){
+          //   this.eventoCreado = false;
+          // }else{
+          //   this.eventoCreado = true;
           
-          if (resp.error){
-            alert('El evento ya existe.');
-          }else{
-            alert(resp.mensaje);
-          }
+          // }
+          
         }); 
       
       this.myForm.reset();             

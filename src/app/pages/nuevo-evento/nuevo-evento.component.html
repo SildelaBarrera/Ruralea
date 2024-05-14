@@ -1,7 +1,7 @@
 
 <div class=contenedor>
     <div class="photo"></div>
-  
+    
     <div class="formulario">
         <h2>CREA TU EVENTO</h2>
         <div class="textos">
@@ -17,17 +17,19 @@
                     </div>
                     
                     <div class="form-group">
-                        <select class="form-group"  formControlName="categoria" name="Elige la categoría" #input2
-                        [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
-                        && !myForm.get('descripcion').valid}">
-                        <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La fecha es obligatoria.</div>
-                            <option value="Elige la categoría" disabled selected>Elige la categoría</option>
+                        
+                        <select class="form-group" formControlName="categoria" #input2
+                            [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
+                            && !myForm.get('descripcion').valid}">
+                            <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La categoría es obligatoria.</div>
+                                <!-- <option value="" disabled selected>Elige la categoria</option>  -->
                             <option value="Artesania">Artesanía</option>
                             <option value="Ganaderia">Ganadería</option>
                             <option value="Culinario">Culinario</option>
                             <option value="Agricola">Agrícola</option>
                             
                         </select>
+                       
                     </div>
                    
                     <div class="form-group">
@@ -39,10 +41,10 @@
                     </div>   
                     
                     <div class="form-group" >
-                        <input class="form-group" class="descripcion" type="text" formControlName="descripcion" #input8
+                        <textarea rows="4" cols="150" class="form-group" class="descripcion" type="text" formControlName="descripcion" #input8
                         placeholder="Añade una descripción."
                         [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
-                        && !myForm.get('descripcion').valid}">
+                        && !myForm.get('descripcion').valid}"></textarea>
                         <div id="aviso" *ngIf="!myForm.get('descripcion').valid" class="invalid-feedback">La descripción es obligatoria.</div>
                     </div>
                 </form> 
@@ -84,12 +86,38 @@
                         && !myForm.get('imagen').valid}">
                         <div id="aviso" *ngIf="!myForm.get('imagen').valid" class="invalid-feedback">La imagen es obligatoria.</div>
                     </div> 
-                                
+                    
+                    
                     <button type="button" class="boton"(click)="enviar(input1.value, 
                     input2.value, input3.value, input4.value, 
-                    input5.value, input6.value, input7.value, input8.value, input9.value)" [disabled]="myForm.invalid">GUARDAR</button>
+                    input5.value, input6.value, input7.value, input8.value, input9.value)" [disabled]="myForm.invalid"
+                    data-bs-toggle="modal" data-bs-target="#modalEvento">GUARDAR</button>
+
                 </form>  
              </div>
         </div>
+        
     </div>
 </div>
+
+
+   <!-- Evento Modal
+   <div class="modal fade" id="modalEvento" tabindex="-1" aria-labelledby="modalEvento" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modalHeader">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <ng-container *ngIf="eventoCreado == false">
+            <div class="modal-body">El evento ya existe.</div>
+        </ng-container>
+        <ng-container *ngIf="eventoCreado == true">
+            <div class="modal-body">Evento creado correctamente.</div>
+        </ng-container>
+        
+    </div>
+    </div> -->
+<!-- </div> -->
+      
+    

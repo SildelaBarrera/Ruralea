@@ -129,3 +129,29 @@ button:disabled {
 a{
     color: #37B7FF;
 }
+.modalHeader{
+    width: 350px;
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    padding-top: 20px;
+    padding-right: 10px;
+    
+}
+.modal-content{
+    height: 100px;
+    width: 350px;
+    background-color: var(--marronMedio);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20px;
+    font-size: medium;
+}
+.btn-close{
+    justify-content: end;
+    height: 20px;
+    width: 20px;
+    border-radius: 10%;
+}

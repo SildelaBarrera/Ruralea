@@ -18,11 +18,13 @@ export class CardComponent {
 
   @Input() eventoPadre: Evento;
   @Output() deleteReserva = new EventEmitter<number>();
-  @Output() remove = new EventEmitter<Evento>();
+  @Output() remove = new EventEmitter<Number>();
+ 
   
   public path: string;
   public eventos: Evento [];
   public usuario : Usuario
+  public evento: Evento;
 
   
   constructor(public eventoServicio: EventoServiceService, 
@@ -58,13 +60,26 @@ export class CardComponent {
     console.log("borrando reserva card componete");  
  }  
 
-  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+ public borrarEvento(id_evento:number){
+  this.remove.emit(id_evento)
+ }
+  
+ public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
                 aforo:number, precio:number, descripcion: string, foto: string){
     
-    let nuevoTitulo: string = titulo.toUpperCase()
-    this.eventoServicio.editar(nuevoTitulo, categoria, fecha.substring(0,10), municipio, provincia,
+    console.log("pasa por card component", titulo)
+    this.eventoServicio.editar(titulo.toUpperCase(), categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
-        
+      
+        if(titulo != ""){
+          this.eventoPadre.titulo = titulo.toUpperCase()
+        }
+        if(municipio != ""){
+          this.eventoPadre.municipio = municipio
+        }
+
+        this.evento = resp.datoEvento;
+        console.log (this.eventoPadre)
         if(resp.error){
           alert(resp.mensaje)
         }
@@ -72,10 +87,6 @@ export class CardComponent {
           alert(resp.mensaje); 
         }
       })
-  }
-
-  public eliminar(){
-    this.eventoServicio.delete(this.eventoPadre.id_evento)
   }
 
 }

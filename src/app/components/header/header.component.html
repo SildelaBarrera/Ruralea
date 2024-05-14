@@ -6,7 +6,7 @@
             <a routerLink= "/perfilUsuario">MI PERFIL</a>
             <a routerLink= "/chat">CHAT</a>
             <a (click)="logOut()" routerLink= "/login">LOGOUT</a> 
-            X 
+            
         </ng-container>
         <ng-container *ngIf="usuarioServicio.usuarioLogueado.tipoUsuario == 'Productor'"> 
             <a routerLink= "/misEventos">MIS EVENTOS</a>

@@ -19,8 +19,8 @@ export class MisEventosComponent {
   constructor(public eventoServicio: EventoServiceService,
               public usuarioServicio: UsuarioServiceService,
               private router: Router){
+    this.usuarioServicio.logueado = true;
     this.usuario = this.usuarioServicio.usuarioLogueado;
-    
     this.eventoServicio.getAll(this.usuario.id_usuario).subscribe((resp:Respuesta) => {
       this.misEventos = resp.datoEventos;
       console.log(this.misEventos)
@@ -38,8 +38,16 @@ export class MisEventosComponent {
         console.log(err);
       });
     } 
-    
-    
+   
   }
+  public borrarEvento(id_evento:number){
+    this.eventoServicio.borrarEvento(this.usuario.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+    
+    this.eventoServicio.getAll(this.usuarioServicio.usuarioLogueado.id_usuario).subscribe((resp:Respuesta) =>{
+      this.misEventos = resp.datoEventos
+    })
+    })
+   }
+  
 }
 

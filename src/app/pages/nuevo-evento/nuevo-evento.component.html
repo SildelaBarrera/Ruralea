@@ -16,21 +16,18 @@
                         <div id="aviso" *ngIf="!myForm.get('titulo').valid" class="invalid-feedback">El título es necesario.</div>
                     </div>
                     
-                    <div class="form-group">
-                        
+                    <div class="form-group">                        
                         <select class="form-group" formControlName="categoria" #input2
-                            [ngClass]="{'is-invalid': (myForm.get('descripcion').dirty || myForm.get('descripcion').touched)
-                            && !myForm.get('descripcion').valid}">
-                            <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La categoría es obligatoria.</div>
-                                <!-- <option value="" disabled selected>Elige la categoria</option>  -->
-                            <option value="Artesania">Artesanía</option>
-                            <option value="Ganaderia">Ganadería</option>
-                            <option value="Culinario">Culinario</option>
-                            <option value="Agricola">Agrícola</option>
-                            
-                        </select>
-                       
-                    </div>
+                            [ngClass]="{'is-invalid': (myForm.get('categoria').dirty || myForm.get('categoria').touched)
+                            && !myForm.get('categoria').valid}">                            
+                            <option class="option" value="Elige la categoria" selected disabled>Elige la categoria</option> 
+                            <option class="option" value="Artesania">Artesanía</option>
+                            <option class="option" value="Ganaderia">Ganadería</option>
+                            <option class="option" value="Culinario">Culinario</option>
+                            <option class="option" value="Agricola">Agrícola</option>
+                            </select>
+                            <div id="aviso" *ngIf="!myForm.get('categoria').valid" class="invalid-feedback">La categoría es obligatoria.</div>                            
+                        </div>
                    
                     <div class="form-group">
                         <input class="form-group" type="text" formControlName="fecha" #input3

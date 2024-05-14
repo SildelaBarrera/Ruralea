@@ -9,18 +9,23 @@
             <form [formGroup]="myForm">   
                 
                 <div class="inputsHijo">    
-                <select id="tapa" name="tapa" class="form-group" formControlName="tipoUsuario" #input1>
-                    <option value="Elige una opcion" disabled selected>Elige una opcion</option>
-                    <option value="Productor">Productor</option>
-                    <option value="Consumidor">Consumidor</option>            
-                </select>  
+                    <div class="form-group">
+                    <select id="tapa" name="tapa" class="form-group" formControlName="tipoUsuario" #input1
+                    [ngClass]="{'is-invalid': (myForm.get('tipoUsuario').dirty || myForm.get('tipoUsuario').touched)
+                            && !myForm.get('tipoUsuario').valid}">                    
+                        <option class="option" value="Elige una opcion" selected disabled>Elige una opcion</option>
+                        <option class="option" value="Productor">Productor</option>
+                        <option class="option" value="Consumidor">Consumidor</option>                                
+                    </select>                  
+                    <div id="aviso" *ngIf="!myForm.get('tipoUsuario').valid" class="invalid-feedback">La categoría es obligatoria.</div>
+                </div>
                       
                 <div class="form-group">
                     <input class="form-group" type="text" formControlName="name" #input2
                     placeholder="Nombre"
                     [ngClass]="{'is-invalid': (myForm.get('name').dirty || myForm.get('name').touched)
                     && !myForm.get('name').valid}">
-                    <div id="aviso" *ngIf="!myForm.get('name').valid" class="invalid-feedback">Name is required</div>
+                    <div id="aviso" *ngIf="!myForm.get('name').valid" class="invalid-feedback">El nombre es obligarotio</div>
                 </div>
                    
                 <div class="form-group">
@@ -28,7 +33,7 @@
                     placeholder="Apellidos"
                     [ngClass]="{'is-invalid': (myForm.get('lastName').dirty || myForm.get('lastName').touched)
                     && !myForm.get('lastName').valid}">
-                    <div id="aviso" *ngIf="!myForm.get('lastName').valid" class="invalid-feedback">Last name is required</div>
+                    <div id="aviso" *ngIf="!myForm.get('lastName').valid" class="invalid-feedback">El apellido es obligatorio</div>
                 </div>
                   
                 <div class="form-group">
@@ -50,7 +55,7 @@
                     && !myForm.get('password').valid}">
                     <div id="aviso" *ngIf="!myForm.get('password').valid" class="invalid-feedback">
                         <div *ngIf="!myForm.get('password').errors.required">La contraseña es obligatoria</div>
-                        <div *ngIf="!myForm.get('password').errors.minlength">Contrseña erronea</div>
+                        <div *ngIf="!myForm.get('password').errors.minlength">Contraseña errónea</div>
                 
                     </div>
                 </div>

@@ -91,6 +91,7 @@ h2{
 .form-group{
     height: 35px;
     width: 280px;
+    
 }
 input{
     font-family: var(--links);
@@ -101,8 +102,7 @@ input{
     border-radius: 10px;
     height: 100%;
     width: 100%;
-    border: red solid 2px;
-}
+    }
 .descripcion{
     font-family: var(--links);
     font-size: 12px;
@@ -113,16 +113,23 @@ input{
     height: 120px;
     width: 280px; 
 }
-select{
-    border: 10px green solid;
+select{    
+    padding-left: 12px;
+    font-family: var(--links);
+    font-size: 12px;
+    border-radius: 10px;
+    border: solid var(--mostaza) 2px;
+    height: 100%;
+    width: 100%;
+    background-color: var(--inputColor);    
+}
+.option{    
     font-family: var(--links);
     font-size: 12px;
     border: solid var(--mostaza) 2px;
     background-color: var(--inputColor);
     padding: 15px;
-    border-radius: 10px;
-    height: 35px;
-    width: 280px;
+    border-radius: 10px;    
 }
 .boton{
     border: solid var(--mostaza) 2px;

@@ -65,6 +65,14 @@ select{
     font-size: 12px;
     margin-top: 5px;
 }
+.option{    
+    font-family: var(--links);
+    font-size: 12px;
+    border: solid var(--mostaza) 2px;
+    background-color: var(--inputColor);
+    padding: 15px;
+    border-radius: 10px;    
+}
 
 input{
     font-family: var(--links);

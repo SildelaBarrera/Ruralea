@@ -64,11 +64,10 @@ export class NuevoEventoComponent {
   }
 
   private buildForm(){
-
     this.myForm = this.formBuilder.group(
       {
         titulo: [, Validators.required],
-        categoria: [, Validators.required],
+        categoria: ["Elige la categoria", Validators.required],
         fecha:[, Validators.required],
         descripcion: [,Validators.required],
         municipio: [, Validators.required],

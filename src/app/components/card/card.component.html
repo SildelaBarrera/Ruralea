@@ -10,7 +10,7 @@
         </div>
         <div class="enunciado">
             <p class="loc"><strong>Fecha:</strong></p>
-            <p>{{eventoPadre.fecha}}</p>
+            <p>{{eventoPadre.fecha.substring(0,10)}}</p>
         </div>
         <div class="enunciado">
             <p class="loc"><strong>Aforo:</strong></p>
@@ -114,7 +114,7 @@
         </div>
         <div class="enunciado">
             <p class="loc"><strong>Fecha:</strong></p>
-            <p>{{eventoPadre.fecha}}</p>
+            <p>{{eventoPadre.fecha.substring(0,10)}}</p>
         </div>
         <div class="enunciado">
             <p class="loc"><strong>Aforo:</strong></p>
@@ -129,6 +129,7 @@
             <p id="descripcion">{{eventoPadre.descripcion}}</p>
         </div>    
         <button class="reservar" (click)="reservarActividad(eventoPadre.id_evento)">RESERVAR</button>     
+        <button class="contactame">CONTÁCTAME</button>
 </div>      
 <div *ngIf="path === 'misReservas'" class="card" >    
     <div class="texto">
@@ -141,7 +142,7 @@
     </div>
     <div class="enunciado">
         <p class="loc"><strong>Fecha:</strong></p>
-        <p>{{eventoPadre.fecha}}</p>
+        <p>{{eventoPadre.fecha.substring(0,10)}}</p>
     </div>
     <div class="enunciado">
         <p class="loc"><strong>Aforo:</strong></p>
@@ -155,9 +156,10 @@
         <p class="loc"><strong>Descripción:</strong></p>
         <p id="descripcion">{{eventoPadre.descripcion}}</p>
     </div>
-    <button type="button" class="eliminar" data-bs-toggle="modal" [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">
+    <button type="button" class="eliminar2" data-bs-toggle="modal" [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">
         ELIMINAR
     </button>
+    <button class="contactame">CONTÁCTAME</button>
     <!-- Eliminar Modal -->
     <div class="modal fade" id="ElminarModal2{{eventoPadre.id_evento}}" tabindex="-1" aria-labelledby="EliminarModalLabel" aria-hidden="true">
         <div class="modal-dialog">

@@ -21,9 +21,10 @@ export class MisReservasComponent {
     this.reservaService.getAll(this.usuarioServicio.usuarioLogueado.id_usuario).subscribe((resp: Respuesta) =>{
       this.reservas = resp.datoEventos
       console.log(this.reservas);
+      this.proximos();
     })
   }
-
+  
   public proximos(){
     const fechaActual = new Date();
     console.log(fechaActual);
@@ -40,6 +41,28 @@ export class MisReservasComponent {
     console.log(this.eventosPasados, 'pasados');
     this.proximosEventos = []
   }
+
+  public borrarReserva(id_evento:number){  
+    console.log(id_evento, 'componente');  
+    this.reservaService.borrarReserva(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+      this.reservaService.getAll(this.usuarioServicio.usuarioLogueado.id_usuario).subscribe((resp: Respuesta) =>{
+        this.reservas = resp.datoEventos
+        console.log(this.reservas, 'getAll componente');
+          this.proximos()
+      })
+    })
+   }
+
+   public borrarPasados(id_evento:number){  
+    console.log(id_evento, 'componente');  
+    this.reservaService.borrarReserva(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+      this.reservaService.getAll(this.usuarioServicio.usuarioLogueado.id_usuario).subscribe((resp: Respuesta) =>{
+        this.reservas = resp.datoEventos
+        console.log(this.reservas, 'getAll componente');
+          this.pasados()
+      })
+    })
+   }
 }
 
   

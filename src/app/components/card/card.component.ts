@@ -17,7 +17,7 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms'
 export class CardComponent {
 
   @Input() eventoPadre: Evento;
-  
+  @Output() deleteReserva = new EventEmitter<number>();
   @Output() remove = new EventEmitter<Evento>();
   
   public path: string;
@@ -53,19 +53,16 @@ export class CardComponent {
 
 
  public borrarReserva(id_evento:number){
-  
-  console.log(id_evento, 'componente');  
-  this.reservasServicio.borrarReserva(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
-    this.eventos = resp.datoEventos
-
-  })
+  this.deleteReserva.emit(id_evento)
+    console.log(id_evento);     
+    console.log("borrando reserva card componete");  
  }  
 
   public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
                 aforo:number, precio:number, descripcion: string, foto: string){
     
     let nuevoTitulo: string = titulo.toUpperCase()
-    this.eventoServicio.editar(nuevoTitulo, categoria, fecha, municipio, provincia,
+    this.eventoServicio.editar(nuevoTitulo, categoria, fecha.substring(0,10), municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
         
         if(resp.error){

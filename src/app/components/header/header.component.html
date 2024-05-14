@@ -4,13 +4,17 @@
             <a routerLink= "/actividades">ACTIVIDADES</a>
             <a routerLink= "/misReservas">MIS RESERVAS</a>
             <a routerLink= "/perfilUsuario">MI PERFIL</a>
-            <a (click)="logOut()" routerLink= "/login">LOGOUT</a>    
+            <a routerLink= "/chat">CHAT</a>
+            <a (click)="logOut()" routerLink= "/login">LOGOUT</a> 
+            X 
         </ng-container>
         <ng-container *ngIf="usuarioServicio.usuarioLogueado.tipoUsuario == 'Productor'"> 
             <a routerLink= "/misEventos">MIS EVENTOS</a>
             <a routerLink= "/nuevoEvento">NUEVO EVENTO</a>
             <a routerLink= "/perfilProductor">MI PERFIL</a>
+            <a routerLink= "/chat">CHAT</a>
             <a (click)="logOut()" routerLink= "/login">LOGOUT</a>
+            
         </ng-container> 
     </ng-container>
     <ng-template #LinksInicio>

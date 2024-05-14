@@ -6,9 +6,9 @@
             <h3>MI PERFIL</h3>
         </div>
         <div class="datos2">
-            <div><img src="{{this.usuarioServicio.usuario.foto}}" alt=""></div>
-            <div class="datos3"><p>{{this.usuarioServicio.usuario.nombre}} {{this.usuarioServicio.usuario.apellidos}}</p></div>
-            <div class="datos4"><p>{{this.usuarioServicio.usuario.email}}</p></div>
+            <div><img src="{{usuario.foto}}" alt=""></div>
+            <div class="datos3"><p>{{usuario.nombre}} {{usuario.apellidos}}</p></div>
+            <div class="datos4"><p>{{usuario.email}}</p></div>
         </div>
         </div>
     </div>
@@ -20,18 +20,18 @@
         
             <div class="datos2">
                 <label for="">Introduce nombre</label>
-                <input type="text" id="nombre" disabled placeholder={{this.usuarioServicio.usuario.nombre}} #input1>
+                <input type="text" id="nombre" disabled value={{usuario.nombre}} #input1>
                 <label for="">Introduce apellidos</label>
-                <input type="text" disabled placeholder={{this.usuarioServicio.usuario.apellidos}} #input2>
+                <input type="text" disabled value={{usuario.apellidos}} #input2>
                 <label for="">Introduce e-mail</label>
-                <input type="text"disabled placeholder={{this.usuarioServicio.usuario.email}} #input3>
+                <input type="text"disabled value={{usuario.email}} #input3>
                 <label for="">Introduce la url de tu foto</label>
-                <input type="text" disabled placeholder={{this.usuarioServicio.usuario.foto}} #input4>
+                <input type="text" disabled value={{usuario.foto}} #input4>
                 <label for="">Introduce la nueva contraseña </label>
-                <input type="password" disabled placeholder="*********" #input5>
+                <input type="password" disabled value={{usuario.password}} #input5>
                 
                 <button *ngIf="editar" (click)="activar(input1, input2, input3, input4, input5)">EDITAR</button>
-                <button *ngIf="guardar" (click)="enviar(input1, input2, input3, input4, input5)">GUARDAR</button>
+                <button *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value, usuario.id_usuario)" (click)="desactivar(input1, input2, input3, input4, input5)">GUARDAR</button>
             </div>
         </div>
     </div>

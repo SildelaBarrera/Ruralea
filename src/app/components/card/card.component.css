@@ -62,6 +62,33 @@ h3{
     width: 150px;
     height: 35px;
     border-radius: 10px;
+    border: 2px solid var(--mostaza);
+    font-family: var(--letraBoton);
+    cursor: pointer;
+    background-color: var(--marronOscuro);
+    color: var(--mostaza);
+}
+.eliminar2{
+    position: absolute;
+    margin-left: 450px;
+    margin-top: 150px;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid var(--mostaza);
+    font-family: var(--letraBoton);
+    cursor: pointer;
+    background-color: var(--marronOscuro);
+    color: var(--mostaza);
+}
+.contactame{
+    position: absolute;
+    margin-left: 450px;
+    margin-top: 250px;
+    width: 150px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid var(--mostaza);
     font-family: var(--letraBoton);
     cursor: pointer;
     background-color: var(--marronOscuro);

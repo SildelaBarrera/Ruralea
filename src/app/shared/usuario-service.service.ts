@@ -13,6 +13,7 @@ export class UsuarioServiceService {
   public usuario: Usuario;
   public usuario2: Usuario;
   public url: string = "http://localhost:3000/"
+  // public url:string = "https://ruralea-332zp6svc-sildelabarreras-projects.vercel.app/"
 
   constructor(private http:HttpClient) {
    }
@@ -24,24 +25,13 @@ export class UsuarioServiceService {
     return this.http.post(urlLogin, loginDatos)
 
    }
-   public editar(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
-    console.log(this.usuario.nombre);
-    
-    if (nuevoNombre != ""){
-      this.usuario.nombre = nuevoNombre
-    }
-    if (nuevoApellido != ""){
-      this.usuario.apellidos = nuevoApellido
-    }
-    if (nuevoEmail != ""){
-      this.usuario.email = nuevoEmail
-    }
-    if (nuevaFoto != ""){
-      this.usuario.foto = nuevaFoto
-    }
-    if(nuevaContraseña != ""){
-      this.usuario.password = nuevaContraseña    
-    }
+   public editarConsumidor(nombre:string, apellidos:string, email:string, foto:string, password:string, id_usuario:number){
+    console.log(this.usuarioLogueado);
+    let urlEdit = this.url + "perfilConsumidor"
+    let editedUser = {nombre, apellidos, email, foto, password, id_usuario}
+   console.log(editedUser, 'servicio');
+    return this.http.put(urlEdit, editedUser)
+
   }
   public editarProductor(nuevoNombre:string, nuevoApellido:string, nuevoEmail:string, nuevaFoto:string, nuevaContraseña:string){
     console.log(this.usuario.nombre);

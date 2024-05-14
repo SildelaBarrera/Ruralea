@@ -7,13 +7,8 @@ import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent {
-  public path:string;
-  constructor(private router: Router){    
-    this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        this.path = event.url.split('/')[1];
-      }
-    });
-  }  
+  
+  constructor(){    
+  }
 
 }

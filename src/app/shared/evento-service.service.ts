@@ -55,8 +55,8 @@ export class EventoServiceService {
       let eventoModificado = {titulo, categoria, fecha, municipio, provincia, aforo, precio,
         descripcion, foto, id_evento, id_usuario}
       
-      let urlNueva = this.url+"modificarEvento"
-      console.log(eventoModificado)
+      let urlNueva = this.url+"misEventos"
+      console.log("pasa por el servicio" , eventoModificado)
       return this.http.put(urlNueva, eventoModificado)
     }
 

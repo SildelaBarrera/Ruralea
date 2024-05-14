@@ -12,6 +12,7 @@ export class UsuarioServiceService {
   public usuarioLogueado : Usuario;
   public usuario: Usuario;
   public url: string = "http://localhost:3000/"
+  // public url:string = "https://ruralea-332zp6svc-sildelabarreras-projects.vercel.app/"
 
   constructor(private http:HttpClient) {
    }

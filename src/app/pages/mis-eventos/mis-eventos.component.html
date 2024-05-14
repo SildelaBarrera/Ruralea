@@ -1,14 +1,20 @@
 <div class="contenedor">
     <h1>MIS EVENTOS</h1>
     <div class="cards">
+        <div *ngIf="misEventos.length === 0"> 
+            <div class="aviso">
+                <p>Aún no hay eventos creados.</p>
+            </div>
+        </div>
+
         <div *ngIf = "this.evento; else Eventos">
-            <app-card [eventoPadre] = "evento"></app-card>
+            <app-card [eventoPadre] = "evento" ></app-card>
 
         </div> 
         <ng-template #Eventos>
         
             <div class="card1" *ngFor = "let evento of misEventos">  
-                <app-card [eventoPadre] = "evento"></app-card>
+                <app-card [eventoPadre] = "evento" (remove)="borrarEvento($event)" (edit)="editar($event)"></app-card>
             </div>
         </ng-template>
 

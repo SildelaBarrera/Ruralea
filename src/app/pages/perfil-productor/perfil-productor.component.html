@@ -31,7 +31,8 @@
                 <input type="password" disabled placeholder="*********" #input5>
                 
                 <button *ngIf="editar" (click)="activar(input1, input2, input3, input4, input5)">EDITAR</button>
-                <button *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value)">GUARDAR</button>
+                <button *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value, usuario.id_usuario)" 
+                (click)="desactivar(input1, input2, input3, input4, input5)">GUARDAR</button>
             </div>
         </div>
     </div>

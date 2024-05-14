@@ -4,7 +4,13 @@
         <button (click)="proximos()">PROXIMOS EVENTOS</button>
         <button (click)="pasados()">EVENTOS PASADOS</button>
     </div>
+   
     <div class="cards">
+        <div *ngIf="proximosEventos.length === 0"> 
+            <div class="aviso">
+                <p>Aún no hay actividades reservadas.</p>
+            </div>
+        </div>
         <div *ngIf="proximosEventos.length > 0">
             <div class="card1" *ngFor="let evento of proximosEventos">  
                 <app-card [eventoPadre]="evento"></app-card>

@@ -18,7 +18,8 @@ export class CardComponent {
 
   @Input() eventoPadre: Evento;
   
-  @Output() remove = new EventEmitter<Evento>();
+  @Output() remove = new EventEmitter<Number>();
+ 
   
   public path: string;
   public eventos: Evento [];
@@ -63,19 +64,25 @@ export class CardComponent {
  }  
 
  public borrarEvento(id_evento:number){
-  this.eventoServicio.borrarEvento(this.usuario.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
-  this.eventos = resp.datoEventos
-  })
+  this.remove.emit(id_evento)
  }
-  public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
+  
+ public editar(titulo:string, categoria:string, fecha:string, municipio: string, provincia:string,
                 aforo:number, precio:number, descripcion: string, foto: string){
     
-    let nuevoTitulo: string = titulo.toUpperCase()
-    this.eventoServicio.editar(nuevoTitulo, categoria, fecha, municipio, provincia,
+    console.log("pasa por card component", titulo)
+    this.eventoServicio.editar(titulo.toUpperCase(), categoria, fecha, municipio, provincia,
       aforo, precio, descripcion, foto, this.eventoPadre.id_evento, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
       
+        if(titulo != ""){
+          this.eventoPadre.titulo = titulo.toUpperCase()
+        }
+        if(municipio != ""){
+          this.eventoPadre.municipio = municipio
+        }
+
         this.evento = resp.datoEvento;
-        console.log (this.evento)
+        console.log (this.eventoPadre)
         if(resp.error){
           alert(resp.mensaje)
         }

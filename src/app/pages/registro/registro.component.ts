@@ -12,7 +12,7 @@ import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 export class RegistroComponent {
 
   public myForm: FormGroup
-
+  public registrado: Boolean= false
     constructor(private formBuilder: FormBuilder, 
                 public usuarioServicio: UsuarioServiceService){  
 
@@ -26,12 +26,16 @@ export class RegistroComponent {
     this.usuarioServicio.register(tipoUsuario, nombre, apellidos, email, contraseña,
       contraseña2).subscribe((resp: Respuesta) => {
         if(resp.error){
-          alert('El usuario ya existe');
+          // alert('El usuario ya existe');
+          this.registrado = false
         }
-        else alert('Usuario registrado correctamente')   
+        else 
+        // alert('Usuario registrado correctamente')
+          this.registrado = true   
         resp.datoUsuario       
       })
-     
+    
+      this.myForm.reset();  
   }
   
   private buildForm(){

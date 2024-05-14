@@ -67,11 +67,30 @@
                     </div>
                 </div>
                 <div>
-                <button (click)="register(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value)" [disabled]="myForm.invalid">REGÍSTRATE</button>
+                <button (click)="register(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value)" [disabled]="myForm.invalid" data-bs-toggle="modal" data-bs-target="#modalRegistro">REGÍSTRATE</button>
                 <p class="texto">Si ya estás registrado accede a través del <a href="/login">login</a></p>
                 </div>
                 </div>
             </form>
         </div>
+    </div>
+</div>
+
+<!-- Registro Modal -->
+<div class="modal fade" id="modalRegistro" tabindex="-1" aria-labelledby="modalRegistro" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modalHeader">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <ng-container *ngIf="registrado == true">
+            <div class="modal-body">Usuario registrado correctamente.</div>
+        </ng-container>
+        <ng-container *ngIf="registrado == false">
+            <div class="modal-body">El usuario ya existe.</div>
+        </ng-container>
+        
+    </div>
     </div>
 </div>

@@ -28,7 +28,7 @@
                 </div>
         </div>  
         <div class="boton">  
-        <button  [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)">LOGIN</button>
+        <button  [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)" data-bs-toggle="modal" data-bs-target="#modalLogin">LOGIN</button>
         <p class="texto">¿Aún no tienes una cuenta?<a href="/registro">Regístrate</a></p>
         </div>
         </div>
@@ -37,3 +37,23 @@
         </div>
       </div>
     </div>
+
+        <!-- Login Modal -->
+        <!-- <div class="modal" id="modalLogin"  tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modalHeader">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <ng-container *ngIf="usuarioServicio.logueado == false">
+                    <div class="modal-body">Email o contraseña incorrecta.</div>
+                </ng-container>
+                <ng-container *ngIf="usuarioServicio.logueado == true">
+                    <div class="modal-body">Usuario logueado correctamente.</div>
+                </ng-container>
+                
+            </div>
+            </div>
+        </div> -->
+          

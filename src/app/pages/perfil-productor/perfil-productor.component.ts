@@ -27,30 +27,49 @@ export class PerfilProductorComponent {
     this.guardar = true;
   }
   
-  public enviar(input1: string, input2:string, input3:string, 
-    input4:string, input5:string){
+  public enviar(input1, input2, input3,
+    input4, input5){
       console.log (input1)
-    
-    // input1.disabled = true;
-    // input2.disabled = true;
-    // input3.disabled = true;
-    // input4.disabled = true;
-    // input5.disabled = true;
+
 
     this.usuarioServicio.editarProductor(input1, input2, input3, input4, input5, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
       
+      if (input1 != ""){
+        this.usuario.nombre = input1
+      }
+      if (input2 != ""){
+        this.usuario.apellidos = input2
+      }
+      if (input3 != ""){
+        this.usuario.email = input3
+      }
+      if (input4 != ""){
+        this.usuario.foto = input4
+      }
+      if (input5 != ""){
+        this.usuario.password = input5
+      }
+    
       if(resp.error){
         alert(resp.mensaje)
       }
       else{
         alert(resp.mensaje); 
       }
+    
     })
+    console.log(Respuesta)
+    
+    return(this.usuario)
+  }
+  desactivar(input1, input2, input3, input4, input5){
+    input1.disabled = true;
+    input2.disabled = true;
+    input3.disabled = true;
+    input4.disabled = true;
+    input5.disabled = true;
     this.editar = true;
     this.guardar = false;
-
-    console.log(this.usuario)
-    return(this.usuario)
   }
 }
 

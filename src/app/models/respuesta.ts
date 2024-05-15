@@ -1,5 +1,6 @@
 import { Evento } from "./evento";
 import { Usuario } from "./usuario";
+import { Chat } from "./chat";
 
 
 
@@ -10,7 +11,9 @@ export class Respuesta {
                 public mensaje: string, 
                 public datoEventos: Evento [] , 
                 public datoEvento: Evento, 
-                public datoUsuario:Usuario){
+                public datoUsuario:Usuario,
+                public datoChats: Chat [],
+                public datoMensajes: String []){
                     
                 }
     

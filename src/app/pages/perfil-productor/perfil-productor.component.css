@@ -67,6 +67,7 @@ img{
     width: 220px;
     border-radius: 100%;
     border:solid 3px var(--blanco);
+    background-image: url(src\assets\img\perfil.jpg);
     object-fit: cover;
     background-position: center;
     background-repeat: no-repeat;

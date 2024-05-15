@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Respuesta } from 'src/app/models/respuesta';
 import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
@@ -14,7 +15,8 @@ export class RegistroComponent {
   public myForm: FormGroup
   public registrado: Boolean= false
     constructor(private formBuilder: FormBuilder, 
-                public usuarioServicio: UsuarioServiceService){  
+                public usuarioServicio: UsuarioServiceService,
+                private router: Router){  
 
       this.buildForm();
 
@@ -26,13 +28,19 @@ export class RegistroComponent {
     this.usuarioServicio.register(tipoUsuario, nombre, apellidos, email, contraseña,
       contraseña2).subscribe((resp: Respuesta) => {
         if(resp.error){
-          // alert('El usuario ya existe');
+         
           this.registrado = false
         }
         else 
-        // alert('Usuario registrado correctamente')
+        
           this.registrado = true   
-        resp.datoUsuario       
+          resp.datoUsuario;
+          this.router.navigate(['/', 'login'])
+            .then(nav => {
+              console.log(nav); 
+            }, err => {
+              console.log(err);
+            });       
       })
     
       this.myForm.reset();  

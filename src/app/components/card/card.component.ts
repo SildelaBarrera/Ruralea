@@ -7,7 +7,7 @@ import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 import { Respuesta } from 'src/app/models/respuesta';
 import { Usuario } from 'src/app/models/usuario';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms'
-
+import { ChatService } from 'src/app/shared/chat.service';
 
 @Component({
   selector: 'app-card',
@@ -29,6 +29,7 @@ export class CardComponent {
   
   constructor(public eventoServicio: EventoServiceService, 
     public usuarioServicio: UsuarioServiceService,
+    public chatServicio: ChatService,
     private route: ActivatedRoute, 
     public reservasServicio: ReservasService, 
     private router: Router) { 
@@ -74,8 +75,29 @@ export class CardComponent {
         if(titulo != ""){
           this.eventoPadre.titulo = titulo.toUpperCase()
         }
+        if(categoria != null){
+          this.eventoPadre.categoria = categoria
+        }
+        // if(fecha != null){
+        //   this.eventoPadre.fecha = fecha
+        // }
         if(municipio != ""){
           this.eventoPadre.municipio = municipio
+        }
+        if(provincia != ""){
+          this.eventoPadre.provincia = provincia
+        }
+        if(aforo != null){
+          this.eventoPadre.aforo = aforo
+        }
+        if(precio != null){
+          this.eventoPadre.precio = precio
+        }
+        if(descripcion != ""){
+          this.eventoPadre.descripcion = descripcion
+        }
+        if(foto != ""){
+          this.eventoPadre.foto = foto
         }
 
         this.evento = resp.datoEvento;
@@ -88,6 +110,25 @@ export class CardComponent {
         }
       })
   }
+
+  public abrirChat(id_productor : number){
+    console.log(this.eventoPadre)
+    this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor).subscribe((resp: Respuesta) => {
+  
+      // for (let chat of resp.datoChats) {
+      //   console.log("estos son los chats", chat);
+      // } 
+    })
+    
+    this.router.navigate(['/', 'chat'])
+    .then(nav => {
+      console.log(nav); 
+    }, err => {
+      console.log(err);
+    });
+  }
+
+
 
 }
 

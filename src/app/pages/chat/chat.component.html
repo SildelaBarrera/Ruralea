@@ -1,16 +1,20 @@
 <div class="contenedor">
     <div class="usuarios">
         <h3>CHAT</h3>
-        <input class="buscar" type="text" placeholder="Busca un chat">
+        <form>
+            <input class="buscar" type="text" placeholder="Busca un chat" [formControl]="formUsuarios">
+        </form>
         <div class="users">
-            <p>{{usuarioServicio.usuario.nombre}}</p>
-            <!-- <p>{{usuarioServicio.usuario2.nombre}}</p> -->
+            <div class="user2" *ngFor="let usuario of usuarios">
+                <p class="user3">{{usuario.nombre}}</p>
+                <img class="imgChat" src="{{usuario.foto}}" alt="">
+            </div>
         </div>
     </div>
-    <div class="contenedor2">
+    <div class="mensajes">
         <div class="comunicacion">
-            <div class="mensajes" #mensajes>
-                
+            <div #mensajes>
+
             </div>
         </div>
         <div class="enviar">

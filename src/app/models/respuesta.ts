@@ -10,8 +10,9 @@ export class Respuesta {
                 public mensaje: string, 
                 public datoEventos: Evento [] , 
                 public datoEvento: Evento, 
-                public datoUsuario:Usuario){
-                    
+                public datoUsuario:Usuario,
+                public datoUsuarios: Usuario[] ){
+                   
                 }
     
 }

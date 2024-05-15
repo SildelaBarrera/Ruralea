@@ -29,21 +29,44 @@ h3{
     padding-left: 5px;
 }
 .users{
-    margin-top: 20px;
+    margin: 10px;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
+    justify-content: space-around;
     align-items: center;
-    
+    height: 400px;
+    overflow-y: auto
 }
-p{
+.user2{
     height: 40px;
     width:200px ;
     border: solid 2px var(--marronMedio);
-    border-radius: 5px;
-    background-color: var(--grisFondo);
-    padding: 4px;
+    border-radius: 10px;
+    background-color: var(--grisFondo);    
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+        
 }
-.contenedor2{
+.user3{    
+    margin-top:35px;
+    margin-left: 15px;
+    width: 100px;
+    height: 39px;
+    color: var(--marronOscuro);
+    font-family: var(--links);
+    font-weight: bold;
+    font-size:14px;
+}
+.imgChat{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    text-align: center;
+    border: 2px var(--blanco) solid;
+}
+.mensajes{
     height: 75vh;
     width: 65%;
     display: flex;
@@ -52,13 +75,6 @@ p{
     align-items: center;    
     margin-top: 35px;
 }
-
-.mensajes p {
-    margin: 5px 0; /* Margen superior e inferior de 5px */
-    padding: 10px; /* Relleno de 10px */
-    background-color: red; /* Color de fondo gris claro */
-    border-radius: 10px; /* Bordes redondeados */
-  }
 
 .comunicacion{
     height: 420px;

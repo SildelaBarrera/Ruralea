@@ -38,8 +38,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;    
-    text-align: center;
-    
+    text-align: center;  
 }
 .inputsHijo{
     
@@ -73,7 +72,6 @@ select{
     padding: 15px;
     border-radius: 10px;    
 }
-
 input{
     font-family: var(--links);
     font-size: 12px;
@@ -97,8 +95,7 @@ button{
 button:disabled {    
     opacity: 0.5; 
     cursor: not-allowed; 
-  }
-
+}
 .texto{
     font-size: 14px;
     color:var(--blanco);
@@ -123,19 +120,19 @@ a{
     justify-content: end;
     align-items: end;
     padding-top: 20px;
-    padding-right: 10px;
-    
+    padding-right: 10px;    
 }
 .modal-content{
     height: 100px;
     width: 350px;
     background-color: var(--marronMedio);
+    color: var(--marronOscuro);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
-    font-size: medium;
+    font-size: 12pt;
 }
 .btn-close{
     justify-content: end;

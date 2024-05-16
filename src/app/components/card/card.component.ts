@@ -95,18 +95,30 @@ public actualizarAforoAlBorrar(id_evento:number){
         if(titulo != ""){
           this.eventoPadre.titulo = titulo.toUpperCase()
         }
+        if(categoria != ""){
+          this.eventoPadre.categoria = categoria
+        }
+        
         if(municipio != ""){
           this.eventoPadre.municipio = municipio
         }
-
+        if(provincia != ""){
+          this.eventoPadre.provincia = provincia
+        }
+        if(aforo != null){
+          this.eventoPadre.aforo = aforo
+        }
+        if(precio != null){
+          this.eventoPadre.precio = precio
+        }
+        if(descripcion != ""){
+          this.eventoPadre.descripcion = descripcion
+        }
+        if(foto != ""){
+          this.eventoPadre.foto = foto
+        }
         this.evento = resp.datoEvento;
-        console.log (this.eventoPadre)
-        if(resp.error){
-          alert(resp.mensaje)
-        }
-        else{
-          alert(resp.mensaje); 
-        }
+        console.log (this.eventoPadre)  
       })
   }
 

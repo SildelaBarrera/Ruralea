@@ -12,6 +12,8 @@ export class PerfilProductorComponent {
   public usuario: Usuario
   public editar: Boolean = true;
   public guardar: Boolean = false;
+  public mailInvalido: Boolean = false;
+
   constructor(public usuarioServicio: UsuarioServiceService){
     
     this.usuario = this.usuarioServicio.usuarioLogueado
@@ -31,7 +33,16 @@ export class PerfilProductorComponent {
     input4, input5){
       console.log (input1)
 
-
+      
+    // const regExp = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$', 'g')
+    // if (!input3.match(regExp)){
+    //   console.log("mail invalido")
+    //   this.mailInvalido = true;
+    //   return;
+    // } else{
+    //   this.mailInvalido = false;
+    // }
+    
     this.usuarioServicio.editarProductor(input1, input2, input3, input4, input5, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
       
       if (input1 != ""){
@@ -50,12 +61,12 @@ export class PerfilProductorComponent {
         this.usuario.password = input5
       }
     
-      if(resp.error){
-        alert(resp.mensaje)
-      }
-      else{
-        alert(resp.mensaje); 
-      }
+      // if(resp.error){
+      //   alert(resp.mensaje)
+      // }
+      // else{
+      //   alert(resp.mensaje); 
+      // }
     
     })
     console.log(Respuesta)

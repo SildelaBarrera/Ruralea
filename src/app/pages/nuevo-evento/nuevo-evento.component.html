@@ -30,8 +30,8 @@
                         </div>
                    
                     <div class="form-group">
-                        <input class="form-group" type="text" formControlName="fecha" #input3
-                        placeholder="Introduce la fecha aaaa-mm-dd"
+                        <input class="form-group" type="date" formControlName="fecha" #input3
+                        placeholder="Introduce la fecha (aaaa-mm-dd)"
                         [ngClass]="{'is-invalid': (myForm.get('fecha').dirty || myForm.get('fecha').touched)
                         && !myForm.get('fecha').valid}">
                         <div id="aviso" *ngIf="!myForm.get('fecha').valid" class="invalid-feedback">La fecha es obligatoria.</div>
@@ -63,14 +63,14 @@
                         <div id="aviso" *ngIf="!myForm.get('localidad').valid" class="invalid-feedback">La localidad es obligatoria.</div>
                     </div>      
                     <div class="form-group">
-                        <input class="form-group" type="text" formControlName="aforo" #input6
+                        <input class="form-group" type="number" formControlName="aforo" #input6
                         placeholder="Indica el aforo máximo"
                         [ngClass]="{'is-invalid': (myForm.get('aforo').dirty || myForm.get('aforo').touched)
                         && !myForm.get('aforo').valid}">
                         <div id="aviso" *ngIf="!myForm.get('aforo').valid" class="invalid-feedback">El aforo es obligatorio.</div>
                     </div>  
                     <div class="form-group">
-                        <input class="form-group" type="text" formControlName="precio" #input7
+                        <input class="form-group" type="number" formControlName="precio" #input7
                         placeholder="Indica el precio por persona"
                         [ngClass]="{'is-invalid': (myForm.get('precio').dirty || myForm.get('precio').touched)
                         && !myForm.get('precio').valid}">

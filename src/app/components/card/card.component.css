@@ -259,6 +259,20 @@ select{
     flex-direction: row;
     justify-content: space-around;
 }
+.labelReservar{
+    font-size: medium;
+    color:var(--blanco);
+    font-family: var(--links);
+    width: 100%;     
+    text-align: center;  
+    flex-wrap: nowrap;
+    margin-bottom: 20px;
+}
+.inputsReservar{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
 .descripcion{
     font-family: var(--links);
     font-size: 12px;

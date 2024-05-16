@@ -10,21 +10,26 @@
             <option class="option" value="Agrícola">Agrícola</option>
         </select>
         <input type="text" placeholder="Inserta una provincia" #provincia>
-        <button (click)="find(categoria.value, provincia.value)" class="buscar" >BUSCAR</button>
-        
+        <button (click)="find(categoria.value, provincia.value)" class="buscar">BUSCAR</button>
+
     </div>
     <div class="cards">
+        <ng-container *ngIf="eventos && eventos.length > 0; else NoActividades">
+            <div *ngIf="this.evento; else Actividades">
+                <app-card [eventoPadre]="evento"></app-card>
+            </div>
+        </ng-container>
 
-        <div *ngIf = "this.evento; else Actividades">
-            <app-card [eventoPadre] = "evento"></app-card>
-
-        </div> 
         <ng-template #Actividades>
-        
-            <div class="card1" *ngFor = "let evento of eventos">  
-                <app-card [eventoPadre] = "evento"></app-card>
+            <div class="card1" *ngFor="let evento of eventos">
+                <app-card [eventoPadre]="evento"></app-card>
             </div>
         </ng-template>
+        <ng-template #NoActividades>
+            <h2 class="aviso" >
+                NO SE ENCONTRARON ACTIVIDADES EN LA PROVINCIA DESEADA   
+            </h2>
+        </ng-template>
 
-    </div> 
-</div>  
+    </div>
+</div>

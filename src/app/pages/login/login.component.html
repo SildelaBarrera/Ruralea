@@ -39,21 +39,20 @@
     </div>
 
         <!-- Login Modal -->
-        <!-- <div class="modal" id="modalLogin"  tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
+        <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modalHeader">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="modalHeader">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+        
+                    <ng-container *ngIf="usuarioServicio.logueado; else loginIncorrecto">
+                        <div class="modal-body">Usuario logueado correctamente.</div>
+                    </ng-container>
+                    <ng-template #loginIncorrecto>
+                        <div class="modal-body">Email o contraseña incorrecta.</div>
+                    </ng-template>
                 </div>
-
-                <ng-container *ngIf="usuarioServicio.logueado == false">
-                    <div class="modal-body">Email o contraseña incorrecta.</div>
-                </ng-container>
-                <ng-container *ngIf="usuarioServicio.logueado == true">
-                    <div class="modal-body">Usuario logueado correctamente.</div>
-                </ng-container>
-                
             </div>
-            </div>
-        </div> -->
+        </div>
           

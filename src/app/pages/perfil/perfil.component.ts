@@ -50,7 +50,11 @@ public activar(input1, input2, input3, input4, input5){
         }
         if(foto!= ""){
           this.usuario.foto = foto
-        }           
+        }     
+        
+        if(email!=""){
+          this.usuario.email = email
+        }
         
         if(resp.error == true){
           

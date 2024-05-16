@@ -25,7 +25,7 @@ export class CardComponent {
   public eventos: Evento [];
   public usuario : Usuario
   public evento: Evento;
-
+  public categoria: string = "Ver todas las actividades";
   
   constructor(public eventoServicio: EventoServiceService, 
     public usuarioServicio: UsuarioServiceService,
@@ -41,16 +41,37 @@ export class CardComponent {
     this.path = this.route.snapshot.routeConfig.path;  
   }
 
-  public reservarActividad(id_evento: number){
-    let userId = this.usuarioServicio.usuarioLogueado.id_usuario;
-    
-    console.log(userId);
-    console.log(id_evento);
+  public actualizarAforo(aforo: number){
+    let nuevoAforo = this.eventoPadre.aforo - aforo;
+    console.log(nuevoAforo, aforo, 'aforo card');
+    if(nuevoAforo < 0){
+      alert('Ya no quedan plazas')
+    } else{
+    this.reservasServicio.actualizarAforo(nuevoAforo, this.eventoPadre.id_evento).subscribe((resp: Respuesta) =>{
+      console.log(this.eventoPadre.id_evento, 'evento padre id');  
+      this.eventoPadre.aforo = nuevoAforo 
       
-    this.reservasServicio.agregarReserva(userId, id_evento).subscribe((resp: Respuesta) =>{
-    this.eventos = resp.datoEventos;
-    
-    });
+    })
+  }
+}
+
+public actualizarAforoAlBorrar(id_evento:number){
+  
+  this.reservasServicio.actualizarAforoAlBorrar(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) =>{
+    console.log(this.eventoPadre.id_evento, 'evento padre id');
+    console.log('borrado card');
+       
+  })
+}
+
+
+  public reservarActividad(numeroPersonas: number){
+    let userId = this.usuarioServicio.usuarioLogueado.id_usuario;    
+    console.log(userId);
+    console.log(numeroPersonas);      
+    this.reservasServicio.agregarReserva(userId, this.eventoPadre.id_evento, numeroPersonas).subscribe((resp: Respuesta) =>{
+    this.eventos = resp.datoEventos;    
+    });    
 }
 
 

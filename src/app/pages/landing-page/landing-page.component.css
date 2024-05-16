@@ -43,7 +43,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-image: linear-gradient(rgba(32, 32, 32, 0.3), rgba(63, 62, 62, 0.3)),url("https://images.pexels.com/photos/1600139/pexels-photo-1600139.jpeg");
+    background-image: linear-gradient(rgba(32, 32, 32, 0.3), rgba(63, 62, 62, 0.3)),url("src\assets\img\trigo.jpeg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

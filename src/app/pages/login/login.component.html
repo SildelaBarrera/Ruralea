@@ -10,26 +10,27 @@
     <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
         
         <div class="inputsHijo">
-        <input #input1 type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioLogueado.email" 
-        [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
-            <div id="aviso" *ngIf="(email.dirty || email.touched) && email.invalid" class="invalid-feedback">
-                <p *ngIf="email.errors.required">El email es obligatorio</p>
-                <p *ngIf="email.errors.email">Direccion de mail es incorrecta</p>
+            <div class="form-group">
+            <input #input1 type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioLogueado.email" 
+            [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
+                <div id="aviso" *ngIf="(email.dirty || email.touched) && email.invalid" class="invalid-feedback">
+                    <p *ngIf="email.errors.required">El email es obligatorio</p>
+                    <p *ngIf="email.errors.email">Direccion de email es incorrecta</p>
+                </div>
             </div>
         
-        
-        <div>
-            <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuarioLogueado.password" 
-            [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
+            <div class="form-group">
+                <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuarioLogueado.password" 
+                [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
             
-                <div id="aviso" *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">
-                    <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
-                    <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
-                </div>
-        </div>  
-        <div class="boton">  
-        <button  [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)" data-bs-toggle="modal" data-bs-target="#modalLogin">LOGIN</button>
-        <p class="texto">¿Aún no tienes una cuenta?<a href="/registro">Regístrate</a></p>
+                    <div id="aviso" *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">
+                        <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
+                        <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
+                    </div>
+            </div>  
+        <div>  
+            <button class="boton" [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)" data-bs-toggle="modal" data-bs-target="#modalLogin">LOGIN</button>
+            <p class="texto">¿Aún no tienes una cuenta?<a href="/registro">Regístrate</a></p>
         </div>
         </div>
         </form>
@@ -38,22 +39,17 @@
       </div>
     </div>
 
-        <!-- Login Modal -->
-        <!-- <div class="modal" id="modalLogin"  tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
+    <!-- Login Modal  -->
+    <!-- <div *ngIf="usuarioServicio.logueado == false">
+        <div [hidden]="usuarioServicio.logueado" class="modal" id="modalLogin"  tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
             <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modalHeader">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-
-                <ng-container *ngIf="usuarioServicio.logueado == false">
+                <div class="modal-content">
+                    <div class="modalHeader">
+                        <button id="cerrarModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
                     <div class="modal-body">Email o contraseña incorrecta.</div>
-                </ng-container>
-                <ng-container *ngIf="usuarioServicio.logueado == true">
-                    <div class="modal-body">Usuario logueado correctamente.</div>
-                </ng-container>
-                
+                </div>
             </div>
-            </div>
-        </div> -->
+        </div>
+    </div> -->
           

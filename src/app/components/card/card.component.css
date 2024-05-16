@@ -25,6 +25,7 @@ h3{
     height: 40px;
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 15px;
     background-color:rgba(6, 6, 6, 0.33);
     color:var(--blanco);
     font-family: var(--links);
@@ -38,6 +39,7 @@ h3{
 .enunciado{
     display:flex;
     flex-direction: row;
+    margin:-7px;
 }
 
 #descripcion{
@@ -112,7 +114,8 @@ h3{
     justify-content: space-around;
     background-color: var(--inputColor);
     border-radius: 10px;
-    margin: 15px;  
+    margin: 8px;  
+    padding-bottom: 5px;
 }
 #img{
     width: 145px;
@@ -244,6 +247,7 @@ select{
     flex-direction: column;
     justify-content: space-between;
     padding: 0px 20px 20px 20px;
+    
 }
 .labelEliminar{
     font-size: medium;
@@ -253,6 +257,7 @@ select{
     text-align: center;  
     flex-wrap: nowrap;
     margin-bottom: 20px;
+    color: var(--marronOscuro);
 }
 .inputsEliminar{
     display: flex;

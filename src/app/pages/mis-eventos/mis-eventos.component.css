@@ -35,6 +35,6 @@ h1{
     align-items: center;
     padding-bottom: 20px;
     font-size: medium;
-    color:var(--marronOscuro);
     font-family: var(--inputs);
+    color: var(--blanco);
 }

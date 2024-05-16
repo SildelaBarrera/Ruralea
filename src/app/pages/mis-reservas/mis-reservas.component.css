@@ -58,8 +58,7 @@ button:focus{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: medium;
-    font-weight: bold;
+    font-size: 12pt;
     color:var(--marronOscuro);
     font-family: var(--inputs);
 }

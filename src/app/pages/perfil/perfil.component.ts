@@ -50,17 +50,24 @@ public activar(input1, input2, input3, input4, input5){
         }
         if(foto!= ""){
           this.usuario.foto = foto
-        }           
+        }  
+        if(email!= ""){
+          this.usuario.email = email
+        }  
+        if(password!= ""){
+          this.usuario.password = password
+        }  
+
         
-        if(resp.error == true){
+        // if(resp.error == true){
           
           
-          alert(resp.mensaje)
-        }
-        else{
-          alert(resp.mensaje)
+        //   alert(resp.mensaje)
+        // }
+        // else{
+        //   alert(resp.mensaje)
           
-        }
+        // }
       })      
   }
 }

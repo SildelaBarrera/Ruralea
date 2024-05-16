@@ -159,13 +159,13 @@ button:disabled {
     justify-content: end;
     align-items: end;
     padding-top: 20px;
-    padding-right: 10px;
-    
+    padding-right: 10px;   
 }
 .modal-content{
     height: 100px;
     width: 350px;
     background-color: var(--marronMedio);
+    color: var(--marronOscuro);
     display: flex;
     flex-direction: column;
     justify-content: center;

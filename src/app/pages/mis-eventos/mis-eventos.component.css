@@ -34,7 +34,7 @@ h1{
     justify-content: center;
     align-items: center;
     padding-bottom: 20px;
-    font-size: medium;
+    font-size: 12 pt;
     font-family: var(--inputs);
-    color: var(--blanco);
+    color: var(--marronOscuro);
 }

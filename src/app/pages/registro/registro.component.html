@@ -13,7 +13,7 @@
                     <select id="tapa" name="tapa" class="form-group" formControlName="tipoUsuario" #input1
                     [ngClass]="{'is-invalid': (myForm.get('tipoUsuario').dirty || myForm.get('tipoUsuario').touched)
                             && !myForm.get('tipoUsuario').valid}">                    
-                        <option class="option" value="Elige una opcion" selected disabled>Elige una opcion</option>
+                        <option class="option" value="Elige un tipo de usuario" hidden selected disabled>Elige un tipo de usuario</option>
                         <option class="option" value="Productor">Productor</option>
                         <option class="option" value="Consumidor">Consumidor</option>                                
                     </select>                  
@@ -42,7 +42,7 @@
                     [ngClass]="{'is-invalid': (myForm.get('email').dirty || myForm.get('email').touched)
                     && !myForm.get('email').valid}">
                     <div id="aviso" *ngIf="!myForm.get('email').valid" class="invalid-feedback">
-                        <div *ngIf="!myForm.get('email').errors.required">E-mail obligatorio</div>
+                        <div *ngIf="!myForm.get('email').errors.required">El e-mail es obligatorio</div>
                         <div *ngIf="!myForm.get('email').errors.email">E-mail erróneo</div>
                 
                     </div>
@@ -66,13 +66,13 @@
                     [ngClass]="{'is-invalid': (myForm.get('password2').dirty || myForm.get('password2').touched)
                     && !myForm.get('password2').valid}">
                     <div id="aviso" *ngIf="!myForm.get('password2').valid" class="invalid-feedback">
-                        <div *ngIf="myForm.get('password2').errors.required">La password es obligatoria</div>
+                        <div *ngIf="myForm.get('password2').errors.required">Repetir contraseña es obligatorio</div>
                         <div *ngIf="!myForm.get('password2').errors.required &&
-                                myForm.get('password2').errors.matchPassword">Las claves no coinciden</div>
+                                myForm.get('password2').errors.matchPassword">Las contraseñas no coinciden</div>
                     </div>
                 </div>
                 <div>
-                <button (click)="register(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value)" [disabled]="myForm.invalid" data-bs-toggle="modal" data-bs-target="#modalRegistro">REGÍSTRATE</button>
+                <button class ="button" (click)="register(input1.value, input2.value, input3.value, input4.value, input5.value, input6.value)" [disabled]="myForm.invalid" data-bs-toggle="modal" data-bs-target="#modalRegistro">REGÍSTRATE</button>
                 <p class="texto">Si ya estás registrado accede a través del <a href="/login">login</a></p>
                 </div>
                 </div>
@@ -92,7 +92,10 @@
         <ng-container *ngIf="registrado == true">
             <div class="modal-body">Usuario registrado correctamente.</div>
         </ng-container>
-        <ng-container *ngIf="registrado == false">
+        <ng-container *ngIf="registrado == false && tipoSelect == false">
+            <div class="modal-body">El tipo de usuario es necesario.</div>
+        </ng-container>
+        <ng-container *ngIf="registrado == false && tipoSelect == true">
             <div class="modal-body">El usuario ya existe.</div>
         </ng-container>
         

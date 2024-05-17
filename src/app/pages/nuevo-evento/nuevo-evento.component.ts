@@ -19,7 +19,8 @@ export class NuevoEventoComponent {
   public myForm: FormGroup;
   public usuario: Usuario;
   public eventos: Evento [];
-  // public eventoCreado: Boolean;
+  public nuevoEvento: Boolean = false;
+  public tipoSelect:Boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -46,18 +47,24 @@ export class NuevoEventoComponent {
   public enviar(titulo:string, categoria:string, fecha:Date, municipio: string, provincia:string,
     aforo:number, precio:number, descripcion: string, foto: string){
 
+      if(categoria == "Elige la categoría"){
+        return
+      } else{
+        this.tipoSelect = true;
+      }
+      
       let nuevoTitulo: string = titulo.toUpperCase()
       console.log(this.usuario.id_usuario)      
       this.eventoServicio.crear(nuevoTitulo, categoria, fecha, municipio, provincia,
         aforo, precio, descripcion, foto, this.usuario.id_usuario).subscribe((resp: Respuesta) => {
-      
-          // if (resp.error){
-          //   this.eventoCreado = false;
-          // }else{
-          //   this.eventoCreado = true;
-          
-          // }
-          
+          if(resp.error){
+    
+            this.nuevoEvento = false
+          }
+          else 
+          // alert('Usuario registrado correctamente')
+            this.nuevoEvento = true   
+          resp.datoEvento
         }); 
       
       this.myForm.reset();             
@@ -67,7 +74,7 @@ export class NuevoEventoComponent {
     this.myForm = this.formBuilder.group(
       {
         titulo: [, Validators.required],
-        categoria: ["Elige la categoria", Validators.required],
+        categoria: ["Elige la categoría", Validators.required],
         fecha:[, Validators.required],
         descripcion: [,Validators.required],
         municipio: [, Validators.required],

@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Usuario } from 'src/app/models/usuario';
 import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
 import { Respuesta } from 'src/app/models/respuesta';
-
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-perfil-productor',
   templateUrl: './perfil-productor.component.html',
@@ -10,11 +10,14 @@ import { Respuesta } from 'src/app/models/respuesta';
 })
 export class PerfilProductorComponent {
   public usuario: Usuario
+  public myForm: FormGroup
   public editar: Boolean = true;
   public guardar: Boolean = false;
   public mailInvalido: Boolean = false;
 
-  constructor(public usuarioServicio: UsuarioServiceService){
+  constructor(public usuarioServicio: UsuarioServiceService,
+              private formBuilder: FormBuilder
+  ){
     
     this.usuario = this.usuarioServicio.usuarioLogueado
   }
@@ -29,6 +32,8 @@ export class PerfilProductorComponent {
     this.guardar = true;
   }
   
+
+
   public enviar(input1, input2, input3,
     input4, input5){
       console.log (input1)
@@ -42,7 +47,6 @@ export class PerfilProductorComponent {
     // } else{
     //   this.mailInvalido = false;
     // }
-    
     this.usuarioServicio.editarProductor(input1, input2, input3, input4, input5, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
       
       if (input1 != ""){

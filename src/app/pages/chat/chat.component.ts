@@ -1,9 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
+import { Chat } from 'src/app/models/chat';
 import { Respuesta } from 'src/app/models/respuesta';
 import { Usuario } from 'src/app/models/usuario';
 import { ChatService } from 'src/app/shared/chat.service';
 import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
+import { Mensaje } from 'src/app/models/mensaje';
 
 @Component({
   selector: 'app-chat',
@@ -11,30 +13,68 @@ import { UsuarioServiceService } from 'src/app/shared/usuario-service.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent {
+  @ViewChild('scrollMe') private myScrollContainer:ElementRef;
   @ViewChild('mensajes') mensajesDiv: ElementRef;
+  
+  public mensajes: any[]
   public formUsuarios = new FormControl('')
-  public usuarios: Usuario []
-  public usuario: Usuario
-  constructor(public usuarioServicio:UsuarioServiceService, public  chatServicio: ChatService){
-      this.getUsuarios()
+  public usuarios: Usuario[]
+  public usuario: Usuario;
+  public chat: Chat;
+  public chats: Chat[]
+  public mensaje: string
+  public id_usuario:number
+  public id_chat: number
+  public id_chats: Number[]
+  public nombre_usuario: string
+  constructor(public usuarioServicio: UsuarioServiceService, public chatServicio: ChatService) {
   }
-  enviar(mensaje: string): void {
-    // Verifica que el mensaje no esté vacío antes de agregarlo
-    if (mensaje.trim() !== '') {
-      // Crea un nuevo elemento <p> con el contenido del mensaje
-      const nuevoMensaje = document.createElement('p');
-      nuevoMensaje.textContent = mensaje;
+  ngOnInit(): void {
+    this.usuario = this.usuarioServicio.usuarioLogueado
+    this.id_usuario = this.usuarioServicio.usuarioLogueado.id_usuario;
+    this.cargarChats();
+  }
 
-      // Agrega el nuevo mensaje al div de mensajes
-      this.mensajesDiv.nativeElement.appendChild(nuevoMensaje);
-        
+  public cargarChats(): void {
+    this.chatServicio.getChats(this.usuarioServicio.usuarioLogueado.tipoUsuario, this.id_usuario).subscribe((resp: Respuesta) => {
+      console.log(this.id_usuario, 'chat componente');
+      this.chats = resp.datoChats
+
+      console.log(resp.datoChats);
+
+    });
+  }
+
+  public seleccionarChat(id_chat: number): void {
+    console.log (id_chat)
+    this.id_chat = id_chat;
+    this.cargarMensajes(id_chat);
+    console.log(id_chat, 'seleccionar componente');
+
+  }
+
+  public cargarMensajes(id_chat: number): void {
+    this.chatServicio.getMensajes(id_chat).subscribe((mensajes: Mensaje []) => {
+      
+      console.log(mensajes)
+      
+      this.mensajes = mensajes
+      
+      console.log(this.mensajes, 'cargar componente');
+      return this.mensajes
+
+    });
+  }
+
+public enviarMensaje(mensaje: string): void {
+    if (this.id_chat && this.mensaje.trim()) {
+      this.chatServicio.enviarMensaje(this.id_chat, this.id_usuario, mensaje).subscribe((mensaje: any) => {
+        console.log(this.id_usuario, 'enviar componente');
+
+        this.mensajes.push(mensaje);
+        this.mensaje = '';
+      });
     }
   }
 
-  public getUsuarios(){
-    this.usuario = this.usuarioServicio.usuarioLogueado
-    console.log(this.usuario, 'this usuario');    
-    this.chatServicio.getUsuarios(this.usuario.id_usuario, this.usuario.tipoUsuario).subscribe((resp:Respuesta)=>
-    this.usuarios = resp.datoUsuarios)    
-  }
 }

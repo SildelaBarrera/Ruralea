@@ -26,8 +26,8 @@ export class ChatService {
     
   }
 
-  public getMensajes(id_chat: number, id_usuario:number) {
-    let nuevaUrl = this.url + "chat?id_chat=" + id_chat + "&id_usuarioEmisor=" + id_usuario
+  public getMensajes(id_usuario:number, id_chat: number) {
+    let nuevaUrl = this.url + "chat?id_usuario=" + id_usuario + "&id_chat=" + id_chat 
     return this.http.get(nuevaUrl);
   }
 

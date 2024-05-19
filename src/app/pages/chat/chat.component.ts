@@ -64,7 +64,7 @@ py
   }
 
   public cargarMensajes(id_chat: number): void {
-    this.chatServicio.getMensajes(id_chat, this.id_usuario).subscribe((resp: Respuesta) => {
+    this.chatServicio.getMensajes(this.id_usuario, id_chat).subscribe((resp: Respuesta) => {
       console.log(id_chat, 'cargar mensajes');
       this.mensajes = resp.datoMensajes;
       console.log(this.mensajes);     

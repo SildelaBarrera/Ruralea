@@ -28,7 +28,7 @@
                 <label for="">Introduce la url de tu foto</label>
                 <input type="text" disabled value={{this.usuario.foto}} #input4>
                 <label for="">Introduce la nueva contraseña </label>
-                <input type="password" disabled value="*********" #input5>
+                <input type="password" disabled value={{this.usuario.password}} #input5>
                 
                 <button class="button" *ngIf="editar" (click)="activar(input1, input2, input3, input4, input5)">EDITAR</button>
                 <button class="button" *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value, usuario.id_usuario)" 

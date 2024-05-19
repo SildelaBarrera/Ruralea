@@ -111,24 +111,8 @@
 </div>    
 
 <div *ngIf="path === 'actividades'" class="card" >    
-        <div class="texto">
-            <h3>{{eventoPadre.titulo}}</h3>
-            <img id="img" src="{{eventoPadre.foto}}" alt="">
-        <div class="enunciado">
-            <p class="loc"><strong>Categoría:</strong></p>
-            <p>{{eventoPadre.categoria}}</p>
-        </div>    
-        <div class="enunciado"> 
-            <p class="loc"><strong>Localización: </strong></p>
-            <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
-        </div>
-
-    </div>
-</div>
-
-<div *ngIf="path === 'actividades'" class="card">
     <div class="texto">
-        <h3>{{eventoPadre.titulo}}</h3>
+        <h3>{{eventoPadre.titulo}}</h3> 
         <img id="img" src="{{eventoPadre.foto}}" alt="">
     </div>
     <div class="enunciado">
@@ -154,30 +138,59 @@
     <div class="enunciado">
         <p class="loc"><strong>Descripción:</strong></p>
         <p id="descripcion">{{eventoPadre.descripcion}}</p>
-    </div>
-    <button type="button" class="eliminar2" data-bs-toggle="modal"
-        [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">
-        ELIMINAR
-    </button>
-    <button class="contactame">CONTÁCTAME</button>
-    <!-- Eliminar Modal -->
-    <div class="modal fade" id="ElminarModal2{{eventoPadre.id_evento}}" tabindex="-1"
-        aria-labelledby="EliminarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modalHeader2">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body2">
-                    <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
-                    <form class="inputsEliminar" action="">
-                        <button class="boton" type="button" (click)="actualizarAforoAlBorrar(eventoPadre.id_evento)"
-                            (click)="borrarReserva(eventoPadre.id_evento)" data-bs-dismiss="modal">Si</button>
-                        <button class="boton" type="button" data-bs-dismiss="modal">No</button>
-                    </form>
-                </div>
-            </div>
+    </div>    
+    <button class="reservar" (click)="reservarActividad(eventoPadre.id_evento)">RESERVAR</button>     
+    <button class="contactame">CONTÁCTAME</button>     
+</div>      
+<div *ngIf="path === 'misReservas'" class="card" >    
+<div class="texto">
+    <h3>{{eventoPadre.titulo}}</h3> 
+    <img id="img" src="{{eventoPadre.foto}}" alt="">
+</div>
+<div class="enunciado">
+    <p class="loc"><strong>Categoría:</strong></p>
+    <p>{{eventoPadre.categoria}}</p>
+</div> 
+<div class="enunciado"> 
+    <p class="loc"><strong>Localización: </strong></p>
+    <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
+</div>
+<div class="enunciado">
+    <p class="loc"><strong>Fecha:</strong></p>
+    <p>{{eventoPadre.fecha.substring(0,10)}}</p>
+</div>
+<div class="enunciado">
+    <p class="loc"><strong>Aforo:</strong></p>
+    <p>{{eventoPadre.aforo}}</p>
+</div>
+<div class="enunciado">
+    <p class="loc"><strong>Precio:</strong></p>
+    <p>{{eventoPadre.precio}} €</p>
+</div>
+<div class="enunciado">
+    <p class="loc"><strong>Descripción:</strong></p>
+    <div id="descripcion"> {{eventoPadre.descripcion}}</div>
+</div>
+<button type="button" class="eliminar2" data-bs-toggle="modal" [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">
+    ELIMINAR
+</button>
+<button class="contactame">CONTÁCTAME</button>
+<!-- Eliminar Modal -->
+<div class="modal fade" id="ElminarModal2{{eventoPadre.id_evento}}" tabindex="-1" aria-labelledby="EliminarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modalHeader2">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body2">    
+            <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
+            <form class="inputsEliminar" action="" > 
+                <button class="boton" type="button" (click)="borrarReserva(eventoPadre.id_evento)" data-bs-dismiss="modal">Si</button>
+                <button class="boton" type="button" data-bs-dismiss="modal">No</button>            
+            </form>  
         </div>
     </div>
-
+    </div>
 </div>
+    
+</div> 

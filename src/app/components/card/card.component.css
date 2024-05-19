@@ -170,6 +170,7 @@ h3{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: var(--marronNegro) solid 2px;
 }
 .modalHeader{
     height: 25%;

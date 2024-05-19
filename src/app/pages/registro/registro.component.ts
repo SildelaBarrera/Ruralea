@@ -23,6 +23,28 @@ export class RegistroComponent {
 
   } 
 
+  public cerrar() {
+    const modal = document.getElementById('modalRegistro');
+     if (modal) {
+         modal.removeAttribute('aria-hidden'); // Elimina el atributo aria-hidden para mostrar el modal
+         modal.classList.remove('show'); // Quita la clase 'show' para ocultar el modal
+       }
+     }
+
+ public redir()    {
+     if (this.registrado == true) {
+         setTimeout(() => {
+           this.router.navigate(['/', 'login'])
+             .then(nav => {
+               console.log(nav);
+             }, err => {
+               console.log(err);
+             });
+         }, 500);
+       }
+      }
+
+
   public register(tipoUsuario:string, nombre: string, apellidos: string,  email: string, contraseña:string,  contraseña2:string){
     let user = this.myForm.value;
     console.log(user);
@@ -35,27 +57,16 @@ export class RegistroComponent {
     this.usuarioServicio.register(tipoUsuario, nombre, apellidos, email, contraseña,
       contraseña2).subscribe((resp: Respuesta) => {
         if(resp.error){
-          // alert('El usuario ya existe');
           this.registrado = false
         }
-        else 
-        // alert('Usuario registrado correctamente')
+        else {
           this.registrado = true   
-        resp.datoUsuario    
-
-      })
-    
-      this.myForm.reset();  
-      setTimeout(() => {
-        this.router.navigate(['/', 'login'])
-          .then(nav => {
-            console.log(nav);
-          }, err => {
-            console.log(err);
-          });
-      }, 4000);
-  }
+          resp.datoUsuario    
+          this.myForm.reset();  
+        }
+      })  
   
+  }
   private buildForm(){
     const minPassLength = 8;
     this.myForm = this.formBuilder.group({

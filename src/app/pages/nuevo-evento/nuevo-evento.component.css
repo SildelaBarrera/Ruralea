@@ -179,6 +179,8 @@ button:disabled {
     width: 20px;
     border-radius: 10%;
 }
+
+
 @media all and (max-width: 1300px){
 
     input{

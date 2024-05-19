@@ -40,22 +40,32 @@ export class PerfilComponent {
   }
 
 
-  public enviar(nombre: string, apellidos: string, email: string, foto: string, password: string, id_usuario: number) {
-    this.usuarioServicio.editarConsumidor(nombre, apellidos, email, foto, password, id_usuario).subscribe((resp: Respuesta) => {
-      if (nombre != "") {
-        this.usuario.nombre = nombre
+  public enviar(input1, input2, input3,
+    input4, input5){
+      console.log (input1)
+    
+    this.usuarioServicio.editarProductor(input1, input2, input3, input4, input5, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
+      
+      if (input1 != ""){
+        this.usuario.nombre = input1
       }
-      if (apellidos != "") {
-        this.usuario.apellidos = apellidos
+      if (input2 != ""){
+        this.usuario.apellidos = input2
       }
-      if (foto != "") {
-        this.usuario.foto = foto
+      if (input3 != ""){
+        this.usuario.email = input3
       }
-
-      if (email != "") {
-        this.usuario.email = email
+      if (input4 != ""){
+        this.usuario.foto = input4
       }
+      if (input5 != ""){
+        this.usuario.password = input5
+      }
+    
     })
+    console.log(Respuesta)
+    
+    return(this.usuario)
   }
 }
 

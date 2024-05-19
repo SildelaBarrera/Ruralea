@@ -44,7 +44,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modalHeader">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="redir()"></button>
                     </div>
         
                     <ng-container *ngIf="usuarioServicio.logueado; else loginIncorrecto">

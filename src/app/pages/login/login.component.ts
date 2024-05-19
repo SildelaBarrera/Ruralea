@@ -25,15 +25,42 @@ export class LoginComponent {
   onSubmit(form: NgForm) {
     console.log(form.value);
   }
+
   public cerrar() {
-    setTimeout(() => {
-        const modal = document.getElementById('modalLogin');
-        if (modal) {
-            modal.removeAttribute('aria-hidden'); // Elimina el atributo aria-hidden para mostrar el modal
-            modal.classList.remove('show'); // Quita la clase 'show' para ocultar el modal
+     const modal = document.getElementById('modalLogin');
+      if (modal) {
+          modal.removeAttribute('aria-hidden'); // Elimina el atributo aria-hidden para mostrar el modal
+          modal.classList.remove('show'); // Quita la clase 'show' para ocultar el modal
         }
-    }, 3000);
-}
+      }
+
+  public redir()    {
+      if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor") {
+          setTimeout(() => {
+            this.router.navigate(['/', 'misEventos'])
+              .then(nav => {
+                console.log(nav);
+              }, err => {
+                console.log(err);
+              });
+          }, 500);
+        }
+      else {
+          setTimeout(() => {
+            this.router.navigate(['/', 'misReservas'])
+              .then(nav => {
+                console.log(nav);
+              }, err => {
+                console.log(err);
+              });
+          }, 500);
+        }
+    
+      }
+
+      
+
+
   public login(email: string, password: string) {
     this.usuarioServicio.login(email, password).subscribe((resp: Respuesta) => {
       if (resp.error) {
@@ -48,26 +75,7 @@ export class LoginComponent {
         console.log("Log in " + this.usuarioServicio.logueado)
         console.log(this.usuarioServicio.usuarioLogueado.tipoUsuario)
 
-        if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor") {
-          setTimeout(() => {
-            this.router.navigate(['/', 'misEventos'])
-              .then(nav => {
-                console.log(nav);
-              }, err => {
-                console.log(err);
-              });
-          }, 4000);
-        }
-        else {
-          setTimeout(() => {
-            this.router.navigate(['/', 'misReservas'])
-              .then(nav => {
-                console.log(nav);
-              }, err => {
-                console.log(err);
-              });
-          }, 4000);
-        }
+     
 
         return this.usuarioServicio.usuarioLogueado
 

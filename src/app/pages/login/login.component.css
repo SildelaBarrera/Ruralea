@@ -131,7 +131,11 @@ a{
     justify-content: end;
     align-items: end;
     padding-top: 20px;
-    padding-right: 10px;   
+    padding-right: 10px; 
+}
+.modal-dialog{
+    display: flex;
+    justify-content: end;
 }
 .modal-content{
     height: 100px;
@@ -145,6 +149,7 @@ a{
     padding-bottom: 20px;
     font-size: 12pt;
     border-radius: 10px; 
+    border: var(--marronNegro) solid 2px;  
 }
 .btn-close{
     justify-content: end;

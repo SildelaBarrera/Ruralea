@@ -30,10 +30,26 @@
                 <label for="">Introduce la nueva contraseña </label>
                 <input type="password" disabled value={{usuario.password}} #input5>
                 
-                <button *ngIf="editar" (click)="activar(input1, input2, input3, input4, input5)">EDITAR</button>
-                <button *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value, usuario.id_usuario)" (click)="desactivar(input1, input2, input3, input4, input5)">GUARDAR</button>
+                <button class= "button" *ngIf="editar" (click)="activar(input1, input2, input3, input4, input5)">EDITAR</button>
+                <button class ="button" *ngIf="guardar" (click)="enviar(input1.value, input2.value, input3.value, input4.value, input5.value, usuario.id_usuario)" (click)="desactivar(input1, input2, input3, input4, input5)"data-bs-toggle="modal" data-bs-target="#modalPerfil">GUARDAR</button>
             </div>
         </div>
     </div>
+    </div>
+</div>
+
+<!-- Perfil Modal -->
+<div class="modal" id="modalPerfil" tabindex="-1" aria-labelledby="ModalPerfilLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modalHeader">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <ng-container>
+                <div class="modal-body">Información editada correctamente.</div>
+            </ng-container>
+            
+        </div>
     </div>
 </div>

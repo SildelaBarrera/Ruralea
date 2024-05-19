@@ -32,16 +32,6 @@ export class PerfilProductorComponent {
   public enviar(input1, input2, input3,
     input4, input5){
       console.log (input1)
-
-      
-    // const regExp = new RegExp('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$', 'g')
-    // if (!input3.match(regExp)){
-    //   console.log("mail invalido")
-    //   this.mailInvalido = true;
-    //   return;
-    // } else{
-    //   this.mailInvalido = false;
-    // }
     
     this.usuarioServicio.editarProductor(input1, input2, input3, input4, input5, this.usuario.id_usuario).subscribe ((resp: Respuesta) => {
       
@@ -60,13 +50,6 @@ export class PerfilProductorComponent {
       if (input5 != ""){
         this.usuario.password = input5
       }
-    
-      // if(resp.error){
-      //   alert(resp.mensaje)
-      // }
-      // else{
-      //   alert(resp.mensaje); 
-      // }
     
     })
     console.log(Respuesta)

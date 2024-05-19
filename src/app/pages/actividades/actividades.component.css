@@ -74,11 +74,15 @@ h1{
     height: 100px;
     width: 350px;
     border-radius: 10px;
+    border:var(--marronNegro) solid 2px;
     background-color: var(--marronMedio);
-    padding: 30px;
-    font-size: medium;
-    font-weight: bold;
-    color:var(--marronOscuro);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12pt;
     font-family: var(--inputs);
+    color: var(--marronOscuro);
+    padding:15px;
     text-align: center;
 }

@@ -53,12 +53,13 @@ button:focus{
     height: 100px;
     width: 350px;
     border-radius: 10px;
+    border: var(--marronNegro)  solid 2px;
     background-color: var(--marronMedio);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-size: 12pt;
-    color:var(--marronOscuro);
     font-family: var(--inputs);
+    color: var(--marronOscuro);
 }

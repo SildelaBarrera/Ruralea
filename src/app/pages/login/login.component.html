@@ -48,11 +48,11 @@
 </div>
 
 <!-- Login Modal -->
-<!-- <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" [hidden]="!usuarioServicio.logueado">
+<div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" [hidden]="!usuarioServicio.logueado">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <div class="modalHeader">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="redir()"></button>
                     </div>
         
                     <div class="modal-body">
@@ -65,8 +65,8 @@
                     </div>
                 </div>
             </div>
-        </div> -->
-<div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" *ngIf="mostrarModal">
+        </div>
+<!-- <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" *ngIf="mostrarModal">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modalHeader">
@@ -77,4 +77,4 @@
             <div class="modal-body">Email o contraseña incorrecta.</div>
         </div>
     </div>
-</div>
+</div> -->

@@ -20,7 +20,7 @@
                         <select class="form-group" formControlName="categoria" #input2
                             [ngClass]="{'is-invalid': (myForm.get('categoria').dirty || myForm.get('categoria').touched)
                             && !myForm.get('categoria').valid}">                            
-                            <option class="option" value="Elige la categoria" selected disabled>Elige la categoria</option> 
+                            <option class="option" value="Elige la categoría" hidden selected disabled>Elige la categoría</option> 
                             <option class="option" value="Artesania">Artesanía</option>
                             <option class="option" value="Ganaderia">Ganadería</option>
                             <option class="option" value="Culinario">Culinario</option>
@@ -98,23 +98,25 @@
 </div>
 
 
-   <!-- Evento Modal
-   <div class="modal fade" id="modalEvento" tabindex="-1" aria-labelledby="modalEvento" aria-hidden="true">
+  <!-- Evento Modal -->
+
+  <div class="modal fade" id="modalEvento" tabindex="-1" aria-labelledby="modalEvento" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
         <div class="modalHeader">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         
-        <ng-container *ngIf="eventoCreado == false">
-            <div class="modal-body">El evento ya existe.</div>
-        </ng-container>
-        <ng-container *ngIf="eventoCreado == true">
+        <ng-container *ngIf="nuevoEvento == true">
             <div class="modal-body">Evento creado correctamente.</div>
+        </ng-container>
+        <ng-container *ngIf="nuevoEvento == false && tipoSelect == false">
+            <div class="modal-body">La categoría es necesaria.</div>
+        </ng-container>
+        <ng-container *ngIf="nuevoEvento == false && tipoSelect == true">
+            <div class="modal-body">El evento ya existe.</div>
         </ng-container>
         
     </div>
-    </div> -->
-<!-- </div> -->
-      
-    
+    </div>
+</div>    

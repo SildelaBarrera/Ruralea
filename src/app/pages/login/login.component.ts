@@ -28,11 +28,40 @@ export class LoginComponent {
     console.log(form.value);
   }
 
-  public cerrar() {
-    setTimeout(() => {
-      this.mostrarModal = false; // Ocultar el modal
-    }, 1000);
-  }
+  public cerrar() {    
+     const modal = document.getElementById('modalLogin');
+      if (modal) {
+          modal.removeAttribute('aria-hidden'); // Elimina el atributo aria-hidden para mostrar el modal
+          modal.classList.remove('show'); // Quita la clase 'show' para ocultar el modal
+        }
+      }
+
+  public redir()    {
+      if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor") {
+          setTimeout(() => {
+            this.router.navigate(['/', 'misEventos'])
+              .then(nav => {
+                console.log(nav);
+              }, err => {
+                console.log(err);
+              });
+          }, 500);
+        }
+      else {
+          setTimeout(() => {
+            this.router.navigate(['/', 'misReservas'])
+              .then(nav => {
+                console.log(nav);
+              }, err => {
+                console.log(err);
+              });
+          }, 500);
+        }
+    
+      }
+
+      
+
 
   public login(email: string, password: string) {
     this.usuarioServicio.login(email, password).subscribe((resp: Respuesta) => {
@@ -46,73 +75,14 @@ export class LoginComponent {
         console.log(this.usuarioServicio.usuarioLogueado);
         console.log("Log in " + this.usuarioServicio.logueado);
         console.log(this.usuarioServicio.usuarioLogueado.tipoUsuario);
-
-        if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor") {
-          this.router.navigate(['/', 'misEventos'])
-            .then(nav => {
-              console.log(nav);
-            }, err => {
-              console.log(err);
-            });
-        } else {
-          this.router.navigate(['/', 'misReservas'])
-            .then(nav => {
-              console.log(nav);
-            }, err => {
-              console.log(err);
-            });
-        }
-
         return this.usuarioServicio.usuarioLogueado;
       }
     });
   }
-
-
-  // public login(email: string, password: string) {
-  //   this.usuarioServicio.login(email, password).subscribe((resp: Respuesta) => {
-  //     if (resp.error) {
-  //       this.usuarioServicio.logueado = false;
-
-
-  //     }
-  //     else {       
-  //       this.usuarioServicio.logueado = true;
-  //       this.usuarioServicio.usuarioLogueado = resp.datoUsuario
-
-  //       console.log(this.usuarioServicio.usuarioLogueado)
-  //       console.log("Log in " + this.usuarioServicio.logueado)
-  //       console.log(this.usuarioServicio.usuarioLogueado.tipoUsuario)
-
-  //       if (this.usuarioServicio.usuarioLogueado.tipoUsuario == "Productor") {
-  //         setTimeout(() => {
-  //           this.router.navigate(['/', 'misEventos'])
-  //             .then(nav => {
-  //               console.log(nav);
-  //             }, err => {
-  //               console.log(err);
-  //             });
-  //         }, 4000);
-  //       }
-  //       else {
-  //         setTimeout(() => {
-  //           this.router.navigate(['/', 'misReservas'])
-  //             .then(nav => {
-  //               console.log(nav);
-  //             }, err => {
-  //               console.log(err);
-  //             });
-  //         }, 4000);
-  //       }
-
-  //       return this.usuarioServicio.usuarioLogueado
-
-
-  //     }
-
-  //   })
-
-  // }
-
-
 }
+
+
+  
+
+
+  

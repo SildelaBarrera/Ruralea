@@ -48,7 +48,7 @@ export class CardComponent {
     let nuevoAforo = this.eventoPadre.aforo - aforo;
     console.log(nuevoAforo, aforo, 'aforo card');
     if (nuevoAforo < 0) {
-      alert('Ya no quedan plazas')
+      alert('No hay plazas disponibles')
     } else {
       this.reservasServicio.actualizarAforo(nuevoAforo, this.eventoPadre.id_evento).subscribe((resp: Respuesta) => {
         console.log(this.eventoPadre.id_evento, 'evento padre id');
@@ -57,6 +57,7 @@ export class CardComponent {
       })
     }
   }
+  
 
   public actualizarAforoAlBorrar(id_evento: number) {
 
@@ -126,6 +127,8 @@ export class CardComponent {
   }
   public abrirChat(id_productor: number, id_evento: number) {
     console.log(this.eventoPadre)
+    id_evento = this.eventoPadre.id_evento
+    console.log(id_evento, 'cartaaaaaaa');    
     this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
       console.log('mi chat creado');
       

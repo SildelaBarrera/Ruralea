@@ -1,8 +1,16 @@
 <div class="chat-container">
     <div class="chat-list">
-        <h3>Chats</h3>
-        <div *ngFor="let chat of chats" (click)="seleccionarChat(chat.id_chat)">
-            {{chat.id_chat}}
+        <div>
+            <h3>Chats</h3>
+        </div>
+        <div class="chat-list3">
+            <div class="usuarios" *ngFor="let chat of chats" (click)="seleccionarChat(chat.id_chat)">
+                <div class="usuario">
+                    <div class="imgChat"><img src="{{chat.foto}}" alt=""></div>
+                    <div class="chatNombre">{{chat.nombre}} {{chat.apellidos}} -
+                        {{chat.titulo}}</div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="chat-container2">

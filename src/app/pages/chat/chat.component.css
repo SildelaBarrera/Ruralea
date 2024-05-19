@@ -5,122 +5,195 @@
     width: 100%;
     height: 86vh;
     background-color: #B78740;
-  }
-  
-  .chat-list {
+}
+
+.chat-list {
     height: 75vh;
     width: 25%;
     display: flex;
-    flex-direction: column;    
+    flex-direction: column;
     align-items: center;
     background-color: var(--blanco);
     border-radius: 10px;
     margin-top: 35px;
-  }
-  h3{
+    overflow-y: auto;
+}
+
+h3 {
     font-family: var(--JejuHallasan);
     color: var(--marronMedio);
-    margin-top:30px;
+    margin-top: 30px;
     text-align: center;
 }
-.chat-container2{
-    
+
+.chat-container2 {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: space-between;
     height: 75vh;
     width: 65%;
     margin-top: 35px;
 }
-  
-.chat-list2 {   
+.chat-list3 {
     border-radius: 10px;
     height: 440px;
     width: 100%;
     display: flex;
-    flex-direction: column; 
-    justify-content: space-between;   
-    align-items: center;    
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     background-color: var(--blanco);
     overflow-y: auto;
-}  
-  .messages {
-    display: flex; 
-    flex-direction: column;  
-    justify-content: space-around;    
+}
+
+.chat-list2 {
+    border-radius: 10px;
+    height: 440px;
     width: 100%;
-    border-radius: 10px;    
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--blanco);
     overflow-y: auto;
-  } 
-  .messages::-webkit-scrollbar {
-    width: 10px;  /* Remove scrollbar space */
-    background: var(--mostaza);  /* Optional: just make scrollbar invisible */
+}
+.chat-list2::-webkit-scrollbar {
+    width: 10px;    
+    background: var(--mostaza);        
     border-radius: 15px;
     margin-right: 5px;
-  }
-  
-  .mensajesEnviados{        
+}
+
+.usuarios {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
     height: fit-content;
-    max-width:65% ; 
-    border: var(--marronOscuro)  solid 2px;
-    color: var(--marronOscuro); 
-    background-color: var(--mostaza);   
+    width: 90%;
+    border-radius: 10px;
+    background-color: var(--beige);
+    font-family: var(--links);
+    color: var(--marronOscuro);
+    font-size: small;
+    margin: 5px;
+    padding: 3px;    
+    cursor: pointer;
+}
+
+.usuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    font-size: small;
+    font-weight: bold;
+    text-align: left;
+    padding-left: 3px;
+}
+
+.imgChat {
+    align-items: start;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 2px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.imgChat img{
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin: 2px;
+}
+.chatNombre{
+    margin-left: 3px;
+    text-align: center;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    border-radius: 10px;
+    overflow-y: auto;
+}
+
+.messages::-webkit-scrollbar {
+    width: 10px;
+    /* Remove scrollbar space */
+    background: var(--mostaza);
+    /* Optional: just make scrollbar invisible */
+    border-radius: 15px;
+    margin-right: 5px;
+}
+
+.mensajesEnviados {
+    height: fit-content;
+    max-width: 65%;
+    border: var(--marronOscuro) solid 2px;
+    color: var(--marronOscuro);
+    background-color: var(--mostaza);
     border-radius: 15px;
     padding-left: 15px;
     margin-left: 15px;
     margin-bottom: 15px;
     font-family: var(--links);
-    font-size: 14px;    
-  } 
+    font-size: 14px;
+}
 
-  p{
+p {
     margin: 10px;
-  }
+}
 
-  .mensajesRecibidos{     
+.mensajesRecibidos {
     height: fit-content;
-    max-width:65% ;  
-    background-color: var(--marronMedio); 
+    max-width: 65%;
+    background-color: var(--marronMedio);
     color: var(--blanco);
-    border: var(--blanco)  solid 2px;
+    border: var(--blanco) solid 2px;
     border-radius: 15px;
-    padding-top:5px;
+    padding-top: 5px;
     padding-right: 15px;
     text-align: right;
-    margin-left:300px;
+    margin-left: 300px;
     margin-bottom: 15px;
     font-family: var(--links);
     font-size: 14px;
-  }
-  
-  .send-message {
+}
+
+.send-message {
     display: flex;
-    flex-direction: row; 
-    justify-content: space-between;   
-    align-items: center;    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     height: 35px;
     width: 100%;
-  }
-  
-  .texto{
+}
+
+.texto {
     height: 35px;
     width: 91%;
-    border-radius: 10px;  
-    border: solid 2px var(--blanco);  
+    border-radius: 10px;
+    border: solid 2px var(--blanco);
     padding-left: 5px;
 }
 
-button{
+button {
     height: 35px;
     width: 8%;
-    border-radius: 10px; 
+    border-radius: 10px;
     background-color: var(--marronMedio);
     font-family: var(--links);
-    border:solid 2px var(--mostaza);
-    color:var(--marronOscuro);
+    border: solid 2px var(--mostaza);
+    color: var(--marronOscuro);
     font-weight: bold;
-    
+
 }
+
 
 /* .contenedor{
     display: flex;

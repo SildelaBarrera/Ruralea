@@ -1,14 +1,12 @@
-
-
-<div *ngIf="path === 'misEventos'" class="card" >    
-        <div class="texto">
-            <h3>{{eventoPadre.titulo}}</h3>
-            <img id="img" src="{{eventoPadre.foto}}" alt="">
+<div *ngIf="path === 'misEventos'" class="card">
+    <div class="texto">
+        <h3>{{eventoPadre.titulo}}</h3>
+        <img id="img" src="{{eventoPadre.foto}}" alt="">
         <div class="enunciado">
             <p class="loc"><strong>Categoría:</strong></p>
             <p>{{eventoPadre.categoria}}</p>
-        </div>    
-        <div class="enunciado"> 
+        </div>
+        <div class="enunciado">
             <p class="loc"><strong>Localización: </strong></p>
             <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
         </div>
@@ -34,93 +32,82 @@
             ELIMINAR
         </button>
         <!-- Button trigger modal -->
-    <button type="button" class="modificar" data-bs-toggle="modal" [attr.data-bs-target]="'#ModificarModal'+eventoPadre.id_evento">
-        MODIFICAR
-    </button>
-    
-    <!-- Modificar Modal -->
-    <div class="modal fade" id="ModificarModal{{eventoPadre.id_evento}}" tabindex="-1" aria-labelledby="ModificarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modalHeader">
-                <h5 class="modal-title" id="ModificarModalLabel">MODIFICAR EVENTO</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body1">
-                <div class="text1">
-                    <form class="inputs" action="" >
-                        <input type="text" #input1 value="{{eventoPadre.titulo.toUpperCase()}}"
-                        placeholder="Introduce el título del evento">
-                        
-                        <select  #input2 name = "Elige la categoría" value={{eventoPadre.categoria}}>
-                            <!-- <option [value]="this.usuario.categoria" selected="">{{eventoPadre.categoria}}</option> -->
-                            
-                            <option value="Artesania">Artesanía</option>
-                            <option value="Ganaderia">Ganadería</option>
-                            <option value="Culinario">Culinario</option>
-                            <option value="Agricola">Agrícola</option>
-                        </select>
-                        <input type="date" #input3 value="{{eventoPadre.fecha.substring(0,10)}}"
-                        placeholder="Indica la fecha">
-                        <textarea class="descripcion" rows ="4" cols="150" type="text" #input8 value="{{eventoPadre.descripcion}}"
-                        placeholder="Describe tu evento"></textarea>
-                    </form> 
-                </div>
-                <div class="text2">
-                    <form class="inputs" action="" >
-                        <input type="text" #input4 value="{{eventoPadre.municipio}}"
-                        placeholder="Especifíca el municipio">  
-                        <input type="text" #input5 value="{{eventoPadre.provincia}}"
-                        placeholder="Especifíca la provincia">    
-                        <input type="number" #input6 value="{{eventoPadre.aforo}}"
-                        placeholder="Indica el aforo máximo">    
-                        <input type="number" #input7 value="{{eventoPadre.precio}}"
-                        placeholder="Introduce el precio por persona">  
-                        <input type="text" #input9 value="{{eventoPadre.foto}}"
-                        placeholder="Inserta la url de la imagen"> 
-                        <button class="boton" type="button" data-bs-dismiss="modal" (click)="reloadCurrent()" (click)="editar(input1.value, 
-                            input2.value, input3.value, input4.value, 
-                            input5.value, input6.value, input7.value, input8.value, input9.value)" >GUARDAR</button>
-                    </form>  
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-      
-    
-    <!-- Eliminar Modal -->
-    <div class="modal fade" id="EliminarModal{{eventoPadre.id_evento}}" tabindex="-1" aria-labelledby="EliminarModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modalHeader2">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body2">    
-                <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
-                <form class="inputsEliminar" action="" > 
-                    <button class="boton" type="button" (click)="borrarEvento(eventoPadre.id_evento)" data-bs-dismiss="modal">Si</button>
-                    <button class="boton" type="button" data-bs-dismiss="modal">No</button>            
-                </form>  
-            </div>
-        </div>
-        </div>
-    </div>
-      
-    </div> 
-</div>    
+        <button type="button" class="modificar" data-bs-toggle="modal"
+            [attr.data-bs-target]="'#ModificarModal'+eventoPadre.id_evento">
+            MODIFICAR
+        </button>
 
-<div *ngIf="path === 'actividades'" class="card" >    
-        <div class="texto">
-            <h3>{{eventoPadre.titulo}}</h3>
-            <img id="img" src="{{eventoPadre.foto}}" alt="">
-        <div class="enunciado">
-            <p class="loc"><strong>Categoría:</strong></p>
-            <p>{{eventoPadre.categoria}}</p>
-        </div>    
-        <div class="enunciado"> 
-            <p class="loc"><strong>Localización: </strong></p>
-            <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
+        <!-- Modificar Modal -->
+        <div class="modal fade" id="ModificarModal{{eventoPadre.id_evento}}" tabindex="-1"
+            aria-labelledby="ModificarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modalHeader">
+                        <h5 class="modal-title" id="ModificarModalLabel">MODIFICAR EVENTO</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body1">
+                        <div class="text1">
+                            <form class="inputs" action="">
+                                <input type="text" #input1 value="{{eventoPadre.titulo.toUpperCase()}}"
+                                    placeholder="Introduce el título del evento">
+
+                                <select #input2 name="Elige la categoría" value={{eventoPadre.categoria}}>
+                                    <!-- <option [value]="this.usuario.categoria" selected="">{{eventoPadre.categoria}}</option> -->
+
+                                    <option value="Artesania">Artesanía</option>
+                                    <option value="Ganaderia">Ganadería</option>
+                                    <option value="Culinario">Culinario</option>
+                                    <option value="Agricola">Agrícola</option>
+                                </select>
+                                <input type="date" #input3 value="{{eventoPadre.fecha.substring(0,10)}}"
+                                    placeholder="Indica la fecha">
+                                <textarea class="descripcion" rows="4" cols="150" type="text" #input8
+                                    value="{{eventoPadre.descripcion}}" placeholder="Describe tu evento"></textarea>
+                            </form>
+                        </div>
+                        <div class="text2">
+                            <form class="inputs" action="">
+                                <input type="text" #input4 value="{{eventoPadre.municipio}}"
+                                    placeholder="Especifíca el municipio">
+                                <input type="text" #input5 value="{{eventoPadre.provincia}}"
+                                    placeholder="Especifíca la provincia">
+                                <input type="number" #input6 value="{{eventoPadre.aforo}}"
+                                    placeholder="Indica el aforo máximo">
+                                <input type="number" #input7 value="{{eventoPadre.precio}}"
+                                    placeholder="Introduce el precio por persona">
+                                <input type="text" #input9 value="{{eventoPadre.foto}}"
+                                    placeholder="Inserta la url de la imagen">
+                                <button class="boton" type="button" data-bs-dismiss="modal" (click)="reloadCurrent()"
+                                    (click)="editar(input1.value, 
+                            input2.value, input3.value, input4.value, 
+                            input5.value, input6.value, input7.value, input8.value, input9.value)">GUARDAR</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Eliminar Modal -->
+        <div class="modal fade" id="EliminarModal{{eventoPadre.id_evento}}" tabindex="-1"
+            aria-labelledby="EliminarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modalHeader2">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body2">
+                        <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
+                        <form class="inputsEliminar" action="">
+                            <button class="boton" type="button" (click)="borrarEvento(eventoPadre.id_evento)"
+                                data-bs-dismiss="modal">Si</button>
+                            <button class="boton" type="button" data-bs-dismiss="modal">No</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -132,10 +119,6 @@
         <img id="img" src="{{eventoPadre.foto}}" alt="">
     </div>
     <div class="enunciado">
-        <p class="loc"><strong>Categoría:</strong></p>
-        <p>{{eventoPadre.categoria}}</p>
-    </div> 
-    <div class="enunciado"> 
         <p class="loc"><strong>Localización: </strong></p>
         <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
     </div>
@@ -155,6 +138,34 @@
         <p class="loc"><strong>Descripción:</strong></p>
         <p id="descripcion">{{eventoPadre.descripcion}}</p>
     </div>
+    <button class="reservar" (click)="reservarActividad(eventoPadre.id_evento)">RESERVAR</button>
+    <button class="contactame">CONTÁCTAME</button>
+</div>
+<div *ngIf="path === 'misReservas'" class="card">
+    <div class="texto">
+        <h3>{{eventoPadre.titulo}}</h3>
+        <img id="img" src="{{eventoPadre.foto}}" alt="">
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Localización: </strong></p>
+        <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Fecha:</strong></p>
+        <p>{{eventoPadre.fecha.substring(0,10)}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Aforo:</strong></p>
+        <p>{{eventoPadre.aforo}}</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Precio:</strong></p>
+        <p>{{eventoPadre.precio}} €</p>
+    </div>
+    <div class="enunciado">
+        <p class="loc"><strong>Descripción:</strong></p>
+        <div id="descripcion"> {{eventoPadre.descripcion}}</div>
+    </div>
     <button type="button" class="eliminar2" data-bs-toggle="modal"
         [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">
         ELIMINAR
@@ -171,8 +182,8 @@
                 <div class="modal-body2">
                     <label class="labelEliminar" for="">¿Seguro que quieres eliminar el evento?</label>
                     <form class="inputsEliminar" action="">
-                        <button class="boton" type="button" (click)="actualizarAforoAlBorrar(eventoPadre.id_evento)"
-                            (click)="borrarReserva(eventoPadre.id_evento)" data-bs-dismiss="modal">Si</button>
+                        <button class="boton" type="button" (click)="borrarReserva(eventoPadre.id_evento)"
+                            data-bs-dismiss="modal">Si</button>
                         <button class="boton" type="button" data-bs-dismiss="modal">No</button>
                     </form>
                 </div>

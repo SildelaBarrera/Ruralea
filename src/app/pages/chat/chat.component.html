@@ -1,26 +1,35 @@
-<div class="contenedor">
-    <div class="usuarios">
-        <h3>CHAT</h3>
-        <form>
-            <input class="buscar" type="text" placeholder="Busca un chat" [formControl]="formUsuarios">
-        </form>
-        <div class="users">
-            <div class="user2" *ngFor="let usuario of usuarios">
-                <p class="user3">{{usuario.nombre}}</p>
-                <img class="imgChat" src="{{usuario.foto}}" alt="">
-            </div>
+<div class="chat-container">
+    <div class="chat-list">
+        <h3>Chats</h3>
+        <div *ngFor="let chat of chats" (click)="seleccionarChat(chat.id_chat)">
+            {{chat.id_chat}}
         </div>
     </div>
-    <div class="mensajes">
-        <div class="comunicacion">
-            <div #mensajes>
-
+    <div class="chat-container2">
+        <div class="chat-list2">
+            <div class="mensajes">
+                <h3>Mensajes</h3>
+            </div>
+            <div class="messages" #messagesContainer>
+                <ng-container class="bodyMensajes" *ngFor="let mensaje of mensajes">
+                    <div class="mensajesRecibidos" *ngIf="id_usuario == mensaje.id_usuarioEmisor; else enviados">
+                        <div>
+                            <p><strong>{{mensaje.nombre}}:</strong> {{mensaje.mensaje}}</p>
+                        </div>
+                    </div>
+                    <ng-template #enviados>
+                        <div class="mensajesEnviados">
+                            <div>
+                                <p> <strong>{{mensaje.nombre}}:</strong> {{mensaje.mensaje}}</p>
+                            </div>
+                        </div>
+                    </ng-template>
+                </ng-container>
             </div>
         </div>
-        <div class="enviar">
-            <input class="texto" type="text" placeholder="Escribe aqui tu mensaje" #input1>
-            <button (click)="enviar(input1.value)">ENVIAR</button>
+        <div class="send-message">
+            <input class="texto" [(ngModel)]="mensaje" placeholder="Escribe un mensaje" />
+            <button (click)="enviarMensaje(mensaje)">Enviar</button>
         </div>
     </div>
-
 </div>

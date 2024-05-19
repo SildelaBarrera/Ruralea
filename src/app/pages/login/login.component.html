@@ -4,56 +4,77 @@
         <div class="img"></div>
     </div>
     <div class="formulario">
-        <div><h2>INICIA SESION Y ACCEDE A LA PLATAFORMA</h2></div>
-    
-    <div class="inputs">
-    <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
-        
-        <div class="inputsHijo">
-            <div class="form-group">
-            <input #input1 type="text" placeholder="E-mail" class="form-control" name="email" #email="ngModel" [(ngModel)]="usuarioLogueado.email" 
-            [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
-                <div id="aviso" *ngIf="(email.dirty || email.touched) && email.invalid" class="invalid-feedback">
-                    <p *ngIf="email.errors.required">El email es obligatorio</p>
-                    <p *ngIf="email.errors.email">Direccion de email es incorrecta</p>
-                </div>
-            </div>
-        
-            <div class="form-group">
-                <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel" class="form-control"[(ngModel)]="usuarioLogueado.password" 
-                [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}" minlength="8" required>
-            
-                    <div id="aviso" *ngIf="(password.dirty || password.touched) && password.invalid" class="invalid-feedback">
-                        <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
-                        <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
-                    </div>
-            </div>  
-        <div>  
-            <button class="boton" [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)" data-bs-toggle="modal" data-bs-target="#modalLogin">LOGIN</button>
-            <p class="texto">¿Aún no tienes una cuenta?<a href="/registro">Regístrate</a></p>
+        <div>
+            <h2>INICIA SESION Y ACCEDE A LA PLATAFORMA</h2>
         </div>
-        </div>
-        </form>
-        
-        </div>
-      </div>
-    </div>
 
-        <!-- Login Modal -->
-        <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
+        <div class="inputs">
+            <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
+
+                <div class="inputsHijo">
+                    <div class="form-group">
+                        <input #input1 type="text" placeholder="E-mail" class="form-control" name="email"
+                            #email="ngModel" [(ngModel)]="usuarioLogueado.email"
+                            [ngClass]="{'is-invalid':(email.dirty || email.touched) && email.invalid}" email required>
+                        <div id="aviso" *ngIf="(email.dirty || email.touched) && email.invalid"
+                            class="invalid-feedback">
+                            <p *ngIf="email.errors.required">El email es obligatorio</p>
+                            <p *ngIf="email.errors.email">Direccion de email es incorrecta</p>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input #input2 type="password" placeholder="Contraseña" name="password" #password="ngModel"
+                            class="form-control" [(ngModel)]="usuarioLogueado.password"
+                            [ngClass]="{'is-invalid':(password.dirty || password.touched) && password.invalid}"
+                            minlength="8" required>
+
+                        <div id="aviso" *ngIf="(password.dirty || password.touched) && password.invalid"
+                            class="invalid-feedback">
+                            <p *ngIf="password.errors.required">La contraseña es obligatoria</p>
+                            <p *ngIf="password.errors.minlength">Debe tener al menos 8 caracteres</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="boton" [disabled]="userForm.invalid" (click)="login(input1.value, input2.value)"
+                            data-bs-toggle="modal" data-bs-target="#modalLogin">LOGIN</button>
+                        <p class="texto">¿Aún no tienes una cuenta?<a href="/registro">Regístrate</a></p>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+<!-- Login Modal -->
+<!-- <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" [hidden]="!usuarioServicio.logueado">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modalHeader">
+                    <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
         
-                    <ng-container *ngIf="usuarioServicio.logueado; else loginIncorrecto">
-                        <div class="modal-body">Usuario logueado correctamente.</div>
-                    </ng-container>
-                    <ng-template #loginIncorrecto>
-                        <div class="modal-body">Email o contraseña incorrecta.</div>
-                    </ng-template>
+                    <div class="modal-body">
+                        <ng-container *ngIf="!usuarioServicio.logueado; else loginIncorrecto">
+                            Usuario logueado incorrectamente.
+                        </ng-container>
+                        <ng-template #loginIncorrecto>
+                            Email o contraseña incorrecta.
+                        </ng-template>
+                    </div>
                 </div>
             </div>
+        </div> -->
+<div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" *ngIf="mostrarModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modalHeader">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    (click)="cerrar()"></button>
+            </div>
+
+            <div class="modal-body">Email o contraseña incorrecta.</div>
         </div>
-          
+    </div>
+</div>

@@ -1,19 +1,41 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Conver } from '../models/conver';
+import { Chat } from '../models/chat';
+import { UsuarioServiceService } from './usuario-service.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChatService {
-
+  public chat: Chat;
+  public miChat_id: number;
   public url: string = "http://localhost:3000/"
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public usuarioServicio: UsuarioServiceService) { }
 
-  public getUsuarios(id_usuario: number, tipoUsuario: string){
-    let nueUrl = this.url + "chat?id_usuario=" + id_usuario + "&tipoUsuario=" + tipoUsuario
-    console.log(id_usuario, tipoUsuario, 'servicio');
+  public getChats(tipoUsuario: string, id_usuario: number) {
+    if (this.usuarioServicio.usuarioLogueado.tipoUsuario == 'Consumidor') {
+      let nuevaUrl = this.url + "michat?tipoUsuario=" + tipoUsuario + "&id_usuario1=" + id_usuario
+      return this.http.get(nuevaUrl);
+    } else if (this.usuarioServicio.usuarioLogueado.tipoUsuario == 'Productor') {
+      let nuevaUrl = this.url + "michat?tipoUsuario=" + tipoUsuario + "&id_usuario2=" + id_usuario
+      return this.http.get(nuevaUrl);
+    }
+    console.log(id_usuario);
     
-    return this.http.get(nueUrl)
+  }
+
+  public getMensajes(id_chat: number, id_usuario) {
+    let nuevaUrl = this.url + "chat?id_chat=" + id_chat + "&id_usuario=" + id_usuario
+    return this.http.get(nuevaUrl);
+  }
+
+  public enviarMensaje(mensaje: string, id_usuarioEmisor: number, id_chat: number,) {
+    let nuevaUrl = this.url + "chat?mensaje=" + mensaje + "&id_usuarioEmisor=" + id_usuarioEmisor + "&id_chat=" + id_chat 
+    let body = {mensaje , id_usuarioEmisor, id_chat }
+    console.log(mensaje , id_usuarioEmisor, id_chat , 'serviciooooooo');
+    
+    return this.http.post(nuevaUrl, body);
   }
 }

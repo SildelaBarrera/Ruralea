@@ -105,6 +105,9 @@ h3{
     background-color: var(--marronOscuro);
     color: var(--mostaza);
 }
+.contactame:active{
+    transform: scale(0.9);
+}
 .card{
     height: 340px;
     width: 620px;
@@ -240,6 +243,12 @@ select{
     height: 35px;
     width: 200px;
     color: gray;
+}
+.modal{
+    position: fixed ;
+    top:calc(35% + 200px) ;
+    left: calc(46% + 100px) ;
+    transform: translate(-50%, -50%) ;
 }
 .modal-body2{
     height: 75%;

@@ -72,6 +72,12 @@ select{
     padding: 15px;
     border-radius: 10px;    
 }
+.modal{
+    position: fixed ;
+    top:calc(35% + 200px) ;
+    left: calc(46% + 100px) ;
+    transform: translate(-50%, -50%) ;
+}
 input{
     font-family: var(--links);
     font-size: 12px;

@@ -131,6 +131,12 @@ select{
     padding: 15px;
     border-radius: 10px;    
 }
+.modal{
+    position: fixed ;
+    top:calc(35% + 200px) ;
+    left: calc(46% + 100px) ;
+    transform: translate(-50%, -50%) ;
+}
 .boton{
     border: solid var(--mostaza) 2px;
     height: 35px;

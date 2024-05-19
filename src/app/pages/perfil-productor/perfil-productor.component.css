@@ -51,6 +51,12 @@
     font-size: 22px;
     
 }
+.modal{
+    position: fixed ;
+    top:calc(35% + 200px) ;
+    left: calc(46% + 100px) ;
+    transform: translate(-50%, -50%) ;
+}
 .datos3{
     color: var(--blanco);
     font-family: var(--links);

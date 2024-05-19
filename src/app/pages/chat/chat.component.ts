@@ -20,7 +20,7 @@ export class ChatComponent {
   public usuarios: Usuario[]
   public usuario: Usuario;
   public chats: Chat[] = []
-  public mensajes: Conver[]
+  public mensajes: Conver[] = []
   public mensaje: string
   public id_usuario: number
   public id_chat: number
@@ -67,8 +67,7 @@ py
     this.chatServicio.getMensajes(id_chat, this.id_usuario).subscribe((resp: Respuesta) => {
       console.log(id_chat, 'cargar mensajes');
       this.mensajes = resp.datoMensajes;
-      console.log(this.mensajes);
-      
+      console.log(this.mensajes);     
       console.log(id_chat, 'cargar componente');
     });
   }

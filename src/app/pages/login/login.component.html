@@ -48,33 +48,19 @@
 </div>
 
 <!-- Login Modal -->
-<div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" [hidden]="!usuarioServicio.logueado">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modalHeader">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="redir()"></button>
-                    </div>
-        
-                    <div class="modal-body">
-                        <ng-container *ngIf="!usuarioServicio.logueado; else loginIncorrecto">
-                            Usuario logueado incorrectamente.
-                        </ng-container>
-                        <ng-template #loginIncorrecto>
-                            Email o contraseña incorrecta.
-                        </ng-template>
-                    </div>
-                </div>
-            </div>
-        </div>
-<!-- <div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" *ngIf="mostrarModal">
+<div class="modal" id="modalLogin" tabindex="-1" aria-labelledby="ModalLoginLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modalHeader">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
-                    (click)="cerrar()"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="redir()"></button>
             </div>
 
-            <div class="modal-body">Email o contraseña incorrecta.</div>
+            <ng-container *ngIf="usuarioServicio.logueado; else loginIncorrecto">
+                <div class="modal-body">Usuario logueado correctamente.</div>
+            </ng-container>
+            <ng-template #loginIncorrecto>
+                <div class="modal-body">Email o contraseña incorrecta.</div>
+            </ng-template>
         </div>
     </div>
-</div> -->
+</div>

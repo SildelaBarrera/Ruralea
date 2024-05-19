@@ -26,8 +26,8 @@ export class ChatService {
     
   }
 
-  public getMensajes(id_chat: number, id_usuario) {
-    let nuevaUrl = this.url + "chat?id_chat=" + id_chat + "&id_usuario=" + id_usuario
+  public getMensajes(id_chat: number, id_usuario:number) {
+    let nuevaUrl = this.url + "chat?id_chat=" + id_chat + "&id_usuarioEmisor=" + id_usuario
     return this.http.get(nuevaUrl);
   }
 
@@ -38,4 +38,12 @@ export class ChatService {
     
     return this.http.post(nuevaUrl, body);
   }
+  public nuevoChat(id_usuario1:number, id_usuario2:number, id_evento:number){
+    console.log(id_usuario1, id_usuario2)
+    let urlNueva = this.url + "nuevoChat?=" + id_usuario1 + "&id_usuario2=" + id_usuario2 + "&id_evento=" + id_evento;
+    let miembrosChat = {id_usuario1, id_usuario2, id_evento}
+    console.log('chat creado servicio');
+    
+    return this.http.post(urlNueva, miembrosChat)
+ }
 }

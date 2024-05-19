@@ -9,6 +9,12 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+.modal{
+    position: fixed ;
+    top:calc(35% + 200px) ;
+    left: calc(46% + 100px) ;
+    transform: translate(-50%, -50%) ;
+}
 .contenedor2{   
     height: 86vh;
     width: 100%;

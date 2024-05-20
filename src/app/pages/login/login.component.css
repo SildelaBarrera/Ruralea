@@ -16,7 +16,7 @@
 }
 .photo{
     height: 86vh;
-    width: 262px;
+    width: 20%;
     background-image: url(../../../assets/photoLogin.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +24,7 @@
 .img{
     background-color:rgba(6, 6, 6, 0.33);
     height: 86vh;
-    width: 262px;    
+    width: 100%;    
 }
 h2{
     color:var(--marronOscuro);
@@ -35,7 +35,7 @@ h2{
 
 .formulario{    
     height: 86vh;
-    width: 1178px;
+    width: 80%;
     background-color: var(--marronMedio);
     display: flex;
     flex-direction: column;

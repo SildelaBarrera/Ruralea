@@ -16,7 +16,8 @@ export class Respuesta {
                 public datoUsuarios: Usuario[] ,
                 public datoChats: Chat[],
                 public datoMensajes: Conver[],
-                public datoMensaje){
+                public datoMensaje: string,
+                public datoChat: Chat){
                    
                 }
     

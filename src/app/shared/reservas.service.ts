@@ -11,8 +11,8 @@ import { HttpClient } from '@angular/common/http';
 export class ReservasService {
   public reservas: Evento[] = [];
   public evento: Evento;
-  // public url: string = "http://localhost:3000/"
-  public url: "https://apirest-ruralea.vercel.app/"
+  //public url: string = "http://localhost:3000/"
+  public url: string = "https://apirest-ruralea.vercel.app/"
   constructor(public eventoService: EventoServiceService, public http: HttpClient) {
 
 

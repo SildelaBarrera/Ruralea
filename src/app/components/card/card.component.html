@@ -62,7 +62,7 @@
                                 </select>
                                 <input type="date" #input3 value="{{eventoPadre.fecha.substring(0,10)}}"
                                     placeholder="Indica la fecha">
-                                <textarea class="descripcion" rows="4" cols="150" type="text" #input8
+                                <textarea class="descripcion2" rows="4" cols="150" type="text" #input8
                                     value="{{eventoPadre.descripcion}}" placeholder="Describe tu evento"></textarea>
                             </form>
                         </div>
@@ -115,10 +115,14 @@
 
 <div *ngIf="path === 'actividades'" class="card">
     <div class="texto">
-        <h3>{{eventoPadre.titulo}}</h3>
+        <h3>{{eventoPadre.titulo}}</h3> 
         <img id="img" src="{{eventoPadre.foto}}" alt="">
     </div>
     <div class="enunciado">
+        <p class="loc"><strong>Categoría:</strong></p>
+        <p>{{eventoPadre.categoria}}</p>
+    </div> 
+    <div class="enunciado"> 
         <p class="loc"><strong>Localización: </strong></p>
         <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
     </div>
@@ -164,10 +168,14 @@
 
 <div *ngIf="path === 'misReservas'" class="card">
     <div class="texto">
-        <h3>{{eventoPadre.titulo}}</h3>
+        <h3>{{eventoPadre.titulo}}</h3> 
         <img id="img" src="{{eventoPadre.foto}}" alt="">
     </div>
     <div class="enunciado">
+        <p class="loc"><strong>Categoría:</strong></p>
+        <p>{{eventoPadre.categoria}}</p>
+    </div> 
+    <div class="enunciado"> 
         <p class="loc"><strong>Localización: </strong></p>
         <p>{{eventoPadre.municipio}}, {{eventoPadre.provincia}}</p>
     </div>
@@ -185,7 +193,7 @@
     </div>
     <div class="enunciado">
         <p class="loc"><strong>Descripción:</strong></p>
-        <div id="descripcion"> {{eventoPadre.descripcion}}</div>
+        <p id="descripcion">{{eventoPadre.descripcion}}</p>
     </div>
     <button type="button" class="eliminar2" data-bs-toggle="modal"
         [attr.data-bs-target]="'#ElminarModal2'+eventoPadre.id_evento">

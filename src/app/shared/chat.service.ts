@@ -10,8 +10,8 @@ import { UsuarioServiceService } from './usuario-service.service';
 export class ChatService {
   public chat: Chat;
   public miChat_id: number;
-  // public url: string = "http://localhost:3000/"
-  public url: "https://apirest-ruralea.vercel.app/"
+  //public url: string = "http://localhost:3000/"
+  public url: string = "https://apirest-ruralea.vercel.app/"
 
   constructor(private http: HttpClient, public usuarioServicio: UsuarioServiceService) { }
 

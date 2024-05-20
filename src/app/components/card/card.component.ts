@@ -27,6 +27,8 @@ export class CardComponent {
   public usuario: Usuario
   public evento: Evento;
   public categoria: string = "Ver todas las actividades";
+  public miChat: any;
+  public mensajes: any;
 
   constructor(
     public eventoServicio: EventoServiceService,
@@ -48,19 +50,16 @@ export class CardComponent {
     let nuevoAforo = this.eventoPadre.aforo - aforo;
     console.log(nuevoAforo, aforo, 'aforo card');
     if (nuevoAforo < 0) {
-      alert('No hay plazas disponibles')
+      console.log('No hay plazas disponibles')
     } else {
       this.reservasServicio.actualizarAforo(nuevoAforo, this.eventoPadre.id_evento).subscribe((resp: Respuesta) => {
         console.log(this.eventoPadre.id_evento, 'evento padre id');
         this.eventoPadre.aforo = nuevoAforo
-
       })
     }
   }
-  
 
   public actualizarAforoAlBorrar(id_evento: number) {
-
     this.reservasServicio.actualizarAforoAlBorrar(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) => {
       console.log(this.eventoPadre.id_evento, 'evento padre id');
       console.log('borrado card');
@@ -72,10 +71,14 @@ export class CardComponent {
   public reservarActividad(numeroPersonas: number) {
     let userId = this.usuarioServicio.usuarioLogueado.id_usuario;
     console.log(userId);
-    console.log(numeroPersonas);
-    this.reservasServicio.agregarReserva(userId, this.eventoPadre.id_evento, numeroPersonas).subscribe((resp: Respuesta) => {
-      this.eventos = resp.datoEventos;
-    });
+    console.log(numeroPersonas, this.eventoPadre.aforo);
+    if (  numeroPersonas > this.eventoPadre.aforo) {
+      alert('No hay plazas')
+    } else {
+      this.reservasServicio.agregarReserva(userId, this.eventoPadre.id_evento, numeroPersonas).subscribe((resp: Respuesta) => {
+        this.eventos = resp.datoEventos;
+      });
+    }
   }
 
 
@@ -104,10 +107,10 @@ export class CardComponent {
         }
 
         if (municipio != "") {
-          this.eventoPadre.municipio = municipio
+          this.eventoPadre.municipio = municipio[0].toUpperCase() + municipio.slice(1)
         }
         if (provincia != "") {
-          this.eventoPadre.provincia = provincia
+          this.eventoPadre.provincia = provincia[0].toUpperCase() + provincia.slice(1)
         }
         if (aforo != null) {
           this.eventoPadre.aforo = aforo
@@ -116,7 +119,7 @@ export class CardComponent {
           this.eventoPadre.precio = precio
         }
         if (descripcion != "") {
-          this.eventoPadre.descripcion = descripcion
+          this.eventoPadre.descripcion = descripcion[0].toUpperCase() + descripcion.slice(1)
         }
         if (foto != "") {
           this.eventoPadre.foto = foto
@@ -125,13 +128,25 @@ export class CardComponent {
         console.log(this.eventoPadre)
       })
   }
+  public cargarMensajes(id_chat: number): void {
+    this.chatServicio.getMensajes(this.usuarioServicio.usuarioLogueado.id_usuario, id_chat).subscribe((resp: Respuesta) => {
+      console.log(id_chat, 'cargar mensajes');
+      this.mensajes = resp.datoMensajes;
+      console.log(this.mensajes);     
+      console.log(id_chat, 'cargar componente');
+    });
+  }
   public abrirChat(id_productor: number, id_evento: number) {
     console.log(this.eventoPadre)
     id_evento = this.eventoPadre.id_evento
-    console.log(id_evento, 'cartaaaaaaa');    
+    console.log(id_evento, 'cartaaaaaaa');
     this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
-      console.log('mi chat creado');
-      
+    this.miChat = resp.datoChat
+      console.log('mi chat creado', resp.datoChat);
+      let mensaje = "Hola, soy " + this.usuarioServicio.usuarioLogueado.nombre + " y me gustaría recibir más información sobre el evento"
+      this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.insertId).subscribe((resp: Respuesta)=>{
+        this.cargarMensajes(this.miChat.insertId)
+      })
     })
 
     this.router.navigate(['/', 'chat'])

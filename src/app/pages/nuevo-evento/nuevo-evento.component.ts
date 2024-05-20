@@ -54,9 +54,13 @@ export class NuevoEventoComponent {
       }
       
       let nuevoTitulo: string = titulo.toUpperCase()
+      let nuevoMunicipio: string = municipio[0].toUpperCase() + municipio.slice(1)
+      let nuevaProvincia: string = provincia[0].toUpperCase() + provincia.slice(1)
+      let nuevaDescripcion: string = descripcion[0].toUpperCase() + descripcion.slice(1)
+
       console.log(this.usuario.id_usuario)      
-      this.eventoServicio.crear(nuevoTitulo, categoria, fecha, municipio, provincia,
-        aforo, precio, descripcion, foto, this.usuario.id_usuario).subscribe((resp: Respuesta) => {
+      this.eventoServicio.crear(nuevoTitulo, categoria, fecha, nuevoMunicipio, nuevaProvincia,
+        aforo, precio, nuevaDescripcion, foto, this.usuario.id_usuario).subscribe((resp: Respuesta) => {
           if(resp.error){
     
             this.nuevoEvento = false

@@ -14,8 +14,8 @@ export class EventoServiceService {
   public eventos:Evento[];
   public eventosEncontrados: Evento [];
   public reservas: Evento[];
-  // public url: string = "http://localhost:3000/"
-  public url: "https://apirest-ruralea.vercel.app/"
+  //public url: string = "http://localhost:3000/"
+  public url: string = "https://apirest-ruralea.vercel.app/"
   constructor(private http: HttpClient) {
     
   }

@@ -82,6 +82,11 @@ py
         this.mensaje = '';
       });
     }
+  public borrarChat(id_chat: number){    
+    this.chatServicio.borrarChat(id_chat).subscribe((resp:Respuesta) =>{
+      this.cargarChats()
+    })
+  }
   }
 
 

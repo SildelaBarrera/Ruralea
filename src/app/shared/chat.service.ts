@@ -47,4 +47,9 @@ export class ChatService {
     
     return this.http.post(urlNueva, miembrosChat)
  }
+
+ public borrarChat(id_chat:number){
+  let url = this.url + "chat?id_chat=" + id_chat
+  return this.http.delete(url)
+ }
 }

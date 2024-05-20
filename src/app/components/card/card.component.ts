@@ -139,7 +139,7 @@ export class CardComponent {
   public abrirChat(id_productor: number, id_evento: number) {
     console.log(this.eventoPadre)
     id_evento = this.eventoPadre.id_evento
-    console.log(id_evento, 'cartaaaaaaa');
+    console.log(id_evento, 'cartaaaaaaa');    
     this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
     this.miChat = resp.datoChat
       console.log('mi chat creado', resp.datoChat);

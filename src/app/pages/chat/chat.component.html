@@ -8,7 +8,10 @@
                 <div class="usuario">
                     <div class="imgChat"><img src="{{chat.foto}}" alt=""></div>
                     <div class="chatNombre">{{chat.nombre}} {{chat.apellidos}} -
-                        {{chat.titulo}}</div>
+                        {{chat.titulo}}
+                    </div>
+                    <button class="borrarBoton" (click)=borrarChat(chat.id_chat)>X</button>
+
                 </div>
             </div>
         </div>
@@ -37,7 +40,7 @@
         </div>
         <div class="send-message">
             <input class="texto" [(ngModel)]="mensaje" placeholder="Escribe un mensaje" />
-            <button (click)="enviarMensaje(mensaje)">Enviar</button>
+            <button class="enviarBoton" (click)="enviarMensaje(mensaje)">Enviar</button>
         </div>
     </div>
 </div>

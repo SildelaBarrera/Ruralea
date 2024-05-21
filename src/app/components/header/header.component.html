@@ -1,26 +1,26 @@
 <div class="header">
     <ng-container *ngIf="usuarioServicio.logueado == true ; else LinksInicio">    
         <ng-container  *ngIf= "usuarioServicio.usuarioLogueado.tipoUsuario == 'Consumidor'"> 
-            <a routerLink= "/actividades">ACTIVIDADES</a>
-            <a routerLink= "/misReservas">MIS RESERVAS</a>
-            <a routerLink= "/perfilUsuario">MI PERFIL</a>
-            <a routerLink= "/chat">CHAT</a>
-            <a (click)="logOut()" routerLink= "/login">LOGOUT</a> 
+            <a routerLink= "/actividades" routerLinkActive="activo">ACTIVIDADES</a>
+            <a routerLink= "/misReservas" routerLinkActive="activo">MIS RESERVAS</a>
+            <a routerLink= "/perfilUsuario" routerLinkActive="activo">MI PERFIL</a>
+            <a routerLink= "/chat" routerLinkActive="activo">CHAT</a>
+            <a (click)="logOut()" routerLink= "/login" routerLinkActive="activo">LOGOUT</a> 
             
         </ng-container>
         <ng-container *ngIf="usuarioServicio.usuarioLogueado.tipoUsuario == 'Productor'"> 
-            <a routerLink= "/misEventos">MIS EVENTOS</a>
-            <a routerLink= "/nuevoEvento">NUEVO EVENTO</a>
-            <a routerLink= "/perfilProductor">MI PERFIL</a>
-            <a routerLink= "/chat">CHAT</a>
-            <a (click)="logOut()" routerLink= "/login">LOGOUT</a>
+            <a routerLink= "/misEventos" routerLinkActive="activo">MIS EVENTOS</a>
+            <a routerLink= "/nuevoEvento" routerLinkActive="activo">NUEVO EVENTO</a>
+            <a routerLink= "/perfilProductor" routerLinkActive="activo">MI PERFIL</a>
+            <a routerLink= "/chat" routerLinkActive="activo">CHAT</a>
+            <a (click)="logOut()" routerLink= "/login" routerLinkActive="activo">LOGOUT</a>
             
         </ng-container> 
     </ng-container>
     <ng-template #LinksInicio>
-    <a routerLink= "/landing">INICIO</a>
-    <a routerLink= "/registro">REGISTRO</a>
-    <a routerLink= "/login">LOGIN</a>
+    <a routerLink= "/landing" routerLinkActive="activo">INICIO</a>
+    <a routerLink= "/registro" routerLinkActive="activo">REGISTRO</a>
+    <a routerLink= "/login" routerLinkActive="activo">LOGIN</a>
     </ng-template>   
     
 </div>

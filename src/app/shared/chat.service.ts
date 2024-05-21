@@ -23,8 +23,7 @@ export class ChatService {
       let nuevaUrl = this.url + "michat?tipoUsuario=" + tipoUsuario + "&id_usuario2=" + id_usuario
       return this.http.get(nuevaUrl);
     }
-    console.log(id_usuario);
-    
+    console.log(id_usuario);    
   }
 
   public getMensajes(id_usuario:number, id_chat: number) {

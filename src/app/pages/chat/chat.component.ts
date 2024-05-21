@@ -60,7 +60,6 @@ py
     this.id_chat = id_chat
     this.cargarMensajes(id_chat);
     console.log(id_chat, 'seleccionar componente');
-
   }
 
   public cargarMensajes(id_chat: number): void {
@@ -72,8 +71,7 @@ py
     });
   }
   
-  public enviarMensaje(mensaje: string): void {
-    
+  public enviarMensaje(mensaje: string): void {    
       this.chatServicio.enviarMensaje(mensaje, this.id_usuario, this.id_chat).subscribe((resp: Respuesta) => {
         console.log(this.id_chat, this.id_usuario, mensaje, 'enviar componente');  
         this.cargarMensajes(this.id_chat)
@@ -82,6 +80,7 @@ py
         this.mensaje = '';
       });
     }
+
   public borrarChat(id_chat: number){    
     this.chatServicio.borrarChat(id_chat).subscribe((resp:Respuesta) =>{
       this.cargarChats()

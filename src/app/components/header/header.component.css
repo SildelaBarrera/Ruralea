@@ -15,7 +15,7 @@ a{
     font-family: var(--links);
     cursor: pointer;
 }
-a:focus{
-    color:var(--blanco);
+.activo{
+    color: var(--blanco);
     text-decoration: underline;
 }

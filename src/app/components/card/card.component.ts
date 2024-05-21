@@ -29,6 +29,8 @@ export class CardComponent {
   public categoria: string = "Ver todas las actividades";
   public miChat: any;
   public mensajes: any;
+  public productor_id: number
+
 
   constructor(
     public eventoServicio: EventoServiceService,
@@ -66,21 +68,6 @@ export class CardComponent {
 
     })
   }
-
-
-  public reservarActividad(numeroPersonas: number) {
-    let userId = this.usuarioServicio.usuarioLogueado.id_usuario;
-    console.log(userId);
-    console.log(numeroPersonas, this.eventoPadre.aforo);
-    if (  numeroPersonas > this.eventoPadre.aforo) {
-      alert('No hay plazas')
-    } else {
-      this.reservasServicio.agregarReserva(userId, this.eventoPadre.id_evento, numeroPersonas).subscribe((resp: Respuesta) => {
-        this.eventos = resp.datoEventos;
-      });
-    }
-  }
-
 
   public borrarReserva(id_evento: number) {
     this.deleteReserva.emit(id_evento)
@@ -129,33 +116,97 @@ export class CardComponent {
       })
   }
   public cargarMensajes(id_chat: number): void {
+
     this.chatServicio.getMensajes(this.usuarioServicio.usuarioLogueado.id_usuario, id_chat).subscribe((resp: Respuesta) => {
       console.log(id_chat, 'cargar mensajes');
       this.mensajes = resp.datoMensajes;
-      console.log(this.mensajes);     
+      console.log(this.mensajes);
       console.log(id_chat, 'cargar componente');
     });
   }
+  // public abrirChat(id_productor: number, id_evento: number) {
+  //   console.log(this.eventoPadre)
+  //   id_evento = this.eventoPadre.id_evento
+  //   console.log(id_evento, 'cartaaaaaaa');
+  //   this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
+  //     console.log(id_productor, 'este es mi productor');
+  //     this.miChat = resp.datoChat
+  //     console.log(id_productor, 'este es mi productor');
+  //     this.productor_id = id_productor
+  //     console.log(this.productor_id, 'ye ye ye ye');
+
+  //     console.log('mi chat creado', resp.datoChat);
+  //     let mensaje = "Hola, soy " + this.usuarioServicio.usuarioLogueado.nombre + " y me gustaría recibir más información sobre el evento"
+  //     this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.insertId).subscribe((resp: Respuesta) => {
+  //       this.cargarMensajes(this.miChat.insertId)
+  //     })
+  //   })
+  //   this.router.navigate(['/', 'chat'])
+  //     .then(nav => {
+  //       console.log(nav);
+  //     }, err => {
+  //       console.log(err);
+  //     });
+  // }
   public abrirChat(id_productor: number, id_evento: number) {
     console.log(this.eventoPadre)
-    id_evento = this.eventoPadre.id_evento
-    console.log(id_evento, 'cartaaaaaaa');    
+    id_evento = this.eventoPadre.id_evento;
+    console.log(id_evento, 'cartaaaaaaa');
+    
     this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
-    this.miChat = resp.datoChat
-      console.log('mi chat creado', resp.datoChat);
-      let mensaje = "Hola, soy " + this.usuarioServicio.usuarioLogueado.nombre + " y me gustaría recibir más información sobre el evento"
-      this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.insertId).subscribe((resp: Respuesta)=>{
-        this.cargarMensajes(this.miChat.insertId)
-      })
-    })
+        console.log(id_productor, 'este es mi productor');
+        this.miChat = resp.datoChat;
+        console.log(id_productor, this.miChat,'este es mi productor');
+        this.productor_id = id_productor;
+        console.log(this.productor_id, 'ye ye ye ye');
 
-    this.router.navigate(['/', 'chat'])
-      .then(nav => {
+        console.log('mi chat creado', resp.datoChat);
+        let mensaje = "Hola, soy " + this.usuarioServicio.usuarioLogueado.nombre + " y me gustaría recibir más información sobre el evento";
+        
+        this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.id_chat).subscribe((resp: Respuesta) => {
+            this.cargarMensajes(this.miChat.id_chat);
+            console.log(this.miChat.id_chat, 'fuuuuuuuuu');
+            
+        });
+    });
+    
+    this.router.navigate(['/', 'chat']).then(nav => {
         console.log(nav);
-      }, err => {
+    }, err => {
         console.log(err);
-      });
-  }
-
+    });
 }
+  
+  public reservarActividad(numeroPersonas: number) {
+    let userId = this.usuarioServicio.usuarioLogueado.id_usuario;
+    console.log(userId);
+    console.log(numeroPersonas, this.eventoPadre.aforo);
+    if (numeroPersonas > this.eventoPadre.aforo) {
+      alert('No hay plazas')
+    } else {
+      this.reservasServicio.agregarReserva(userId, this.eventoPadre.id_evento, numeroPersonas).subscribe((resp: Respuesta) => {
+        this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, this.eventoPadre.id_usuario, this.eventoPadre.id_evento).subscribe((resp: Respuesta) => {
+          console.log(this.eventoPadre.id_usuario, 'waaaalaaaaa');
+          this.miChat = resp.datoChat
+          console.log('mi chat creado', resp.datoChat);
+          let mensaje = "Hola, " + this.usuarioServicio.usuarioLogueado.nombre + " ha reservado para " + numeroPersonas + " personas en este evento"
+          this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.id_chat).subscribe((resp: Respuesta) => {
+            this.cargarMensajes(this.miChat.id_chat)
+          })
+        })
+        this.router.navigate(['/', 'chat'])
+          .then(nav => {
+            console.log(nav);
+          }, err => {
+            console.log(err);
+          })
+      })
+    }
+  }
+}
+
+
+
+
+
 

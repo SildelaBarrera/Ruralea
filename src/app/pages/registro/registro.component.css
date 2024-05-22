@@ -26,10 +26,11 @@
     background-color: var(--marronMedio);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 .inputs{
-    padding-top: 15px;    
+    /* padding-top: 15px;     */
     border-radius: 15px;
     height: 85%;
     width: 90%;
@@ -38,6 +39,17 @@
     flex-direction: column;
     align-items: center;    
     text-align: center;  
+    
+}
+.formmm{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+    width: 80%;
 }
 .inputsHijo{
     
@@ -46,7 +58,7 @@
     justify-content: space-around;
     align-items: center;
     text-align: center;
-    height: 469px;
+    height: 400px;
 }
 h2{
     color:var(--marronOscuro);

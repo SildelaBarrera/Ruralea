@@ -149,27 +149,33 @@ export class CardComponent {
   //     });
   // }
   public abrirChat(id_productor: number, id_evento: number) {
-    console.log(this.eventoPadre)
+    console.log(this.eventoPadre);
     id_evento = this.eventoPadre.id_evento;
     console.log(id_evento, 'cartaaaaaaa');
     
     this.chatServicio.nuevoChat(this.usuarioServicio.usuarioLogueado.id_usuario, id_productor, id_evento).subscribe((resp: Respuesta) => {
-        console.log(id_productor, 'este es mi productor');
-        this.miChat = resp.datoChat;
-        console.log(id_productor, this.miChat,'este es mi productor');
-        this.productor_id = id_productor;
-        console.log(this.productor_id, 'ye ye ye ye');
+        if (resp.error) {
+            console.error('Error creando o obteniendo el chat', resp.mensaje);
+            return;
+        }
 
-        console.log('mi chat creado', resp.datoChat);
+        // **Cambio**: Asignar el chat devuelto por el backend
+        this.miChat = resp.datoChat;
+        this.productor_id = id_productor;
+        console.log('mi chat creado o existente', resp.datoChat);
+
         let mensaje = "Hola, soy " + this.usuarioServicio.usuarioLogueado.nombre + " y me gustaría recibir más información sobre el evento";
         
+        // **Cambio**: Usar el id_chat del chat devuelto por el backend
         this.chatServicio.enviarMensaje(mensaje, this.usuarioServicio.usuarioLogueado.id_usuario, this.miChat.id_chat).subscribe((resp: Respuesta) => {
+            if (resp.error) {
+                console.error('Error enviando el mensaje', resp.mensaje);
+                return;
+            }
             this.cargarMensajes(this.miChat.id_chat);
-            console.log(this.miChat.id_chat, 'fuuuuuuuuu');
-            
         });
     });
-    
+
     this.router.navigate(['/', 'chat']).then(nav => {
         console.log(nav);
     }, err => {

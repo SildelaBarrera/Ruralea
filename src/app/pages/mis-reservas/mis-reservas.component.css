@@ -34,7 +34,7 @@ button{
     font-family: var(--letraBoton);
     cursor:pointer;
 }
-button:focus{
+button:focus-within{
     border: solid var(--mostaza) 2px;
 }
 

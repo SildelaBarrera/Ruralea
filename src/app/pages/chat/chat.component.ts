@@ -33,7 +33,11 @@ py
   ngOnInit(): void {
     this.id_usuario = this.usuarioServicio.usuarioLogueado.id_usuario;
     this.tipoUsuario = this.usuarioServicio.usuarioLogueado.tipoUsuario;
-    this.cargarChats();
+    setTimeout(() => {
+      this.cargarChats();
+      console.log('hola chats');
+    }, 500);
+    
   }
 
   ngAfterViewChecked() {

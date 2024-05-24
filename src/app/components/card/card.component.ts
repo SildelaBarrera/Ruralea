@@ -61,13 +61,11 @@ export class CardComponent {
     }
   }
 
-  public actualizarAforoAlBorrar(id_evento: number) {
-    setTimeout(() => {
+  public actualizarAforoAlBorrar(id_evento: number) {    
       this.reservasServicio.actualizarAforoAlBorrar(this.usuarioServicio.usuarioLogueado.id_usuario, id_evento).subscribe((resp: Respuesta) => {
         console.log(this.eventoPadre.id_evento, 'evento padre id');
         console.log('borrado card');
-      })
-    }, 500)
+      })    
   }
 
   public borrarReserva(id_evento: number) {
